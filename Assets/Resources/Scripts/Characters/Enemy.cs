@@ -1,17 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, ICharacter
 {
     private Rigidbody2D rb;
     private Animation anim;
-    private float speed = 2.0f;
+    private float speed = 3.0f;
+	public float startHealth = 10; //tempt
+	private float health;
+	public Image healthbar;
+	//base character stats
+	[SerializeField] private int _baseMaxHealth;
+	[SerializeField] private int _baseAttack;
+	[SerializeField] private int _baseDefense;
 
-    void Start()
+	//current stats
+	private int _currentHealth = 10;
+	private int _currentMaxHealth = 10;
+	private int _currentAttack;
+	private int _currentDefense;
+    
+	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animation>();
+		health = startHealth;
     }
 
     void Update()
@@ -22,16 +37,77 @@ public class Enemy : MonoBehaviour
 
         if (distance.x >= .5f)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
-
+			rb.velocity = new Vector2 (-speed,0);
         }
 
         else if (distance.x <= .5f)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
-
+			rb.velocity = new Vector2 (speed,0);
         }
-
+			 
     }
+		
+	//properties
+	public int BaseMaxHealth
+	{
+		get { return _baseMaxHealth; }
+		set { _baseMaxHealth = value; }
+	}
+	public int BaseAttack
+	{
+		get { return _baseAttack; }
+		set { _baseAttack = value; }
+	}
+	public int BaseDefense
+	{
+		get { return _baseDefense; }
+		set { _baseDefense = value; }
+	}
+	public int CurrentHealth
+	{
+		get { return _currentHealth; }
+		set
+		{
+			_currentHealth = value;
+			_currentHealth = Mathf.Clamp(_currentHealth, 0, _currentMaxHealth);
+		}
+	}
+	public int CurrentMaxHealth
+	{
+		get { return _currentMaxHealth; }
+		set
+		{
+			_currentMaxHealth = value;
 
+			if (_currentHealth > _currentMaxHealth)
+				_currentHealth = _currentMaxHealth;
+		}
+	}
+	public int CurrentAttack
+	{
+		get { return _currentAttack; }
+		set { _currentAttack = value; }
+	}
+	public int CurrentDefense
+	{
+		get { return _currentDefense; }
+		set { _currentDefense = value; }
+	}
+		
+	public void TakeDamage(float amount)
+	{
+		health -= amount;
+
+		healthbar.fillAmount = health / startHealth;
+
+		if(_currentHealth <= 0)
+		{
+			Die ();
+		}
+	}
+
+	public void Die()
+	{
+		//kill enemy
+	}
 }
