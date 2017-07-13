@@ -94,19 +94,16 @@ public class Enemy : MonoBehaviour, ICharacter
 		set { _currentDefense = value; }
 	}
 		
-	public void TakeDamage(float amount)
-	{
-		health -= amount;
+    public void AlterHealth(float healthChange)
+    {
+        health += healthChange;
+        healthbar.value = (float)((float)health / (float)_baseMaxHealth);
 
-		healthbar.value = (float)((float)health / (float)_baseMaxHealth);
+        if (_currentHealth <= 0)
+            Die();
+    }
 
-		if(_currentHealth <= 0)
-		{
-			Die ();
-		}
-	}
-
-	public void Die()
+    public void Die()
 	{
 		//kill enemy
 	}

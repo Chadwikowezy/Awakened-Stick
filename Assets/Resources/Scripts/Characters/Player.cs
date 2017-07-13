@@ -61,4 +61,9 @@ public class Player : MonoBehaviour, ICharacter
         get { return _currentDefense; }
         set { _currentDefense = value; }
     }
+
+    public void AlterHealth(float healthChange)
+    {
+
+    }
 }

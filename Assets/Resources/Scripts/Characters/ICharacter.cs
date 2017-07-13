@@ -15,4 +15,6 @@
     { get; set; }
     int CurrentDefense
     { get; set; }
+
+    void AlterHealth(float healthChange);
 }
