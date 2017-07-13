@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour, ICharacter
     private float speed = 3.0f;
 	public float startHealth = 10; //tempt
 	private float health;
-	public Image healthbar;
+	public Slider healthbar;
 	//base character stats
 	[SerializeField] private int _baseMaxHealth;
 	[SerializeField] private int _baseAttack;
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour, ICharacter
 	{
 		health -= amount;
 
-		healthbar.fillAmount = health / startHealth;
+		healthbar.value = (float)((float)health / (float)_baseMaxHealth);
 
 		if(_currentHealth <= 0)
 		{
