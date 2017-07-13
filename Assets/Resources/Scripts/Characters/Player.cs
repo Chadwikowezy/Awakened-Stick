@@ -64,6 +64,14 @@ public class Player : MonoBehaviour, ICharacter
 
     public void AlterHealth(float healthChange)
     {
+        CurrentHealth += (int)healthChange;
 
+        if (CurrentHealth <= 0)
+            Die();
+    }
+
+    void Die()
+    {
+        //Do Death Stuffs
     }
 }
