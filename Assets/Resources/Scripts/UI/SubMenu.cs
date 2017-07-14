@@ -20,6 +20,9 @@ public class SubMenu : MonoBehaviour
             bool previousActiveState = _isActiveMenu;
             bool newActiveState = value;
 
+            if (_anim == null)
+                _anim = GetComponent<Animator>();
+
             if (previousActiveState == false && newActiveState == true)
                 _anim.Play("SubMenu_MoveIn");
             else if (previousActiveState == true && newActiveState == false)
