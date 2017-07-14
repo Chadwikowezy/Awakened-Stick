@@ -35,16 +35,20 @@ public class Enemy : MonoBehaviour, ICharacter
         Vector3 s = this.transform.position;
         Vector3 distance = s - d;
 
-        if (distance.x >= .5f)
+        if (distance.x > 1f)
         {
-			rb.velocity = new Vector2 (-speed,0);
+            if(rb.velocity.magnitude < 5f)
+            {
+                rb.velocity = new Vector2(-speed, 0);
+            }
         }
-
-        else if (distance.x <= .5f)
+        else if (distance.x < 1f)
         {
-			rb.velocity = new Vector2 (speed,0);
-        }
-			 
+            if (rb.velocity.magnitude < 5f)
+            {
+                rb.velocity = new Vector2(speed, 0);
+            }
+        }		 
     }
 		
 	//properties
@@ -96,7 +100,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		
     public void AlterHealth(float healthChange)
     {
-        health += healthChange;
+        health -= healthChange;
         healthbar.value = (float)((float)health / (float)_baseMaxHealth);
 
         if (_currentHealth <= 0)

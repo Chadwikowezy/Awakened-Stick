@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class AbilityDamage : MonoBehaviour
 {
+    private int abilityDamageModifier;
+    private Player player;
 
-	void Start ()
+    private void Awake()
     {
-		
-	}
-	
-	void Update ()
-    {
-		
-	}
+        /*
+        player = FindObjectOfType<Player>();
+
+        if(tag == "ArcaneBasedSkill")
+        {
+            abilityDamageModifier = player.arcane;
+        }
+        else if (tag == "RageBasedSkill")
+        {
+            abilityDamageModifier = player.rage;
+        }
+        else if (tag == "SpeedBasedSkill")
+        {
+            abilityDamageModifier = player.speed;
+        }
+        */
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,15 +34,17 @@ public class AbilityDamage : MonoBehaviour
         {
             if(collision.gameObject.transform.position.x < transform.position.x)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 300);
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200);
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 650);
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 325);
+                collision.gameObject.GetComponent<Enemy>().AlterHealth(abilityDamageModifier);
                 Debug.Log("Hit");
 
             }
             else if(collision.gameObject.transform.position.x > transform.position.x)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 300);
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200);
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 650);
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 325);
+                collision.gameObject.GetComponent<Enemy>().AlterHealth(abilityDamageModifier);
                 Debug.Log("Hit");
             }
         }
