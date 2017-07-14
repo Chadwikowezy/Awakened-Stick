@@ -7,8 +7,10 @@ public class AnimationsManager : MonoBehaviour
     public Animator anim;
     public PlayerMovement leftButton, rightButton;
     public GameObject raycastObject;
+
     public GameObject arrowObj;
     public GameObject spellObj;
+
     int buttonL, buttonR, lRSum;
 
     public bool onGround;
@@ -83,8 +85,8 @@ public class AnimationsManager : MonoBehaviour
     }
     #endregion
 
-    #region punch 01
-    public void PunchSkill()
+    #region Piercing Fist 01
+    public void PiercingFist()
     {
         if(inMiddleOfSkillCast == false)
         {
@@ -99,10 +101,10 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("idle", 0);
             anim.SetInteger("punch", 1);
 
-            StartCoroutine(PunchDelay());
+            StartCoroutine(PiercingFistDelay());
         }       
     }
-    IEnumerator PunchDelay()
+    IEnumerator PiercingFistDelay()
     {
         yield return new WaitForSeconds(.5f);
         Debug.Log("Before raycast");
@@ -116,14 +118,14 @@ public class AnimationsManager : MonoBehaviour
                 //deal knockback
                 if (hit.collider.gameObject.transform.position.x < transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 300);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 800);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
 
                 }
                 else if (hit.collider.gameObject.transform.position.x > transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 300);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 800);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
                 }
             }
         }    
@@ -135,8 +137,8 @@ public class AnimationsManager : MonoBehaviour
     }
     #endregion
 
-    #region kick 01
-    public void KickSkill()
+    #region Heaven Piercer 01
+    public void HeavenPiercer()
     {
         if (inMiddleOfSkillCast == false)
         {
@@ -151,11 +153,11 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("punch", 0);
             anim.SetInteger("Kick", 1);
 
-            StartCoroutine(KickDelay());
+            StartCoroutine(HeavenPiercerDelay());
         }
 
     }
-    IEnumerator KickDelay()
+    IEnumerator HeavenPiercerDelay()
     {
         yield return new WaitForSeconds(.5f);
         Debug.Log("Before raycast");
@@ -169,14 +171,14 @@ public class AnimationsManager : MonoBehaviour
                 //deal knockback
                 if (hit.collider.gameObject.transform.position.x < transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 300);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 800);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
 
                 }
                 else if (hit.collider.gameObject.transform.position.x > transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 300);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 200);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 800);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
                 }
 
             }
@@ -188,8 +190,8 @@ public class AnimationsManager : MonoBehaviour
     }
     #endregion
 
-    #region energybow 01
-    public void ArrowSkill()
+    #region Piercing Shot 01
+    public void PiercingShot()
     {
         if (inMiddleOfSkillCast == false)
         {
@@ -204,10 +206,10 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("Kick", 0);
             anim.SetInteger("arrow", 1);
 
-            StartCoroutine(arrowFire());
+            StartCoroutine(PiercingShotDelay());
         }
     }
-    IEnumerator arrowFire()
+    IEnumerator PiercingShotDelay()
     {
         yield return new WaitForSeconds(.6f);
         GameObject arrow = (GameObject)Instantiate(arrowObj, raycastObject.transform.position, raycastObject.transform.rotation);
@@ -216,7 +218,8 @@ public class AnimationsManager : MonoBehaviour
     }
     #endregion
 
-    public void Cast_01()
+    #region Vortex Discharge 01
+    public void VortexDischarge()
     {
         if (inMiddleOfSkillCast == false)
         {
@@ -231,16 +234,17 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("arrow", 0);
             anim.SetInteger("spell", 1);
 
-            StartCoroutine(castDelay());
+            StartCoroutine(VortexDischargeDelay());
         }
     }
-    IEnumerator castDelay()
+    IEnumerator VortexDischargeDelay()
     {
         yield return new WaitForSeconds(.6f);
         GameObject spell = (GameObject)Instantiate(spellObj, raycastObject.transform.position, raycastObject.transform.rotation);
         usingSkill = false;
         inMiddleOfSkillCast = false;
     }
+    #endregion
 
     #region Handle Jumping/ Idle animations aka on collision stay and exit
     void OnCollisionEnter2D(Collision2D obj)
