@@ -9,8 +9,9 @@ public class Enemy : MonoBehaviour, ICharacter
     private Animation anim;
     private float speed = 3.0f;
 	public float startHealth = 10; //tempt
-	private float health;
+	public float health;
 	public Slider healthbar;
+
 	//base character stats
 	[SerializeField] private int _baseMaxHealth;
 	[SerializeField] private int _baseAttack;
@@ -101,14 +102,19 @@ public class Enemy : MonoBehaviour, ICharacter
     public void AlterHealth(float healthChange)
     {
         health -= healthChange;
-        healthbar.value = (float)((float)health / (float)_baseMaxHealth);
+		healthbar.value = (float)((float)health / (float)startHealth);
 
-        if (_currentHealth <= 0)
+		if (health <= 0)
             Die();
     }
 
     public void Die()
 	{
-		//kill enemy
+		Destroy (this);
+	}
+
+	public void DropLoot()
+	{
+		
 	}
 }
