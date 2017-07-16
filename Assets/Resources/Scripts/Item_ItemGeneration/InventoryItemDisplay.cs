@@ -18,7 +18,17 @@ public class InventoryItemDisplay : MonoBehaviour
     public Text tokens;
     public Text life;
 
-	void Start ()
+    public Image childSpriteItem;
+
+    public Sprite bowSwordsSprite;
+    public Sprite twoHandedSwordSprite;
+    public Sprite castOrbSprite;
+    public Sprite helmetSprite;
+    public Sprite armorSprite;
+    public Sprite glovesSprite;
+
+
+    void Start ()
     {
         backGround = GetComponent<Image>();
         if(item != null)
@@ -62,5 +72,33 @@ public class InventoryItemDisplay : MonoBehaviour
         arcane.text = "Arcane: " + item.arcane;
         tokens.text = "Tokens: " + item.tokens;
         life.text = "Life: " + item.lifeValue;
+
+        if(item.itemType == Item.ItemTypes.armor)
+        {
+            childSpriteItem.sprite = armorSprite;
+        }
+        else if (item.itemType == Item.ItemTypes.helmet)
+        {
+            childSpriteItem.sprite = helmetSprite;
+        }
+        else if (item.itemType == Item.ItemTypes.gloves)
+        {
+            childSpriteItem.sprite = glovesSprite;
+        }
+        else if (item.itemType == Item.ItemTypes.weapon)
+        {
+            if(item.weaponType == Item.WeaponType.blades_Bow)
+            {
+                childSpriteItem.sprite = bowSwordsSprite;
+            }
+            else if (item.weaponType == Item.WeaponType.twoHandedWeapon)
+            {
+                childSpriteItem.sprite = twoHandedSwordSprite;
+            }
+            else if (item.weaponType == Item.WeaponType.magicSphere)
+            {
+                childSpriteItem.sprite = castOrbSprite;
+            }
+        }
     }
 }
