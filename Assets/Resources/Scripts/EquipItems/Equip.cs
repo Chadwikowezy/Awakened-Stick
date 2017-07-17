@@ -18,8 +18,7 @@ public class Equip : MonoBehaviour
 
     public bool itemIsEquipped;
     public Equip[] items;
-    public Equip[] equipCheckItems;  
-    
+    public Equip[] equipCheckItems;
     
     //need to add in all sprites correlated to appropriate item  
     #endregion
@@ -40,6 +39,7 @@ public class Equip : MonoBehaviour
             HandleItemAddingData(player, inventoryItemDisplay);
             itemIsEquipped = true;
             equipArmor = true;
+            inventoryItemDisplay.item.itemEquipped = true;
 
             foreach (Equip item in items)
             {
@@ -49,7 +49,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = true;
             }
-            Debug.Log("At end of equip call: " + player.CurrentHealth +
+            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if(equipArmor == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.armor)
@@ -57,6 +57,7 @@ public class Equip : MonoBehaviour
             HandleItemSubtractingData(player, inventoryItemDisplay);
             itemIsEquipped = false;
             equipArmor = false;
+            inventoryItemDisplay.item.itemEquipped = false;
 
             foreach (Equip item in items)
             {
@@ -66,7 +67,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = false;
             }
-            Debug.Log("At end of unequip call: " + player.CurrentHealth +
+            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth +
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipHelm == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.helmet)
@@ -74,6 +75,7 @@ public class Equip : MonoBehaviour
             HandleItemAddingData(player, inventoryItemDisplay);
             itemIsEquipped = true;
             equipHelm = true;
+            inventoryItemDisplay.item.itemEquipped = true;
 
             foreach (Equip item in items)
             {
@@ -83,7 +85,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = true;
             }
-            Debug.Log("At end of equip call: " + player.CurrentHealth +
+            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipHelm == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.helmet)
@@ -91,6 +93,7 @@ public class Equip : MonoBehaviour
             HandleItemSubtractingData(player, inventoryItemDisplay);
             itemIsEquipped = false;
             equipHelm = false;
+            inventoryItemDisplay.item.itemEquipped = false;
 
             foreach (Equip item in items)
             {
@@ -100,7 +103,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = false;
             }
-            Debug.Log("At end of unequip call: " + player.CurrentHealth +
+            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth +
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipGloves == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.gloves)
@@ -108,6 +111,7 @@ public class Equip : MonoBehaviour
             HandleItemAddingData(player, inventoryItemDisplay);
             itemIsEquipped = true;
             equipGloves = true;
+            inventoryItemDisplay.item.itemEquipped = true;
 
             foreach (Equip item in items)
             {
@@ -117,7 +121,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = true;
             }
-            Debug.Log("At end of equip call: " + player.CurrentHealth +
+            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipGloves == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.gloves)
@@ -125,6 +129,7 @@ public class Equip : MonoBehaviour
             HandleItemSubtractingData(player, inventoryItemDisplay);
             itemIsEquipped = false;
             equipGloves = false;
+            inventoryItemDisplay.item.itemEquipped = false;
 
             foreach (Equip item in items)
             {
@@ -134,7 +139,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = false;
             }
-            Debug.Log("At end of unequip call: " + player.CurrentHealth + 
+            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth + 
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipWeapon == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.weapon)
@@ -142,6 +147,7 @@ public class Equip : MonoBehaviour
             HandleItemAddingData(player, inventoryItemDisplay);
             itemIsEquipped = true;
             equipWeapon = true;
+            inventoryItemDisplay.item.itemEquipped = true;
 
             foreach (Equip item in items)
             {
@@ -151,7 +157,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = true;
             }
-            Debug.Log("At end of equip call: " + player.CurrentHealth +
+            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipWeapon == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.weapon)
@@ -159,6 +165,7 @@ public class Equip : MonoBehaviour
             HandleItemSubtractingData(player, inventoryItemDisplay);
             itemIsEquipped = false;
             equipWeapon = false;
+            inventoryItemDisplay.item.itemEquipped = false;
 
             foreach (Equip item in items)
             {
@@ -168,7 +175,7 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = false;
             }
-            Debug.Log("At end of unequip call: " + player.CurrentHealth +
+            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth +
                 " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
     }
@@ -177,7 +184,7 @@ public class Equip : MonoBehaviour
     #region handle add and subtraction of data functions
     void HandleItemAddingData(Player player, InventoryItemDisplay inventoryItemDisplay)
     {
-        player.CurrentHealth += inventoryItemDisplay.item.lifeValue;
+        player.CurrentMaxHealth += inventoryItemDisplay.item.lifeValue;
         player.CurrentAttack += (inventoryItemDisplay.item.rage +
             inventoryItemDisplay.item.arcane + inventoryItemDisplay.item.speed);
 
@@ -187,7 +194,7 @@ public class Equip : MonoBehaviour
     }
     void HandleItemSubtractingData(Player player, InventoryItemDisplay inventoryItemDisplay)
     {
-        player.CurrentHealth -= inventoryItemDisplay.item.lifeValue;
+        player.CurrentMaxHealth -= inventoryItemDisplay.item.lifeValue;
         player.CurrentAttack -= (inventoryItemDisplay.item.rage +
             inventoryItemDisplay.item.arcane + inventoryItemDisplay.item.speed);
 

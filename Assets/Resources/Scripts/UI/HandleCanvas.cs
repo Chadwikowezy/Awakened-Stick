@@ -66,7 +66,7 @@ public class HandleCanvas : MonoBehaviour
     public void ActivateEquip()
     {
         skillButton.SetActive(false);
-        inventoryButton.SetActive(false);
+        //inventoryButton.SetActive(false);
         optionsButton.SetActive(false);
         equipmentButton.SetActive(true);
     }

@@ -33,6 +33,8 @@ public class Item : MonoBehaviour
 
     public int tokens;
 
+    public bool itemEquipped = false;
+
     public Sprite itemSprite;
     #endregion       
 }

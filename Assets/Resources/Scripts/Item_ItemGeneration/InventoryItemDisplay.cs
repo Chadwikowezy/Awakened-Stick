@@ -100,5 +100,13 @@ public class InventoryItemDisplay : MonoBehaviour
                 childSpriteItem.sprite = castOrbSprite;
             }
         }
+
+        
+        if(this.gameObject.GetComponent<InventoryItem>() == null)
+        {
+            InventoryItem addItem = gameObject.AddComponent<InventoryItem>();
+            addItem.itemId = item.itemId;
+            addItem.ReturnItems();
+        }                   
     }
 }
