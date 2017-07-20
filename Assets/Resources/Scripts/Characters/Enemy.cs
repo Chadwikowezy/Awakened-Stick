@@ -7,10 +7,16 @@ public class Enemy : MonoBehaviour, ICharacter
 {
     private Rigidbody2D rb;
     private Animation anim;
+
     private float speed = 3.0f;
 	public float startHealth = 10; //tempt
 	private float health;
+
 	public Slider healthbar;
+
+	public GameObject SmokeParticle;
+	public GameObject ItemObject;
+
 	//base character stats
 	[SerializeField] private int _baseMaxHealth;
 	[SerializeField] private int _baseAttack;
@@ -27,6 +33,7 @@ public class Enemy : MonoBehaviour, ICharacter
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animation>();
 		health = startHealth;
+		SmokeParticle.SetActive (false);
     }
 
     void Update()
@@ -104,11 +111,43 @@ public class Enemy : MonoBehaviour, ICharacter
         healthbar.value = (float)((float)health / (float)_baseMaxHealth);
 
         if (_currentHealth <= 0)
-            Die();
+			StartCoroutine (Death());
     }
-
-    public void Die()
+		
+	IEnumerator Death()
 	{
-		//kill enemy
+		SmokeParticle.SetActive (true);
+		yield return new WaitForSeconds(1);
+		DetermineLoot ();
+		Destroy(gameObject);
+
+	}
+
+	public void DetermineLoot()
+	{
+		if (Random.value == 0.20)
+		{
+			Instantiate (ItemObject, transform.position, Quaternion.identity); 
+		}
+
+		if (Random.value == 0.15)
+		{
+			//Instantiate (ItemObject, transform.position, Quaternion.identity); 
+		}
+
+		if (Random.value == 0.10)
+		{
+			//Instantiate (ItemObject, transform.position, Quaternion.identity); 
+		}
+
+		if (Random.value == 0.05)
+		{
+			//Instantiate (ItemObject, transform.position, Quaternion.identity); 
+		}
+
+		if (Random.value == 0.01)
+		{
+			//Instantiate (ItemObject, transform.position, Quaternion.identity); 
+		}
 	}
 }
