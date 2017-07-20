@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AbilityDamage : MonoBehaviour
 {
-    private int abilityDamageModifier;
+    public int abilityDamageModifier = 5;
     private Player player;
 
     private void Awake()
