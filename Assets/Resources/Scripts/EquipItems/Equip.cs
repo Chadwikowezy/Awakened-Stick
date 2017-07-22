@@ -29,7 +29,11 @@ public class Equip : MonoBehaviour
         player = FindObjectOfType<Player>();
         inventoryItemDisplay = GetComponentInParent<InventoryItemDisplay>();
         items = FindObjectsOfType<Equip>();
-	}
+        equipHelm = false;
+        equipArmor = false;
+        equipWeapon = false;
+        equipGloves = false;
+    }
 
     #region Equip and Unequip items
     public void Equip_Unequip()
@@ -48,9 +52,7 @@ public class Equip : MonoBehaviour
             foreach (Equip check in equipCheckItems)
             {
                 check.itemIsEquipped = true;
-            }
-            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
+            }           
         }
         else if(equipArmor == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.armor)
         {
@@ -67,8 +69,6 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = false;
             }
-            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth +
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipHelm == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.helmet)
         {
@@ -85,8 +85,6 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = true;
             }
-            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipHelm == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.helmet)
         {
@@ -103,8 +101,6 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = false;
             }
-            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth +
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipGloves == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.gloves)
         {
@@ -121,8 +117,6 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = true;
             }
-            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipGloves == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.gloves)
         {
@@ -138,9 +132,7 @@ public class Equip : MonoBehaviour
             foreach (Equip check in equipCheckItems)
             {
                 check.itemIsEquipped = false;
-            }
-            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth + 
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
+            }           
         }
         else if (equipWeapon == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.weapon)
         {
@@ -157,8 +149,6 @@ public class Equip : MonoBehaviour
             {
                 check.itemIsEquipped = true;
             }
-            Debug.Log("At end of equip call: " + player.CurrentMaxHealth +
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
         }
         else if (equipWeapon == true && itemIsEquipped == true && inventoryItemDisplay.item.itemType == Item.ItemTypes.weapon)
         {
@@ -174,9 +164,7 @@ public class Equip : MonoBehaviour
             foreach (Equip check in equipCheckItems)
             {
                 check.itemIsEquipped = false;
-            }
-            Debug.Log("At end of unequip call: " + player.CurrentMaxHealth +
-                " : " + player.CurrentAttack + " : " + player.CurrentDefense);
+            }          
         }
     }
     #endregion

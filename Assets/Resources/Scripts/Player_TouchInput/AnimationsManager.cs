@@ -10,6 +10,7 @@ public class AnimationsManager : MonoBehaviour
 
     public GameObject arrowObj;
     public GameObject spellObj;
+    public GameObject piercingFistOBJ;
 
     int buttonL, buttonR, lRSum;
 
@@ -106,32 +107,9 @@ public class AnimationsManager : MonoBehaviour
     }
     IEnumerator PiercingFistDelay()
     {
-        yield return new WaitForSeconds(.5f);
-        Debug.Log("Before raycast");
-        RaycastHit2D hit = Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right);
-        if(Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right, 1f))
-        {
-            if (hit.collider.tag == "Enemy")
-            {
-                //deal damage
-
-                //deal knockback
-                if (hit.collider.gameObject.transform.position.x < transform.position.x)
-                {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
-
-                }
-                else if (hit.collider.gameObject.transform.position.x > transform.position.x)
-                {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
-                }
-            }
-        }    
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.6f);
+        GameObject piercingFist = (GameObject)Instantiate(piercingFistOBJ, raycastObject.transform.position, raycastObject.transform.rotation);
         usingSkill = false;
-        Debug.Log("after raycast");
         inMiddleOfSkillCast = false;
 
     }
@@ -190,31 +168,25 @@ public class AnimationsManager : MonoBehaviour
     }
     #endregion
 
-    #region Piercing Shot 01
-    public void PiercingShot()
+    #region Wraith's Destruction 01
+    public void WraithsDestruction()
     {
-        if (inMiddleOfSkillCast == false)
-        {
-            usingSkill = true;
-            inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
-            anim.SetInteger("shield", 0);
-            anim.SetInteger("jump", 0);
-            anim.SetInteger("idle", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
-            anim.SetInteger("arrow", 1);
-
-            StartCoroutine(PiercingShotDelay());
-        }
+        
     }
-    IEnumerator PiercingShotDelay()
+    IEnumerator WrathsDestructionDelay()
     {
         yield return new WaitForSeconds(.6f);
-        GameObject arrow = (GameObject)Instantiate(arrowObj, raycastObject.transform.position, raycastObject.transform.rotation);
-        usingSkill = false;
-        inMiddleOfSkillCast = false;
+    }
+    #endregion
+
+    #region Howling Scythe 01
+    public void HowlingScythe()
+    {
+
+    }
+    IEnumerator HowlingScytheDelay()
+    {
+        yield return new WaitForSeconds(.6f);
     }
     #endregion
 
@@ -243,6 +215,103 @@ public class AnimationsManager : MonoBehaviour
         GameObject spell = (GameObject)Instantiate(spellObj, raycastObject.transform.position, raycastObject.transform.rotation);
         usingSkill = false;
         inMiddleOfSkillCast = false;
+    }
+    #endregion
+
+    #region Searing Ignition 01
+    public void SearingIgnition()
+    {
+
+    }
+    IEnumerator SearingIgnitionDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+    }
+    #endregion
+
+    #region Permafrost 01
+    public void Permafrost()
+    {
+
+    }
+    IEnumerator PermafrostDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+    }
+
+    #endregion
+
+    #region Spiraling Tempest 01
+    public void SpiralingTempest()
+    {
+
+    }
+    IEnumerator SpiralingTempestDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+
+    }
+    #endregion
+
+    #region Piercing Shot 01
+    public void PiercingShot()
+    {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("run", 0);
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("spell", 0);
+            anim.SetInteger("punch", 0);
+            anim.SetInteger("Kick", 0);
+            anim.SetInteger("arrow", 1);
+
+            StartCoroutine(PiercingShotDelay());
+        }
+    }
+    IEnumerator PiercingShotDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+        GameObject arrow = (GameObject)Instantiate(arrowObj, raycastObject.transform.position, raycastObject.transform.rotation);
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
+    }
+    #endregion
+
+    #region Uncontrolled Speed 01
+    public void UncontrolledSpeed()
+    {
+
+    } 
+    IEnumerator UncontrolledSpeedDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+
+    }
+    #endregion
+
+    #region Lacerating Typhoon 01
+    public void LaceratingTyphoon()
+    {
+
+    }
+    IEnumerator LaceratingTyphoonDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+    }
+    #endregion
+
+    #region Ascending Shot 01
+    public void AscendingShot()
+    {
+
+    }
+    IEnumerator AscendingShotDelay()
+    {
+        yield return new WaitForSeconds(.6f);
     }
     #endregion
 

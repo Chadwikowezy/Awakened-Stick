@@ -13,27 +13,27 @@ public class InventoryItem : Item
     {
         if (worldCreation.level == 1)
         {
-            itemId = Random.Range(1, 6);
+            itemId = Random.Range(1, 7);
             return itemId;
         }
         else if (worldCreation.level == 2)
         {
-            itemId = Random.Range(7, 12);
+            itemId = Random.Range(7, 13);
             return itemId;
         }
         else if (worldCreation.level == 3)
         {
-            itemId = Random.Range(13, 18);
+            itemId = Random.Range(13, 19);
             return itemId;
         }
         else if (worldCreation.level == 4)
         {
-            itemId = Random.Range(19, 24);
+            itemId = Random.Range(19, 25);
             return itemId;
         }
         else if (worldCreation.level == 5)
         {
-            itemId = Random.Range(25, 27);
+            itemId = Random.Range(25, 28);
             return itemId;
         }
         return itemId;
@@ -424,14 +424,10 @@ public class InventoryItem : Item
             worldCreation = FindObjectOfType<WorldCreation>();
 
             StatSets();
-            Debug.Log("ID: " + itemId);
 
             ReturnItems();
 
             item = this;
-
-            Debug.Log("ItemName: " + itemName + " Rarity: " + itemRarity + " Life: " + lifeValue + " Rage: " + rage + " Arcane: " + arcane + " Speed: " + speed + " Life: " + lifeValue); 
-
         }
     }
 }
