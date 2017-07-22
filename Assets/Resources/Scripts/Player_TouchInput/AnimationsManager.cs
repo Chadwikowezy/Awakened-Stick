@@ -9,7 +9,8 @@ public class AnimationsManager : MonoBehaviour
     public GameObject raycastObject;
 
     public GameObject arrowObj;
-    public GameObject spellObj;
+    public GameObject vortexDischargeOBJ;
+    public GameObject searingIgnitionEffect;
     public GameObject piercingFistOBJ;
 
     int buttonL, buttonR, lRSum;
@@ -20,7 +21,14 @@ public class AnimationsManager : MonoBehaviour
 
     public bool usingSkill;
     public bool inMiddleOfSkillCast;
- 
+
+    private int damageMultiplier = 5;
+    private Player player;
+
+    void Start()
+    {
+        player = GetComponent<Player>();
+    }
     void Update ()
     {
         Handle_Run_Idle();
@@ -41,6 +49,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("Ignition", 0);
             anim.SetInteger("spell", 0);
             anim.SetInteger("punch", 0);
             anim.SetInteger("Kick", 0);
@@ -51,6 +60,7 @@ public class AnimationsManager : MonoBehaviour
             //player run animation set to false
             anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
+            anim.SetInteger("Ignition", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("punch", 0);
@@ -71,6 +81,7 @@ public class AnimationsManager : MonoBehaviour
         anim.SetInteger("jump", 0);
         anim.SetInteger("spell", 0);
         anim.SetInteger("arrow", 0);
+        anim.SetInteger("Ignition", 0);
         anim.SetInteger("punch", 0);
         anim.SetInteger("Kick", 0);
         anim.SetInteger("shield", 1);
@@ -96,6 +107,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("run", 0);
             anim.SetInteger("spell", 0);
             anim.SetInteger("shield", 0);
+            anim.SetInteger("Ignition", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("Kick", 0);
@@ -124,6 +136,7 @@ public class AnimationsManager : MonoBehaviour
             inMiddleOfSkillCast = true;
             anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
+            anim.SetInteger("Ignition", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("spell", 0);
             anim.SetInteger("idle", 0);
@@ -140,23 +153,26 @@ public class AnimationsManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         Debug.Log("Before raycast");
         RaycastHit2D hit = Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right);
-        if (Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right, 1f))
+        if (Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right, 2f))
         {
             if (hit.collider.tag == "Enemy")
             {
                 //deal damage
 
                 //deal knockback
+                damageMultiplier = player.CurrentAttack;
+
+                hit.collider.gameObject.GetComponent<Enemy>().AlterHealth(damageMultiplier);
                 if (hit.collider.gameObject.transform.position.x < transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 500);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 250);
 
                 }
                 else if (hit.collider.gameObject.transform.position.x > transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 500);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 250);
                 }
 
             }
@@ -200,6 +216,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("Ignition", 0);
             anim.SetInteger("idle", 0);
             anim.SetInteger("punch", 0);
             anim.SetInteger("Kick", 0);
@@ -212,7 +229,7 @@ public class AnimationsManager : MonoBehaviour
     IEnumerator VortexDischargeDelay()
     {
         yield return new WaitForSeconds(.6f);
-        GameObject spell = (GameObject)Instantiate(spellObj, raycastObject.transform.position, raycastObject.transform.rotation);
+        GameObject spell = (GameObject)Instantiate(vortexDischargeOBJ, raycastObject.transform.position, raycastObject.transform.rotation);
         usingSkill = false;
         inMiddleOfSkillCast = false;
     }
@@ -221,11 +238,28 @@ public class AnimationsManager : MonoBehaviour
     #region Searing Ignition 01
     public void SearingIgnition()
     {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("run", 0);
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("punch", 0);
+            anim.SetInteger("Kick", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("spell", 0);
+            anim.SetInteger("Ignition", 1);
 
+            StartCoroutine(SearingIgnitionDelay());
+        }
     }
     IEnumerator SearingIgnitionDelay()
     {
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(2f);
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
     }
     #endregion
 
@@ -264,6 +298,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("idle", 0);
+            anim.SetInteger("Ignition", 0);
             anim.SetInteger("spell", 0);
             anim.SetInteger("punch", 0);
             anim.SetInteger("Kick", 0);
