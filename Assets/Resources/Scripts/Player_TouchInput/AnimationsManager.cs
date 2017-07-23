@@ -49,23 +49,25 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("Ignition", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
             anim.SetInteger("run", 1);
         }
         else if (lRSum == 0 && onGround == true && usingShield == false && usingSkill == false)
         {
             //player run animation set to false
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
-            anim.SetInteger("Ignition", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("run", 0);
             anim.SetInteger("idle", 1);
         }
     }
@@ -76,16 +78,16 @@ public class AnimationsManager : MonoBehaviour
     {
         //activate shield animation
         usingShield = true;
-        anim.SetInteger("idle", 0);
-        anim.SetInteger("run", 0);
         anim.SetInteger("jump", 0);
-        anim.SetInteger("spell", 0);
         anim.SetInteger("arrow", 0);
-        anim.SetInteger("Ignition", 0);
-        anim.SetInteger("punch", 0);
-        anim.SetInteger("Kick", 0);
+        anim.SetInteger("ignition", 0);
+        anim.SetInteger("ascending", 0);
+        anim.SetInteger("vortex", 0);
+        anim.SetInteger("fist", 0);
+        anim.SetInteger("kick", 0);
+        anim.SetInteger("run", 0);
+        anim.SetInteger("idle", 0);
         anim.SetInteger("shield", 1);
-        Debug.Log("Shield");
         StartCoroutine(OnShieldRelease());
     }
     public IEnumerator OnShieldRelease()
@@ -104,15 +106,16 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
-            anim.SetInteger("spell", 0);
             anim.SetInteger("shield", 0);
-            anim.SetInteger("Ignition", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
-            anim.SetInteger("punch", 1);
+            anim.SetInteger("fist", 1);
 
             StartCoroutine(PiercingFistDelay());
         }       
@@ -134,15 +137,16 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
-            anim.SetInteger("Ignition", 0);
             anim.SetInteger("jump", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("idle", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 1);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 1);
 
             StartCoroutine(HeavenPiercerDelay());
         }
@@ -213,15 +217,16 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
-            anim.SetInteger("Ignition", 0);
-            anim.SetInteger("idle", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("spell", 1);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 1);
 
             StartCoroutine(VortexDischargeDelay());
         }
@@ -242,15 +247,16 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
-            anim.SetInteger("idle", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("Ignition", 1);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 1);
 
             StartCoroutine(SearingIgnitionDelay());
         }
@@ -294,15 +300,17 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
-            anim.SetInteger("Ignition", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
             anim.SetInteger("arrow", 1);
+
 
             StartCoroutine(PiercingShotDelay());
         }
