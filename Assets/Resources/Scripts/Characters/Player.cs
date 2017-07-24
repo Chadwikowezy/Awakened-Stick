@@ -7,12 +7,18 @@ public class Player : MonoBehaviour, ICharacter
     //base character stats
     [SerializeField] private int _baseMaxHealth;
     [SerializeField] private int _baseAttack;
+    [SerializeField] private int _baseRage;
+    [SerializeField] private int _baseSpeed;
+    [SerializeField] private int _baseArcane;
     [SerializeField] private int _baseDefense;
 
     //current stats
     private int _currentHealth;
     private int _currentMaxHealth;
     private int _currentAttack;
+    private int _currentRage;
+    private int _currentSpeed;
+    private int _currentArcane;
     private int _currentDefense;
 
     //properties
@@ -25,6 +31,21 @@ public class Player : MonoBehaviour, ICharacter
     {
         get { return _baseAttack; }
         set { _baseAttack = value; }
+    }
+    public int BaseRage
+    {
+        get { return _baseRage; }
+        set { _baseRage = value; }
+    }
+    public int BaseSpeed
+    {
+        get { return _baseSpeed; }
+        set { _baseSpeed = value; }
+    }
+    public int BaseArcane
+    {
+        get { return _baseArcane; }
+        set { _baseArcane = value; }
     }
     public int BaseDefense
     {
@@ -55,6 +76,21 @@ public class Player : MonoBehaviour, ICharacter
     {
         get { return _currentAttack; }
         set { _currentAttack = value; }
+    }
+    public int CurrentRage
+    {
+        get { return _currentRage; }
+        set { _currentRage = value; }
+    }
+    public int CurrentSpeed
+    {
+        get { return _currentSpeed; }
+        set { _currentSpeed = value; }
+    }
+    public int CurrentArcane
+    {
+        get { return _currentArcane; }
+        set { _currentArcane = value; }
     }
     public int CurrentDefense
     {
