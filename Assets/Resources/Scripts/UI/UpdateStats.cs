@@ -33,6 +33,9 @@ public class UpdateStats : MonoBehaviour
     public Text glovesArcaneTxt;
 
     public InventoryItemDisplay[] equipChecks;
+    public Equip[] equipBoolChecker;
+
+    private int weaponCounter = 0;
 
     public void StatUpdate()
     {
@@ -43,70 +46,83 @@ public class UpdateStats : MonoBehaviour
         defenseTxt.text = "Armor: " + player.CurrentDefense;
 
         equipChecks = FindObjectsOfType<InventoryItemDisplay>();
-        foreach(InventoryItemDisplay equipped in equipChecks)
+        equipBoolChecker = FindObjectsOfType<Equip>();
+        foreach (InventoryItemDisplay equipped in equipChecks)
         {
-            if(equipped.item.itemEquipped == true)
+            foreach(Equip equipBoolCheck in equipBoolChecker)
             {
-                if(equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.weapon)
+                if (equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemType == Item.ItemTypes.weapon) 
                 {
-                    weapLifeTxt.text = "Life: " + equipped.GetComponent<InventoryItem>().lifeValue;
-                    weapRageTxt.text = "Rage: " + equipped.GetComponent<InventoryItem>().rage;
-                    weapSpeedTxt.text = "Speed: " + equipped.GetComponent<InventoryItem>().speed;
-                    weapArcaneTxt.text = "Arcane: " + equipped.GetComponent<InventoryItem>().arcane;
-                }               
-                else if (equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.armor)
-                {
-                    chestLifeTxt.text = "Life: " + equipped.GetComponent<InventoryItem>().lifeValue;
-                    chestRageTxt.text = "Rage: " + equipped.GetComponent<InventoryItem>().rage;
-                    chestSpeedTxt.text = "Speed: " + equipped.GetComponent<InventoryItem>().speed;
-                    chestArcaneTxt.text = "Arcane: " + equipped.GetComponent<InventoryItem>().arcane;
+                    if (equipBoolCheck.equipWeapon == true && equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemEquipped == true)
+                    {
+                        weapLifeTxt.text = "Life: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.lifeValue;
+                        weapRageTxt.text = "Rage: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.rage;
+                        weapSpeedTxt.text = "Speed: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.speed;
+                        weapArcaneTxt.text = "Arcane: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.arcane;                       
+                    }
+                    else if (equipBoolCheck.equipWeapon == false)
+                    {
+                        weapLifeTxt.text = "Life: " + 0;
+                        weapRageTxt.text = "Rage: " + 0;
+                        weapSpeedTxt.text = "Speed: " + 0;
+                        weapArcaneTxt.text = "Arcane: " + 0;
+                        
+                    }
+
                 }
-                else if (equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.helmet)
+                else if (equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemType == Item.ItemTypes.armor)
                 {
-                    helmLifeTxt.text = "Life: " + equipped.GetComponent<InventoryItem>().lifeValue;
-                    helmRageTxt.text = "Rage: " + equipped.GetComponent<InventoryItem>().rage;
-                    helmSpeedTxt.text = "Speed: " + equipped.GetComponent<InventoryItem>().speed;
-                    helmArcaneTxt.text = "Arcane: " + equipped.GetComponent<InventoryItem>().arcane;
+                    if (equipBoolCheck.equipArmor == true && equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemEquipped == true)
+                    {
+                        chestLifeTxt.text = "Life: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.lifeValue;
+                        chestRageTxt.text = "Rage: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.rage;
+                        chestSpeedTxt.text = "Speed: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.speed;
+                        chestArcaneTxt.text = "Arcane: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.arcane;                        
+                    }
+                    else if (equipBoolCheck.equipArmor == false)
+                    {
+                        chestLifeTxt.text = "Life: " + 0;
+                        chestRageTxt.text = "Rage: " + 0;
+                        chestSpeedTxt.text = "Speed: " + 0;
+                        chestArcaneTxt.text = "Arcane: " + 0;
+                    }
                 }
-                else if (equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.gloves)
+                else if (equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemType == Item.ItemTypes.helmet)
                 {
-                    glovesLifeTxt.text = "Life: " + equipped.GetComponent<InventoryItem>().lifeValue;
-                    glovesRageTxt.text = "Rage: " + equipped.GetComponent<InventoryItem>().rage;
-                    glovesSpeedTxt.text = "Speed: " + equipped.GetComponent<InventoryItem>().speed;
-                    glovesArcaneTxt.text = "Arcane: " + equipped.GetComponent<InventoryItem>().arcane;
+                    if (equipBoolCheck.equipHelm == true && equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemEquipped == true)
+                    {
+                        helmLifeTxt.text = "Life: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.lifeValue;
+                        helmRageTxt.text = "Rage: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.rage;
+                        helmSpeedTxt.text = "Speed: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.speed;
+                        helmArcaneTxt.text = "Arcane: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.arcane;
+                    }
+                    else if (equipBoolCheck.equipHelm == false)
+                    {
+                        helmLifeTxt.text = "Life: " + 0;
+                        helmRageTxt.text = "Rage: " + 0;
+                        helmSpeedTxt.text = "Speed: " + 0;
+                        helmArcaneTxt.text = "Arcane: " + 0;
+                    }
+                }
+                else if (equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemType == Item.ItemTypes.gloves)
+                {
+                    if (equipBoolCheck.equipGloves == true && equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.itemEquipped == true)
+                    {
+                        glovesLifeTxt.text = "Life: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.lifeValue;
+                        glovesRageTxt.text = "Rage: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.rage;
+                        glovesSpeedTxt.text = "Speed: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.speed;
+                        glovesArcaneTxt.text = "Arcane: " + equipBoolCheck.GetComponentInParent<InventoryItemDisplay>().item.arcane;
+                    }
+                    else if (equipBoolCheck.equipGloves == false)
+                    {
+                        glovesLifeTxt.text = "Life: " + 0;
+                        glovesRageTxt.text = "Rage: " + 0;
+                        glovesSpeedTxt.text = "Speed: " + 0;
+                        glovesArcaneTxt.text = "Arcane: " + 0;
+                    }
                 }
             }
-            else if (equipped.item.itemEquipped == false)
-            {
-                if (equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.weapon)
-                {
-                    weapLifeTxt.text = "Life: " + 0;
-                    weapRageTxt.text = "Rage: " + 0;
-                    weapSpeedTxt.text = "Speed: " + 0;
-                    weapArcaneTxt.text = "Arcane: " + 0;
-                }
-                else if (equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.armor)
-                {
-                    chestLifeTxt.text = "Life: " + 0;
-                    chestRageTxt.text = "Rage: " + 0;
-                    chestSpeedTxt.text = "Speed: " + 0;
-                    chestArcaneTxt.text = "Arcane: " + 0;
-                }
-                else if (equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.helmet)
-                {
-                    helmLifeTxt.text = "Life: " + 0;
-                    helmRageTxt.text = "Rage: " + 0;
-                    helmSpeedTxt.text = "Speed: " + 0;
-                    helmArcaneTxt.text = "Arcane: " + 0;
-                }
-                else if (equipped.GetComponent<InventoryItem>().itemType == Item.ItemTypes.gloves)
-                {
-                    glovesLifeTxt.text = "Life: " + 0;
-                    glovesRageTxt.text = "Rage: " + 0;
-                    glovesSpeedTxt.text = "Speed: " + 0;
-                    glovesArcaneTxt.text = "Arcane: " + 0;
-                }
-            }
+            
         }
     }
 }

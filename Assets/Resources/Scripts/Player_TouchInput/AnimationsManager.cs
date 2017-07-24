@@ -9,7 +9,9 @@ public class AnimationsManager : MonoBehaviour
     public GameObject raycastObject;
 
     public GameObject arrowObj;
-    public GameObject spellObj;
+    public GameObject vortexDischargeOBJ;
+    public GameObject searingIgnitionEffect;
+    public GameObject piercingFistOBJ;
 
     int buttonL, buttonR, lRSum;
 
@@ -19,7 +21,14 @@ public class AnimationsManager : MonoBehaviour
 
     public bool usingSkill;
     public bool inMiddleOfSkillCast;
- 
+
+    private int damageMultiplier = 5;
+    private Player player;
+
+    void Start()
+    {
+        player = GetComponent<Player>();
+    }
     void Update ()
     {
         Handle_Run_Idle();
@@ -40,21 +49,25 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
             anim.SetInteger("run", 1);
         }
         else if (lRSum == 0 && onGround == true && usingShield == false && usingSkill == false)
         {
             //player run animation set to false
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("run", 0);
             anim.SetInteger("idle", 1);
         }
     }
@@ -65,15 +78,16 @@ public class AnimationsManager : MonoBehaviour
     {
         //activate shield animation
         usingShield = true;
-        anim.SetInteger("idle", 0);
-        anim.SetInteger("run", 0);
         anim.SetInteger("jump", 0);
-        anim.SetInteger("spell", 0);
         anim.SetInteger("arrow", 0);
-        anim.SetInteger("punch", 0);
-        anim.SetInteger("Kick", 0);
+        anim.SetInteger("ignition", 0);
+        anim.SetInteger("ascending", 0);
+        anim.SetInteger("vortex", 0);
+        anim.SetInteger("fist", 0);
+        anim.SetInteger("kick", 0);
+        anim.SetInteger("run", 0);
+        anim.SetInteger("idle", 0);
         anim.SetInteger("shield", 1);
-        Debug.Log("Shield");
         StartCoroutine(OnShieldRelease());
     }
     public IEnumerator OnShieldRelease()
@@ -92,46 +106,25 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
-            anim.SetInteger("spell", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
-            anim.SetInteger("punch", 1);
+            anim.SetInteger("fist", 1);
 
             StartCoroutine(PiercingFistDelay());
         }       
     }
     IEnumerator PiercingFistDelay()
     {
-        yield return new WaitForSeconds(.5f);
-        Debug.Log("Before raycast");
-        RaycastHit2D hit = Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right);
-        if(Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right, 1f))
-        {
-            if (hit.collider.tag == "Enemy")
-            {
-                //deal damage
-
-                //deal knockback
-                if (hit.collider.gameObject.transform.position.x < transform.position.x)
-                {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
-
-                }
-                else if (hit.collider.gameObject.transform.position.x > transform.position.x)
-                {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
-                }
-            }
-        }    
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.6f);
+        GameObject piercingFist = (GameObject)Instantiate(piercingFistOBJ, raycastObject.transform.position, raycastObject.transform.rotation);
         usingSkill = false;
-        Debug.Log("after raycast");
         inMiddleOfSkillCast = false;
 
     }
@@ -144,14 +137,16 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("idle", 0);
             anim.SetInteger("arrow", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 1);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 1);
 
             StartCoroutine(HeavenPiercerDelay());
         }
@@ -162,23 +157,26 @@ public class AnimationsManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         Debug.Log("Before raycast");
         RaycastHit2D hit = Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right);
-        if (Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right, 1f))
+        if (Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right, 2f))
         {
             if (hit.collider.tag == "Enemy")
             {
                 //deal damage
 
                 //deal knockback
+                damageMultiplier = player.CurrentAttack;
+
+                hit.collider.gameObject.GetComponent<Enemy>().AlterHealth(damageMultiplier);
                 if (hit.collider.gameObject.transform.position.x < transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 500);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 250);
 
                 }
                 else if (hit.collider.gameObject.transform.position.x > transform.position.x)
                 {
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 800);
-                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * 500);
+                    hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 250);
                 }
 
             }
@@ -190,6 +188,111 @@ public class AnimationsManager : MonoBehaviour
     }
     #endregion
 
+    #region Wraith's Destruction 01
+    public void WraithsDestruction()
+    {
+        
+    }
+    IEnumerator WrathsDestructionDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+    }
+    #endregion
+
+    #region Howling Scythe 01
+    public void HowlingScythe()
+    {
+
+    }
+    IEnumerator HowlingScytheDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+    }
+    #endregion
+
+    #region Vortex Discharge 01
+    public void VortexDischarge()
+    {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 1);
+
+            StartCoroutine(VortexDischargeDelay());
+        }
+    }
+    IEnumerator VortexDischargeDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+        GameObject spell = (GameObject)Instantiate(vortexDischargeOBJ, raycastObject.transform.position, raycastObject.transform.rotation);
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
+    }
+    #endregion
+
+    #region Searing Ignition 01
+    public void SearingIgnition()
+    {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 1);
+
+            StartCoroutine(SearingIgnitionDelay());
+        }
+    }
+    IEnumerator SearingIgnitionDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
+    }
+    #endregion
+
+    #region Permafrost 01
+    public void Permafrost()
+    {
+
+    }
+    IEnumerator PermafrostDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+    }
+
+    #endregion
+
+    #region Spiraling Tempest 01
+    public void SpiralingTempest()
+    {
+
+    }
+    IEnumerator SpiralingTempestDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+
+    }
+    #endregion
+
     #region Piercing Shot 01
     public void PiercingShot()
     {
@@ -197,14 +300,17 @@ public class AnimationsManager : MonoBehaviour
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
-            anim.SetInteger("spell", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
             anim.SetInteger("arrow", 1);
+
 
             StartCoroutine(PiercingShotDelay());
         }
@@ -218,31 +324,37 @@ public class AnimationsManager : MonoBehaviour
     }
     #endregion
 
-    #region Vortex Discharge 01
-    public void VortexDischarge()
+    #region Uncontrolled Speed 01
+    public void UncontrolledSpeed()
     {
-        if (inMiddleOfSkillCast == false)
-        {
-            usingSkill = true;
-            inMiddleOfSkillCast = true;
-            anim.SetInteger("run", 0);
-            anim.SetInteger("shield", 0);
-            anim.SetInteger("jump", 0);
-            anim.SetInteger("idle", 0);
-            anim.SetInteger("punch", 0);
-            anim.SetInteger("Kick", 0);
-            anim.SetInteger("arrow", 0);
-            anim.SetInteger("spell", 1);
 
-            StartCoroutine(VortexDischargeDelay());
-        }
-    }
-    IEnumerator VortexDischargeDelay()
+    } 
+    IEnumerator UncontrolledSpeedDelay()
     {
         yield return new WaitForSeconds(.6f);
-        GameObject spell = (GameObject)Instantiate(spellObj, raycastObject.transform.position, raycastObject.transform.rotation);
-        usingSkill = false;
-        inMiddleOfSkillCast = false;
+
+    }
+    #endregion
+
+    #region Lacerating Typhoon 01
+    public void LaceratingTyphoon()
+    {
+
+    }
+    IEnumerator LaceratingTyphoonDelay()
+    {
+        yield return new WaitForSeconds(.6f);
+    }
+    #endregion
+
+    #region Ascending Shot 01
+    public void AscendingShot()
+    {
+
+    }
+    IEnumerator AscendingShotDelay()
+    {
+        yield return new WaitForSeconds(.6f);
     }
     #endregion
 

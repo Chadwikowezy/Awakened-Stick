@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour, ICharacter
         health -= healthChange;
         healthbar.value = (float)((float)health / (float)_baseMaxHealth);
 
-        if (_currentHealth <= 0)
+        if (health <= 0)
 			StartCoroutine (Death());
     }
 		

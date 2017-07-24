@@ -98,7 +98,7 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.SearingIgnition_01:
-                //fire blast down lane
+                animManager.SearingIgnition();
                 break;
         }
         switch (buttonType)
@@ -264,7 +264,7 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.SearingIgnition_01:
-                //fire blast down lane
+                animManager.SearingIgnition();
                 break;
         }
         switch (buttonType)
