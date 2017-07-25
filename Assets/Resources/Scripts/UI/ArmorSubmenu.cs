@@ -29,18 +29,30 @@ public class ArmorSubmenu : MonoBehaviour
             helmetButton.GetComponent<Image>().color = Color.black;
             armorButton.GetComponent<Image>().color = new Color(0.3f, 0.3f, 0.3f, 0.6f);
             glovesButton.GetComponent<Image>().color = new Color(0.3f, 0.3f, 0.3f, 0.6f);
+
+            helmetsScrollView.SetActive(true);
+            armorScrollView.SetActive(false);
+            glovesScrollview.SetActive(false);
         }
         else if (_newActiveMenu == ArmorMenus.Armor)
         {
             helmetButton.GetComponent<Image>().color = new Color(0.3f, 0.3f, 0.3f, 0.6f);
             armorButton.GetComponent<Image>().color = Color.black;
             glovesButton.GetComponent<Image>().color = new Color(0.3f, 0.3f, 0.3f, 0.6f);
+
+            helmetsScrollView.SetActive(false);
+            armorScrollView.SetActive(true);
+            glovesScrollview.SetActive(false);
         }
         else if (_newActiveMenu == ArmorMenus.Gloves)
         {
             helmetButton.GetComponent<Image>().color = new Color(0.3f, 0.3f, 0.3f, 0.6f);
             armorButton.GetComponent<Image>().color = new Color(0.3f, 0.3f, 0.3f, 0.6f);
             glovesButton.GetComponent<Image>().color = Color.black;
+
+            helmetsScrollView.SetActive(false);
+            armorScrollView.SetActive(false);
+            glovesScrollview.SetActive(true);
         }
 
         _currentArmorMenu = _newActiveMenu;
