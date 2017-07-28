@@ -62,7 +62,7 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.ShieldButton:
-                animManager.Shield();//currently does nothing
+                animManager.Shield();
                 break;
         }
         switch (buttonType)
@@ -80,13 +80,13 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.WraithsDestruction_01:
-                //sword stab ground mass aoe
+                animManager.WraithsDestruction();
                 break;
         }
         switch (buttonType)
         {
             case type.HowlingScythe_01:
-                //sword slash lane based
+                animManager.HowlingScythe();
                 break;
         }
         switch (buttonType)
@@ -104,13 +104,13 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.Permafrost_01:
-                //Huge aoe ice sickle rain down on foes
+                animManager.Permafrost();
                 break;
         }
         switch (buttonType)
         {
             case type.SpiralingTempest_01:
-                //whirlwind sphere surronds player take no damage
+                animManager.SpiralingTempest();
                 break;
         }
         switch (buttonType)
@@ -122,91 +122,91 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.UncontrolledSpeed_01:
-                //dash forward
+                animManager.UncontrolledSpeed();
                 break;
         }
         switch (buttonType)
         {
             case type.LaceratingTyphoon_01:
-                //blade spin in circle, AOE based but not as big of range as other AOE based skills
+                animManager.LaceratingTyphoon();
                 break;
         }
         switch (buttonType)
         {
             case type.AscendingShot_01:
-                //do a jump back and up, shoot arrows down lane you jump away from
+                animManager.AscendingShot();
                 break;
         }
         switch (buttonType)
         {
             case type.PiercingFist_02:
-                //second tier of this skill
+                animManager.PiercingFist();
                 break;
         }
         switch (buttonType)
         {
             case type.HeavenPiercer_02:
-                //second tier of this skill
+                animManager.HeavenPiercer();
                 break;
         }
         switch (buttonType)
         {
             case type.WraithsDestruction_02:
-                //second tier of this skill
+                animManager.WraithsDestruction();
                 break;
         }
         switch (buttonType)
         {
             case type.HowlingScythe_02:
-                //second tier of this skill
+                animManager.HowlingScythe();
                 break;
         }
         switch (buttonType)
         {
             case type.VortexDischarge_02:
-                //second tier of this skill
+                animManager.VortexDischarge();
                 break;
         }
         switch (buttonType)
         {
             case type.SearingIgnition_02:
-                //second tier of this skill
+                animManager.SearingIgnition();
                 break;
         }
         switch (buttonType)
         {
             case type.Permafrost_02:
-                //second tier of this skill
+                animManager.Permafrost();
                 break;
         }
         switch (buttonType)
         {
             case type.SpiralingTempest_02:
-                //second tier of this skill
+                animManager.SpiralingTempest();
                 break;
         }
         switch (buttonType)
         {
             case type.PiercingShot_02:
-                //second tier of this skill
+                animManager.PiercingShot();
                 break;
         }
         switch (buttonType)
         {
             case type.UncontrolledSpeed_02:
-                //second tier of this skill
+                animManager.UncontrolledSpeed();
                 break;
         }
         switch (buttonType)
         {
             case type.LaceratingTyphoon_02:
-                //second tier of this skill
+                animManager.LaceratingTyphoon();
                 break;
         }
         switch (buttonType)
         {
             case type.AscendingShot_02:
-                //second tier of this skill
+                animManager.AscendingShot();
                 break;
         }
     }
@@ -228,7 +228,7 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.ShieldButton:
-                animManager.Shield();//does nothing atm
+                animManager.Shield();
                 break;
         }
         switch (buttonType)
@@ -246,13 +246,13 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.WraithsDestruction_01:
-                //sword stab ground mass aoe
+                animManager.WraithsDestruction();
                 break;
         }
         switch (buttonType)
         {
             case type.HowlingScythe_01:
-                //sword slash lane based
+                animManager.HowlingScythe();
                 break;
         }
         switch (buttonType)
@@ -270,13 +270,13 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.Permafrost_01:
-                //Huge aoe ice sickle rain down on foes
+                animManager.Permafrost();
                 break;
         }
         switch (buttonType)
         {
             case type.SpiralingTempest_01:
-                //whirlwind sphere surronds player take no damage
+                animManager.SpiralingTempest();
                 break;
         }
         switch (buttonType)
@@ -288,91 +288,91 @@ public class PlayerMovement : TouchManager
         switch (buttonType)
         {
             case type.UncontrolledSpeed_01:
-                //dash forward
+                animManager.UncontrolledSpeed();
                 break;
         }
         switch (buttonType)
         {
             case type.LaceratingTyphoon_01:
-                //blade spin in circle, AOE based but not as big of range as other AOE based skills
+                animManager.LaceratingTyphoon();
                 break;
         }
         switch (buttonType)
         {
             case type.AscendingShot_01:
-                //do a jump back and up, shoot arrows down lane you jump away from
+                animManager.AscendingShot();
                 break;
         }
         switch (buttonType)
         {
             case type.PiercingFist_02:
-                //second tier of this skill
+                animManager.PiercingFist();
                 break;
         }
         switch (buttonType)
         {
             case type.HeavenPiercer_02:
-                //second tier of this skill
+                animManager.HeavenPiercer();
                 break;
         }
         switch (buttonType)
         {
             case type.WraithsDestruction_02:
-                //second tier of this skill
+                animManager.WraithsDestruction();
                 break;
         }
         switch (buttonType)
         {
             case type.HowlingScythe_02:
-                //second tier of this skill
+                animManager.HowlingScythe();
                 break;
         }
         switch (buttonType)
         {
             case type.VortexDischarge_02:
-                //second tier of this skill
+                animManager.VortexDischarge();
                 break;
         }
         switch (buttonType)
         {
             case type.SearingIgnition_02:
-                //second tier of this skill
+                animManager.SearingIgnition();
                 break;
         }
         switch (buttonType)
         {
             case type.Permafrost_02:
-                //second tier of this skill
+                animManager.Permafrost();
                 break;
         }
         switch (buttonType)
         {
             case type.SpiralingTempest_02:
-                //second tier of this skill
+                animManager.SpiralingTempest();
                 break;
         }
         switch (buttonType)
         {
             case type.PiercingShot_02:
-                //second tier of this skill
+                animManager.PiercingShot();
                 break;
         }
         switch (buttonType)
         {
             case type.UncontrolledSpeed_02:
-                //second tier of this skill
+                animManager.UncontrolledSpeed();
                 break;
         }
         switch (buttonType)
         {
             case type.LaceratingTyphoon_02:
-                //second tier of this skill
+                animManager.LaceratingTyphoon();
                 break;
         }
         switch (buttonType)
         {
             case type.AscendingShot_02:
-                //second tier of this skill
+                animManager.AscendingShot();
                 break;
         }
     }

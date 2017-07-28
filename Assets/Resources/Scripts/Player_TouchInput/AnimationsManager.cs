@@ -25,6 +25,8 @@ public class AnimationsManager : MonoBehaviour
     private int damageMultiplier = 5;
     private Player player;
 
+    private int jumpHeight = 15;
+
     void Start()
     {
         player = GetComponent<Player>();
@@ -350,11 +352,33 @@ public class AnimationsManager : MonoBehaviour
     #region Ascending Shot 01
     public void AscendingShot()
     {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("ascending", 1);
 
+            StartCoroutine(AscendingShotDelay());
+        }
     }
     IEnumerator AscendingShotDelay()
     {
-        yield return new WaitForSeconds(.6f);
+        player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+        player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * (jumpHeight / 2), ForceMode2D.Impulse);
+        yield return new WaitForSeconds(.9f);
+        GameObject arrow = (GameObject)Instantiate(arrowObj, raycastObject.transform.position, raycastObject.transform.rotation);
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
+
     }
     #endregion
 
