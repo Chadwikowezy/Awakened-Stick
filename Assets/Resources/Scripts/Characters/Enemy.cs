@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour, ICharacter
 {
     private Rigidbody2D rb;
-    private Animation anim;
+    private Animator anim;
+	public Transform target;
 
     private float speed = 3.0f;
-	public float startHealth = 10; //tempt
+	private float range;
+	public float startHealth = 10;
 	private float health;
 
 	public Slider healthbar;
@@ -31,33 +33,41 @@ public class Enemy : MonoBehaviour, ICharacter
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animation>();
+		anim = GetComponent<Animator>();
 		health = startHealth;
 		SmokeParticle.SetActive (false);
-    }
-
-    void Update()
-    {
-        Vector3 d = GameObject.FindWithTag("Player").transform.position;
-        Vector3 s = this.transform.position;
-        Vector3 distance = s - d;
-
-        if (distance.x > 1f)
-        {
-            if(rb.velocity.magnitude < 5f)
-            {
-                rb.velocity = new Vector2(-speed, 0);
-            }
-        }
-        else if (distance.x < 1f)
-        {
-            if (rb.velocity.magnitude < 5f)
-            {
-                rb.velocity = new Vector2(speed, 0);
-            }
-        }		 
+		target = GameObject.FindWithTag("Player").transform;
     }
 		
+	void FixedUpdate()
+	{
+		
+		range = transform.position.x - target.position.x;
+
+		if(range >= 5 && range <=50)
+		{
+			transform.right = target.position - transform.position; 
+			rb.velocity = transform.right * speed;
+
+			if (range <= 2)
+			{
+				anim.SetTrigger("enemyPunch");
+			}
+		}
+
+		if(range <= -5 && range >= -50)
+		{
+			transform.right = target.position - transform.position; 
+			rb.velocity = transform.right * speed;
+
+			if (range >= 2)
+			{
+				anim.SetTrigger("enemyPunch");
+			}
+		}
+
+	}
+
 	//properties
 	public int BaseMaxHealth
 	{

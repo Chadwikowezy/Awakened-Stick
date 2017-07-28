@@ -11,8 +11,8 @@ public class SpawnManager : MonoBehaviour
 
 	private  float spawnWait;
 	public float minWait = 2;
-	public float maxWait = 5;
-	public float startWait = 3;
+	public float maxWait = 3;
+	public float startWait = 1;
 
 	void Start () 
 	{
