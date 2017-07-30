@@ -9,6 +9,7 @@ public class AnimationsManager : MonoBehaviour
     public GameObject raycastObject;
 
     public GameObject arrowObj;
+    public GameObject ascendingArrow;
     public GameObject vortexDischargeOBJ;
     public GameObject searingIgnitionEffect;
     public GameObject piercingFistOBJ;
@@ -373,9 +374,21 @@ public class AnimationsManager : MonoBehaviour
     IEnumerator AscendingShotDelay()
     {
         player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
-        player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * (jumpHeight / 2), ForceMode2D.Impulse);
-        yield return new WaitForSeconds(.9f);
-        GameObject arrow = (GameObject)Instantiate(arrowObj, raycastObject.transform.position, raycastObject.transform.rotation);
+        if (anim.gameObject.transform.eulerAngles.y == 180)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * jumpHeight, ForceMode2D.Impulse);
+        }
+        else if (anim.gameObject.transform.eulerAngles.y == 0)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * jumpHeight, ForceMode2D.Impulse);
+        }
+
+        yield return new WaitForSeconds(1.2f);
+        GameObject arrow = (GameObject)Instantiate(ascendingArrow, raycastObject.transform.position, raycastObject.transform.rotation);
+        yield return new WaitForSeconds(.2f);
+
+
+
         usingSkill = false;
         inMiddleOfSkillCast = false;
 
