@@ -28,6 +28,8 @@ public class AnimationsManager : MonoBehaviour
 
     private int jumpHeight = 15;
 
+    private bool ascendingShotCD;
+
     void Start()
     {
         player = GetComponent<Player>();
@@ -167,7 +169,7 @@ public class AnimationsManager : MonoBehaviour
                 //deal damage
 
                 //deal knockback
-                damageMultiplier = player.CurrentAttack;
+                damageMultiplier = (player.CurrentRage + 5);
 
                 hit.collider.gameObject.GetComponent<Enemy>().AlterHealth(damageMultiplier);
                 if (hit.collider.gameObject.transform.position.x < transform.position.x)
@@ -353,10 +355,11 @@ public class AnimationsManager : MonoBehaviour
     #region Ascending Shot 01
     public void AscendingShot()
     {
-        if (inMiddleOfSkillCast == false)
+        if (inMiddleOfSkillCast == false && ascendingShotCD == false)
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
+            ascendingShotCD = true;
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("run", 0);
@@ -383,14 +386,15 @@ public class AnimationsManager : MonoBehaviour
             player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * jumpHeight, ForceMode2D.Impulse);
         }
 
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1f);
         GameObject arrow = (GameObject)Instantiate(ascendingArrow, raycastObject.transform.position, raycastObject.transform.rotation);
         yield return new WaitForSeconds(.2f);
 
-
-
         usingSkill = false;
         inMiddleOfSkillCast = false;
+
+        yield return new WaitForSeconds(2f);
+        ascendingShotCD = false;
 
     }
     #endregion

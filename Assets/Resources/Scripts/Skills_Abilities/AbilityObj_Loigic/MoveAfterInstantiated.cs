@@ -15,7 +15,8 @@ public class MoveAfterInstantiated : MonoBehaviour
         transform.Translate(Vector3.right * Time.deltaTime * objMoveSpeed);	
         if(tag == "AscendingShot")
         {
-            transform.Translate(Vector3.down * Time.deltaTime * objMoveSpeed / 4);
+            transform.Translate(Vector3.down * Time.deltaTime * 4);
+
         }
     }
 

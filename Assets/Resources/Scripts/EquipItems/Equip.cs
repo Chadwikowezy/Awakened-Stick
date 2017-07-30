@@ -38,7 +38,9 @@ public class Equip : MonoBehaviour
     #region Equip and Unequip items
     public void Equip_Unequip()
     {
-        if(equipArmor == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.armor)
+        items = FindObjectsOfType<Equip>();
+
+        if (equipArmor == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.armor)
         {
             HandleItemAddingData(player, inventoryItemDisplay);
             itemIsEquipped = true;
@@ -173,6 +175,10 @@ public class Equip : MonoBehaviour
     void HandleItemAddingData(Player player, InventoryItemDisplay inventoryItemDisplay)
     {
         player.CurrentMaxHealth += inventoryItemDisplay.item.lifeValue;
+        player.CurrentRage += inventoryItemDisplay.item.rage;
+        player.CurrentSpeed += inventoryItemDisplay.item.speed;
+        player.CurrentArcane += inventoryItemDisplay.item.arcane;
+
         player.CurrentAttack += (inventoryItemDisplay.item.rage +
             inventoryItemDisplay.item.arcane + inventoryItemDisplay.item.speed);
 
@@ -183,6 +189,10 @@ public class Equip : MonoBehaviour
     void HandleItemSubtractingData(Player player, InventoryItemDisplay inventoryItemDisplay)
     {
         player.CurrentMaxHealth -= inventoryItemDisplay.item.lifeValue;
+        player.CurrentRage -= inventoryItemDisplay.item.rage;
+        player.CurrentSpeed -= inventoryItemDisplay.item.speed;
+        player.CurrentArcane -= inventoryItemDisplay.item.arcane;
+
         player.CurrentAttack -= (inventoryItemDisplay.item.rage +
             inventoryItemDisplay.item.arcane + inventoryItemDisplay.item.speed);
 

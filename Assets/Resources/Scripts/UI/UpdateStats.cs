@@ -9,8 +9,11 @@ public class UpdateStats : MonoBehaviour
 
     //stats accumulated
     public Text lifeTxt;
-    public Text damageTxt;
     public Text defenseTxt;
+    public Text rageTxt;
+    public Text speedTxt;
+    public Text arcaneTxt;
+
     //weapons values
     public Text weapLifeTxt;
     public Text weapRageTxt;
@@ -42,8 +45,10 @@ public class UpdateStats : MonoBehaviour
         player = FindObjectOfType<Player>();
 
         lifeTxt.text = "Life: " + player.CurrentMaxHealth;
-        damageTxt.text = "Attack: " + player.CurrentAttack;
         defenseTxt.text = "Armor: " + player.CurrentDefense;
+        rageTxt.text = "Rage: " + player.CurrentRage;
+        speedTxt.text = "Speed: " + player.CurrentSpeed;
+        arcaneTxt.text = "Arcane: " + player.CurrentArcane;
 
         equipChecks = FindObjectsOfType<InventoryItemDisplay>();
         equipBoolChecker = FindObjectsOfType<Equip>();

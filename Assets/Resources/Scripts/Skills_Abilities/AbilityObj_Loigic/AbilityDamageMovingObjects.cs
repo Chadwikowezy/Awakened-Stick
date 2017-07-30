@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AbilityDamageMovingObjects : MonoBehaviour
 {
-    public int abilityDamageModifier = 5;
+    private int abilityDamageModifier;
+    public int baseModifier;
     private Player player;
 
     private void Start()
@@ -13,12 +14,29 @@ public class AbilityDamageMovingObjects : MonoBehaviour
         {
             player = FindObjectOfType<Player>();
         }
-        abilityDamageModifier = player.CurrentAttack;
+    }
+
+    void StatUpdate()
+    {
+        player = FindObjectOfType<Player>();
+        if (tag == "Arcane")
+        {
+            abilityDamageModifier = (player.CurrentArcane + baseModifier);
+        }
+        else if (tag == "Speed")
+        {
+            abilityDamageModifier = (player.CurrentSpeed + baseModifier);
+        }
+        else if (tag == "Rage")
+        {
+            abilityDamageModifier = (player.CurrentRage + baseModifier);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        StatUpdate();
+        if (collision.gameObject.tag == "Enemy")
         {
             if(collision.gameObject.transform.position.x < transform.position.x)
             {
