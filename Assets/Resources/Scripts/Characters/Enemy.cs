@@ -49,9 +49,11 @@ public class Enemy : MonoBehaviour, ICharacter
 			transform.right = target.position - transform.position; 
 			rb.velocity = transform.right * speed;
 
+			anim.SetTrigger ("run");
+
 			if (range <= 2)
 			{
-				anim.SetTrigger("enemyPunch");
+				anim.SetTrigger("fist");
 			}
 		}
 
@@ -60,9 +62,12 @@ public class Enemy : MonoBehaviour, ICharacter
 			transform.right = target.position - transform.position; 
 			rb.velocity = transform.right * speed;
 
+			anim.SetTrigger ("run");
+
 			if (range >= 2)
 			{
-				anim.SetTrigger("enemyPunch");
+				anim.SetTrigger("fist");
+
 			}
 		}
 
