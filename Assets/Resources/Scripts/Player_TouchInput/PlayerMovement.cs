@@ -23,6 +23,7 @@ public class PlayerMovement : TouchManager
     Rigidbody2D playerRigidBody = null;
 
     public GUITexture buttonTexture;
+    public GUITexture buttonOnCDTexture;
 
     public float jumpHeight = 0;
     public float moveSpeed = 0;
@@ -44,7 +45,7 @@ public class PlayerMovement : TouchManager
 
     void Update ()
     {
-        TouchInput(buttonTexture);
+        TouchInput(buttonTexture);        
     }
 
     #region on first touch began for jump, shield, skill01, skill02, skill03

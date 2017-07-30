@@ -13,7 +13,11 @@ public class MoveAfterInstantiated : MonoBehaviour
     void Update ()
     {
         transform.Translate(Vector3.right * Time.deltaTime * objMoveSpeed);	
-	}
+        if(tag == "AscendingShot")
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * objMoveSpeed / 4);
+        }
+    }
 
     IEnumerator KillSelf()
     {
