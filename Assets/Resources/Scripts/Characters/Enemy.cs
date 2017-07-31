@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour, ICharacter
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-		anim = GetComponent<Animator>();
+		anim = GetComponentInChildren<Animator>();
 		health = startHealth;
 		SmokeParticle.SetActive (false);
 		target = GameObject.FindWithTag("Player").transform;
@@ -44,30 +44,29 @@ public class Enemy : MonoBehaviour, ICharacter
 		
 		range = transform.position.x - target.position.x;
 
-		if(range >= 5 && range <=50)
+		if(range >= 5 && range <= 50)
 		{
 			transform.right = target.position - transform.position; 
 			rb.velocity = transform.right * speed;
 
-			anim.SetTrigger ("run");
+			anim.SetInteger("run", 1);
 
-			if (range <= 2)
-			{
-				anim.SetTrigger("fist");
-			}
-		}
+            if (range <= 10)
+            {
+                anim.SetInteger("fist", 1);
+            }
+        }
 
-		if(range <= -5 && range >= -50)
+        if (range <= -5 && range >= -50)
 		{
 			transform.right = target.position - transform.position; 
 			rb.velocity = transform.right * speed;
 
-			anim.SetTrigger ("run");
+			anim.SetInteger ("run", 1);
 
-			if (range >= 2)
+			if (range >= 10)
 			{
-				anim.SetTrigger("fist");
-
+                anim.SetInteger("fist", 1);
 			}
 		}
 

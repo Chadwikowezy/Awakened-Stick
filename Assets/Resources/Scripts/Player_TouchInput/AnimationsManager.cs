@@ -13,6 +13,9 @@ public class AnimationsManager : MonoBehaviour
     public GameObject vortexDischargeOBJ;
     public GameObject searingIgnitionEffect;
     public GameObject piercingFistOBJ;
+    public GameObject scytheObj;
+
+    public GameObject permaFrostOBJ;
 
     int buttonL, buttonR, lRSum;
 
@@ -23,12 +26,13 @@ public class AnimationsManager : MonoBehaviour
     public bool usingSkill;
     public bool inMiddleOfSkillCast;
 
-    private int damageMultiplier = 5;
+    private int damageMultiplier;
+    private int basedamageMultiplier = 2;
     private Player player;
 
     private int jumpHeight = 15;
 
-    private bool ascendingShotCD;
+    private bool longCD;
 
     void Start()
     {
@@ -54,10 +58,13 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("frost", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("vortex", 0);
             anim.SetInteger("fist", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("kick", 0);
             anim.SetInteger("run", 1);
         }
@@ -66,11 +73,14 @@ public class AnimationsManager : MonoBehaviour
             //player run animation set to false
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("frost", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("vortex", 0);
             anim.SetInteger("fist", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("kick", 0);
             anim.SetInteger("run", 0);
             anim.SetInteger("idle", 1);
@@ -89,7 +99,10 @@ public class AnimationsManager : MonoBehaviour
         anim.SetInteger("ascending", 0);
         anim.SetInteger("vortex", 0);
         anim.SetInteger("fist", 0);
+        anim.SetInteger("uncontrolled", 0);
+        anim.SetInteger("frost", 0);
         anim.SetInteger("kick", 0);
+        anim.SetInteger("scythe", 0);
         anim.SetInteger("run", 0);
         anim.SetInteger("idle", 0);
         anim.SetInteger("shield", 1);
@@ -112,8 +125,11 @@ public class AnimationsManager : MonoBehaviour
             usingSkill = true;
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("scythe", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("vortex", 0);
@@ -144,7 +160,10 @@ public class AnimationsManager : MonoBehaviour
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("scythe", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("vortex", 0);
@@ -207,11 +226,33 @@ public class AnimationsManager : MonoBehaviour
     #region Howling Scythe 01
     public void HowlingScythe()
     {
-
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("uncontrolled", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("scythe", 1);
+            
+            StartCoroutine(HowlingScytheDelay());
+        }
     }
     IEnumerator HowlingScytheDelay()
     {
         yield return new WaitForSeconds(.6f);
+        GameObject howlingScythe = (GameObject)Instantiate(scytheObj, raycastObject.transform.position, raycastObject.transform.rotation);
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
     }
     #endregion
 
@@ -223,8 +264,11 @@ public class AnimationsManager : MonoBehaviour
             usingSkill = true;
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("run", 0);
@@ -253,7 +297,10 @@ public class AnimationsManager : MonoBehaviour
             usingSkill = true;
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("run", 0);
@@ -277,11 +324,81 @@ public class AnimationsManager : MonoBehaviour
     #region Permafrost 01
     public void Permafrost()
     {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("uncontrolled", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("frost", 1);
 
+            StartCoroutine(PermafrostDelay());
+        }
     }
     IEnumerator PermafrostDelay()
     {
-        yield return new WaitForSeconds(.6f);
+        damageMultiplier = (player.CurrentArcane + basedamageMultiplier);
+        permaFrostOBJ.SetActive(true);
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        yield return new WaitForSeconds(2f);
+        foreach(Enemy enemy in enemies)
+        {
+            if(enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+
+        yield return new WaitForSeconds(1f);
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+
+        yield return new WaitForSeconds(1f);
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+        enemies = FindObjectsOfType<Enemy>();
+
+        yield return new WaitForSeconds(1f);
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+        yield return new WaitForSeconds(1f);
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
+        permaFrostOBJ.SetActive(false);
+
     }
 
     #endregion
@@ -306,6 +423,9 @@ public class AnimationsManager : MonoBehaviour
             usingSkill = true;
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("run", 0);
@@ -332,12 +452,46 @@ public class AnimationsManager : MonoBehaviour
     #region Uncontrolled Speed 01
     public void UncontrolledSpeed()
     {
+        if (inMiddleOfSkillCast == false && longCD == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            longCD = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("uncontrolled", 1);
 
+
+            StartCoroutine(UncontrolledSpeedDelay());
+        }
     } 
     IEnumerator UncontrolledSpeedDelay()
     {
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.2f);
+        if (anim.gameObject.transform.eulerAngles.y == 180)
+        {
+            player.transform.position = new Vector3((player.transform.position.x - 10), player.transform.position.y, player.transform.position.z);
+        }
+        else if (anim.gameObject.transform.eulerAngles.y == 0)
+        {
+            player.transform.position = new Vector3((player.transform.position.x + 10), player.transform.position.y, player.transform.position.z);
+        }
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
 
+        yield return new WaitForSeconds(2f);
+
+        longCD = false;
     }
     #endregion
 
@@ -355,15 +509,18 @@ public class AnimationsManager : MonoBehaviour
     #region Ascending Shot 01
     public void AscendingShot()
     {
-        if (inMiddleOfSkillCast == false && ascendingShotCD == false)
+        if (inMiddleOfSkillCast == false && longCD == false)
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
-            ascendingShotCD = true;
-            anim.SetInteger("shield", 0);
+            longCD = true;
+            anim.SetInteger("shield", 0); 
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("scythe", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
+            anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("fist", 0);
             anim.SetInteger("kick", 0);
             anim.SetInteger("vortex", 0);
@@ -394,7 +551,7 @@ public class AnimationsManager : MonoBehaviour
         inMiddleOfSkillCast = false;
 
         yield return new WaitForSeconds(2f);
-        ascendingShotCD = false;
+        longCD = false;
 
     }
     #endregion
