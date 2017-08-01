@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnimationsManager : MonoBehaviour
 {
+    #region variables
     public Animator anim;
     public PlayerMovement leftButton, rightButton;
     public GameObject raycastObject;
@@ -14,6 +15,8 @@ public class AnimationsManager : MonoBehaviour
     public GameObject searingIgnitionEffect;
     public GameObject piercingFistOBJ;
     public GameObject scytheObj;
+    public GameObject wrathOBJ;
+    public GameObject spiralingTempestOBJ;
 
     public GameObject permaFrostOBJ;
 
@@ -33,6 +36,7 @@ public class AnimationsManager : MonoBehaviour
     private int jumpHeight = 15;
 
     private bool longCD;
+    #endregion
 
     void Start()
     {
@@ -59,7 +63,9 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("frost", 0);
+            anim.SetInteger("tempest", 0);
             anim.SetInteger("ignition", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("vortex", 0);
             anim.SetInteger("fist", 0);
@@ -75,6 +81,8 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("jump", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("wrath", 0);
+            anim.SetInteger("tempest", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("vortex", 0);
@@ -96,6 +104,8 @@ public class AnimationsManager : MonoBehaviour
         anim.SetInteger("jump", 0);
         anim.SetInteger("arrow", 0);
         anim.SetInteger("ignition", 0);
+        anim.SetInteger("tempest", 0);
+        anim.SetInteger("wrath", 0);
         anim.SetInteger("ascending", 0);
         anim.SetInteger("vortex", 0);
         anim.SetInteger("fist", 0);
@@ -126,6 +136,8 @@ public class AnimationsManager : MonoBehaviour
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
+            anim.SetInteger("wrath", 0);
+            anim.SetInteger("tempest", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
@@ -160,6 +172,8 @@ public class AnimationsManager : MonoBehaviour
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("wrath", 0);
+            anim.SetInteger("tempest", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
@@ -215,11 +229,49 @@ public class AnimationsManager : MonoBehaviour
     #region Wraith's Destruction 01
     public void WraithsDestruction()
     {
-        
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("tempest", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("uncontrolled", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("wrath", 1);
+
+            StartCoroutine(WrathsDestructionDelay());
+        }
     }
     IEnumerator WrathsDestructionDelay()
     {
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.8f);
+        damageMultiplier = (player.CurrentRage + basedamageMultiplier);
+        wrathOBJ.SetActive(true);
+        wrathOBJ.GetComponent<ParticleSystem>().Play();
+
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+        yield return new WaitForSeconds(.4f);
+
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
+        wrathOBJ.SetActive(false);
     }
     #endregion
 
@@ -233,6 +285,8 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("tempest", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("ignition", 0);
@@ -249,8 +303,10 @@ public class AnimationsManager : MonoBehaviour
     }
     IEnumerator HowlingScytheDelay()
     {
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(.8f);
         GameObject howlingScythe = (GameObject)Instantiate(scytheObj, raycastObject.transform.position, raycastObject.transform.rotation);
+
+        yield return new WaitForSeconds(.3f);
         usingSkill = false;
         inMiddleOfSkillCast = false;
     }
@@ -266,6 +322,8 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("tempest", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("uncontrolled", 0);
@@ -298,8 +356,10 @@ public class AnimationsManager : MonoBehaviour
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
+            anim.SetInteger("tempest", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("scythe", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("ascending", 0);
@@ -331,11 +391,13 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("tempest", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("fist", 0);
             anim.SetInteger("kick", 0);
             anim.SetInteger("vortex", 0);
@@ -349,52 +411,18 @@ public class AnimationsManager : MonoBehaviour
     {
         damageMultiplier = (player.CurrentArcane + basedamageMultiplier);
         permaFrostOBJ.SetActive(true);
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
-        yield return new WaitForSeconds(2f);
-        foreach(Enemy enemy in enemies)
+        for (int i = 0; i < 5; i++)
         {
-            if(enemy != null)
+            yield return new WaitForSeconds(1f);
+            Enemy[] enemies = FindObjectsOfType<Enemy>();
+            foreach (Enemy enemy in enemies)
             {
-                enemy.AlterHealth(damageMultiplier);
+                if (enemy != null)
+                {
+                    enemy.AlterHealth(damageMultiplier);
+                }
             }
         }
-
-        yield return new WaitForSeconds(1f);
-        foreach (Enemy enemy in enemies)
-        {
-            if (enemy != null)
-            {
-                enemy.AlterHealth(damageMultiplier);
-            }
-        }
-
-        yield return new WaitForSeconds(1f);
-        foreach (Enemy enemy in enemies)
-        {
-            if (enemy != null)
-            {
-                enemy.AlterHealth(damageMultiplier);
-            }
-        }
-        enemies = FindObjectsOfType<Enemy>();
-
-        yield return new WaitForSeconds(1f);
-        foreach (Enemy enemy in enemies)
-        {
-            if (enemy != null)
-            {
-                enemy.AlterHealth(damageMultiplier);
-            }
-        }
-        yield return new WaitForSeconds(1f);
-        foreach (Enemy enemy in enemies)
-        {
-            if (enemy != null)
-            {
-                enemy.AlterHealth(damageMultiplier);
-            }
-        }
-
         usingSkill = false;
         inMiddleOfSkillCast = false;
         permaFrostOBJ.SetActive(false);
@@ -406,12 +434,39 @@ public class AnimationsManager : MonoBehaviour
     #region Spiraling Tempest 01
     public void SpiralingTempest()
     {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("wrath", 0);
+            anim.SetInteger("uncontrolled", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("tempest", 1);
 
+            StartCoroutine(SpiralingTempestDelay());
+        }
     }
     IEnumerator SpiralingTempestDelay()
     {
-        yield return new WaitForSeconds(.6f);
+        spiralingTempestOBJ.SetActive(true);
+        player.tag = "Untagged";
 
+        yield return new WaitForSeconds(3f);
+        player.tag = "Player";
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
+        spiralingTempestOBJ.SetActive(false);
     }
     #endregion
 
@@ -425,7 +480,9 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("scythe", 0);
+            anim.SetInteger("tempest", 0);
             anim.SetInteger("uncontrolled", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("run", 0);
@@ -461,6 +518,8 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("frost", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("tempest", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
@@ -478,11 +537,11 @@ public class AnimationsManager : MonoBehaviour
     IEnumerator UncontrolledSpeedDelay()
     {
         yield return new WaitForSeconds(.2f);
-        if (anim.gameObject.transform.eulerAngles.y == 180)
+        if (anim.gameObject.transform.eulerAngles.y == 180 && player.transform.position.x > -40)
         {
             player.transform.position = new Vector3((player.transform.position.x - 10), player.transform.position.y, player.transform.position.z);
         }
-        else if (anim.gameObject.transform.eulerAngles.y == 0)
+        else if (anim.gameObject.transform.eulerAngles.y == 0 && player.transform.position.x < 40)
         {
             player.transform.position = new Vector3((player.transform.position.x + 10), player.transform.position.y, player.transform.position.z);
         }
@@ -517,6 +576,8 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0); 
             anim.SetInteger("frost", 0);
             anim.SetInteger("scythe", 0);
+            anim.SetInteger("tempest", 0);
+            anim.SetInteger("wrath", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("run", 0);
             anim.SetInteger("idle", 0);
