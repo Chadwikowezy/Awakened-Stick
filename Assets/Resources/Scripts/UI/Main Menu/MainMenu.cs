@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -63,6 +63,7 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         SetActiveSelectable(playButton);
+        StartCoroutine(LoadPrimaryScene(0.3f));
     }
     public void EquipmentButton()
     {
@@ -86,5 +87,12 @@ public class MainMenu : MonoBehaviour
     {
         SetActiveSelectable(characterButton);
         SetActiveSubMenu(characterMenu);
+    }
+
+    IEnumerator LoadPrimaryScene(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        SceneManager.LoadScene("Primary");
     }
 }
