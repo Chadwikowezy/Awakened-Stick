@@ -387,7 +387,7 @@ public class PlayerMovement : TouchManager
             case type.LeftButton:
                 //Left movement here
                 playerAnimObject.transform.eulerAngles = new Vector2(0, 180);//
-                if(playerObj.GetComponent<Rigidbody2D>().velocity.magnitude < 5 && playerObj.GetComponent<AnimationsManager>().onGround)
+                if(playerObj.GetComponent<Rigidbody2D>().velocity.magnitude < 5 && playerObj.GetComponent<AnimationsManager>().onGround && playerObj.transform.position.x > -50)
                 {
                     playerObj.GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, 0);
                 }
@@ -397,7 +397,7 @@ public class PlayerMovement : TouchManager
             case type.RightButton:
                 //right movement here
                 playerAnimObject.transform.eulerAngles = new Vector2(0, 0);//
-                if (playerObj.GetComponent<Rigidbody2D>().velocity.magnitude < 5 && playerObj.GetComponent<AnimationsManager>().onGround)
+                if (playerObj.GetComponent<Rigidbody2D>().velocity.magnitude < 5 && playerObj.GetComponent<AnimationsManager>().onGround && playerObj.transform.position.x < 50)
                 {
                     playerObj.GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, 0);
                 }
