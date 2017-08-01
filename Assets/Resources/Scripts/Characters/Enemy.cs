@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, ICharacter
 {
-    private Rigidbody2D rb;
+	#region Variables
+	private Rigidbody2D rb;
     private Animator anim;
-	public Transform target;
+	public Transform player;
 
     private float speed = 3.0f;
-	private float range;
 	public float startHealth = 10;
 	private float health;
 
@@ -29,50 +29,26 @@ public class Enemy : MonoBehaviour, ICharacter
 	private int _currentMaxHealth = 10;
 	private int _currentAttack;
 	private int _currentDefense;
-    
+	#endregion
+
 	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 		anim = GetComponentInChildren<Animator>();
 		health = startHealth;
 		SmokeParticle.SetActive (false);
-		target = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindWithTag("Player").transform;
     }
 		
-	void FixedUpdate()
+	void Update()
 	{
-		
-		range = transform.position.x - target.position.x;
-
-		if(range >= 5 && range <= 50)
-		{
-			transform.right = target.position - transform.position; 
-			rb.velocity = transform.right * speed;
-
-			anim.SetInteger("run", 1);
-
-            if (range <= 10)
-            {
-                anim.SetInteger("fist", 1);
-            }
-        }
-
-        if (range <= -5 && range >= -50)
-		{
-			transform.right = target.position - transform.position; 
-			rb.velocity = transform.right * speed;
-
-			anim.SetInteger ("run", 1);
-
-			if (range >= 10)
-			{
-                anim.SetInteger("fist", 1);
-			}
-		}
-
+		//STEVEN'S PILE OF SHIT
+		transform.position = Vector2.MoveTowards (transform.position, player.position, 0.02f);
+		Vector2 track = player.position - transform.position;
+		anim.SetInteger ("run", 1);
 	}
-
-	//properties
+		
+	#region Properties
 	public int BaseMaxHealth
 	{
 		get { return _baseMaxHealth; }
@@ -118,6 +94,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		get { return _currentDefense; }
 		set { _currentDefense = value; }
 	}
+	#endregion
 		
     public void AlterHealth(float healthChange)
     {
