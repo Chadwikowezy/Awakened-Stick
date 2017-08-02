@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		anim = GetComponentInChildren<Animator>();
 		health = startHealth;
 		SmokeParticle.SetActive (false);
-		player = GameObject.FindWithTag("Player").transform;
+		player = FindObjectOfType<Player>().gameObject.transform;
     }
 		
 	void Update()
