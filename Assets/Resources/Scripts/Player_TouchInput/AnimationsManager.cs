@@ -17,6 +17,7 @@ public class AnimationsManager : MonoBehaviour
     public GameObject scytheObj;
     public GameObject wrathOBJ;
     public GameObject spiralingTempestOBJ;
+    public GameObject laceratingTyphoonOBJ;
 
     public GameObject permaFrostOBJ;
 
@@ -66,6 +67,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("tempest", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("wrath", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("ascending", 0);
             anim.SetInteger("vortex", 0);
             anim.SetInteger("fist", 0);
@@ -82,6 +84,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("frost", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("wrath", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("tempest", 0);
             anim.SetInteger("ignition", 0);
             anim.SetInteger("ascending", 0);
@@ -106,6 +109,7 @@ public class AnimationsManager : MonoBehaviour
         anim.SetInteger("ignition", 0);
         anim.SetInteger("tempest", 0);
         anim.SetInteger("wrath", 0);
+        anim.SetInteger("lacerate", 0);
         anim.SetInteger("ascending", 0);
         anim.SetInteger("vortex", 0);
         anim.SetInteger("fist", 0);
@@ -136,6 +140,7 @@ public class AnimationsManager : MonoBehaviour
             inMiddleOfSkillCast = true;
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("wrath", 0);
             anim.SetInteger("tempest", 0);
             anim.SetInteger("jump", 0);
@@ -174,6 +179,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("jump", 0);
             anim.SetInteger("wrath", 0);
             anim.SetInteger("tempest", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
@@ -236,6 +242,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("tempest", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("scythe", 0);
@@ -286,6 +293,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("frost", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("tempest", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("wrath", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
@@ -322,6 +330,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("tempest", 0);
             anim.SetInteger("wrath", 0);
             anim.SetInteger("arrow", 0);
@@ -358,6 +367,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("frost", 0);
             anim.SetInteger("tempest", 0);
             anim.SetInteger("jump", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("wrath", 0);
             anim.SetInteger("uncontrolled", 0);
@@ -391,6 +401,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("shield", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("arrow", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("tempest", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("scythe", 0);
@@ -443,6 +454,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("jump", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("wrath", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("ascending", 0);
@@ -481,6 +493,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("frost", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("tempest", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("uncontrolled", 0);
             anim.SetInteger("wrath", 0);
             anim.SetInteger("jump", 0);
@@ -516,6 +529,7 @@ public class AnimationsManager : MonoBehaviour
             longCD = true;
             anim.SetInteger("shield", 0);
             anim.SetInteger("frost", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("tempest", 0);
@@ -557,11 +571,53 @@ public class AnimationsManager : MonoBehaviour
     #region Lacerating Typhoon 01
     public void LaceratingTyphoon()
     {
+        if (inMiddleOfSkillCast == false)
+        {
+            usingSkill = true;
+            inMiddleOfSkillCast = true;
+            anim.SetInteger("shield", 0);
+            anim.SetInteger("frost", 0);
+            anim.SetInteger("scythe", 0);
+            anim.SetInteger("tempest", 0);
+            anim.SetInteger("uncontrolled", 0);
+            anim.SetInteger("wrath", 0);
+            anim.SetInteger("jump", 0);
+            anim.SetInteger("ascending", 0);
+            anim.SetInteger("run", 0);
+            anim.SetInteger("idle", 0);
+            anim.SetInteger("fist", 0);
+            anim.SetInteger("kick", 0);
+            anim.SetInteger("vortex", 0);
+            anim.SetInteger("ignition", 0);
+            anim.SetInteger("arrow", 0);
+            anim.SetInteger("lacerate", 1);
 
+
+            StartCoroutine(LaceratingTyphoonDelay());
+        }
     }
     IEnumerator LaceratingTyphoonDelay()
     {
         yield return new WaitForSeconds(.6f);
+        laceratingTyphoonOBJ.SetActive(true);
+        for(int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(.4f);
+            Enemy[] enemies = FindObjectsOfType<Enemy>();
+            damageMultiplier = player.CurrentSpeed;
+            foreach (Enemy enemy in enemies)
+            {
+                if (Vector2.Distance(transform.position, enemy.transform.position) <= 4)
+                {
+                    enemy.AlterHealth(damageMultiplier + basedamageMultiplier);
+                }
+            }
+        }
+        
+        yield return new WaitForSeconds(.3f);
+        laceratingTyphoonOBJ.SetActive(false);
+        usingSkill = false;
+        inMiddleOfSkillCast = false;
     }
     #endregion
 
@@ -577,6 +633,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("frost", 0);
             anim.SetInteger("scythe", 0);
             anim.SetInteger("tempest", 0);
+            anim.SetInteger("lacerate", 0);
             anim.SetInteger("wrath", 0);
             anim.SetInteger("jump", 0);
             anim.SetInteger("run", 0);
