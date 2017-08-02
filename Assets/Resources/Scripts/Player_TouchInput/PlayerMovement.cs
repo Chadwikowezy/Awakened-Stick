@@ -18,6 +18,9 @@ public class PlayerMovement : TouchManager
     };
     public type buttonType;
 
+    public Sprite piercingFist, heavenPiercer, wrathDestruction, howlingScythe;
+    public Sprite vortexDischarge, searingIgnition, permaFrost, spiralingTempest;
+    public Sprite piercingShot, uncontrolledSpeed, laceratingTyphoon, ascendingShot;
 
     public GameObject playerObj = null;
     Rigidbody2D playerRigidBody = null;
@@ -47,6 +50,60 @@ public class PlayerMovement : TouchManager
     {
         TouchInput(buttonTexture);        
     }
+
+    #region button sprite setter
+    public void AssignButtonSprite()
+    {
+        if(buttonType == type.PiercingFist_01)
+        {
+            GetComponent<GUITexture>().texture = piercingFist.texture;
+        }
+        else if (buttonType == type.HeavenPiercer_01)
+        {
+            GetComponent<GUITexture>().texture = heavenPiercer.texture;
+        }
+        else if (buttonType == type.WraithsDestruction_01)
+        {
+            GetComponent<GUITexture>().texture = wrathDestruction.texture;
+        }
+        else if (buttonType == type.HowlingScythe_01)
+        {
+            GetComponent<GUITexture>().texture = howlingScythe.texture;
+        }
+        else if (buttonType == type.VortexDischarge_01)
+        {
+            GetComponent<GUITexture>().texture = vortexDischarge.texture;
+        }
+        else if (buttonType == type.SearingIgnition_01)
+        {
+            GetComponent<GUITexture>().texture = searingIgnition.texture;
+        }
+        else if (buttonType == type.Permafrost_01)
+        {
+            GetComponent<GUITexture>().texture = permaFrost.texture;
+        }
+        else if (buttonType == type.SpiralingTempest_01)
+        {
+            GetComponent<GUITexture>().texture = spiralingTempest.texture;
+        }
+        else if (buttonType == type.PiercingShot_01)
+        {
+            GetComponent<GUITexture>().texture = piercingShot.texture;
+        }
+        else if (buttonType == type.UncontrolledSpeed_01)
+        {
+            GetComponent<GUITexture>().texture = uncontrolledSpeed.texture;
+        }
+        else if (buttonType == type.LaceratingTyphoon_01)
+        {
+            GetComponent<GUITexture>().texture = laceratingTyphoon.texture;
+        }
+        else if (buttonType == type.AscendingShot_01)
+        {
+            GetComponent<GUITexture>().texture = ascendingShot.texture;
+        }
+    }
+    #endregion
 
     #region on first touch began for jump, shield, skill01, skill02, skill03
     void OnFirstTouchBegan()
