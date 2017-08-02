@@ -64,7 +64,7 @@ public class WaveSpawning : MonoBehaviour
 
 	void WaveCompleted()
 	{
-		Debug.Log ("Wave Completed");
+		//Debug.Log ("Wave Completed");
 
 		state = SpawnState.COUNTING;
 		waveCountdown = timeBetweenWaves;
@@ -72,7 +72,7 @@ public class WaveSpawning : MonoBehaviour
 		if (nextWave + 1 > waves.Length - 1) 
 		{
 			nextWave = 0;
-			Debug.Log ("All Waves Complete! Looping...");
+			//Debug.Log ("All Waves Complete! Looping...");
 		}
 
 		else
@@ -99,7 +99,7 @@ public class WaveSpawning : MonoBehaviour
 
 	IEnumerator SpawnWave(Wave _wave)
 	{
-		Debug.Log ("Spawning Wave: " + _wave.name);
+		//Debug.Log ("Spawning Wave: " + _wave.name);
 		state = SpawnState.SPAWNING;
 
 		for (int i = 0; i < _wave.count; i++)
@@ -115,7 +115,7 @@ public class WaveSpawning : MonoBehaviour
 
 	void SpawnEnemy(Transform _enemy)
 	{
-		Debug.Log ("Spawning Enemy: " + _enemy.name);
+		//Debug.Log ("Spawning Enemy: " + _enemy.name);
 
 		if(spawnPoints.Length == 0)
 		{

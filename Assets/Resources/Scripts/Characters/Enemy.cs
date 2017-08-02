@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour, ICharacter
     private Animator anim;
 	public Transform player;
 
-    private float speed = 3.0f;
+    private float speed = 3;
 	public float startHealth = 10;
 	private float health;
 
@@ -40,13 +40,28 @@ public class Enemy : MonoBehaviour, ICharacter
 		player = FindObjectOfType<Player>().gameObject.transform;
     }
 		
-	void Update()
+	void FixedUpdate()
 	{
 		//STEVEN'S PILE OF SHIT
-		transform.position = Vector2.MoveTowards (transform.position, player.position, 0.02f);
-		Vector2 track = player.position - transform.position;
+
+		//gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, player.position, Time.deltaTime * speed); 
+		//Vector2 dir = (player.position - transform.position).normalized;
+		//rb.AddForce(Vector3.MoveTowards(gameObject.transform.position, player.position,Time.deltaTime * speed));
+		//rb.MovePosition((Vector2)transform.position + dir * speed * Time.fixedDeltaTime); 
+		//the working solution
 		anim.SetInteger ("run", 1);
 	}
+
+	/*IEnumerator Move()
+	{
+		while (Vector2.Distance (transform.position, player.position) > 2.0f)
+		{
+			transform.position += Vector3.MoveTowards (transform.position, player.position, Time.deltaTime); //* 0.02f
+			anim.SetInteger ("run", 1);
+		}
+
+			yield return break;
+	}*/
 		
 	#region Properties
 	public int BaseMaxHealth
