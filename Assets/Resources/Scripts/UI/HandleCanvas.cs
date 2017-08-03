@@ -17,7 +17,8 @@ public class HandleCanvas : MonoBehaviour
 
     private Equip[] equip;
 
-
+    private bool isPaused = true;
+    public bool canUseButtons = false;
 
 	void Start ()
     {
@@ -31,6 +32,28 @@ public class HandleCanvas : MonoBehaviour
         optionsButton.SetActive(false);
         inventoryButton.SetActive(true);
         skillButton.SetActive(false);
+    }
+
+    public void TimeManager()
+    {
+        if (isPaused)
+            Time.timeScale = 1;
+        else
+            Time.timeScale = 0;
+
+        isPaused = !isPaused;
+    }
+
+    public void HandleMovement()
+    {
+        if (canUseButtons == false)
+        {
+            canUseButtons = true;
+        }
+        else if(canUseButtons == true)
+        {
+            canUseButtons = false;
+        }
     }
 
     public void UpdateItemsinItemArray()
