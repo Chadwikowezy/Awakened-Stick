@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ArmorSubmenu : MonoBehaviour
+public class SubmenuTabs : MonoBehaviour
 {
     private enum ArmorMenus { Helmet, Armor, Gloves }
 
