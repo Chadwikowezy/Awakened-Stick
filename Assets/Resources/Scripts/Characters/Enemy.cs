@@ -16,7 +16,17 @@ public class Enemy : MonoBehaviour, ICharacter
 
     public GameObject smokePrarticle;
     public GameObject itemDropOBJ;
-
+	public GameObject raycastObject;
+	public GameObject arrowObj;
+	public GameObject ascendingArrow;
+	public GameObject vortexDischargeOBJ;
+	public GameObject searingIgnitionEffect;
+	public GameObject piercingFistOBJ;
+	public GameObject scytheObj;
+	public GameObject wrathOBJ;
+	public GameObject spiralingTempestOBJ;
+	public GameObject laceratingTyphoonOBJ;
+	public GameObject permaFrostOBJ;
     //base character stats
     [SerializeField]
     private int _baseMaxHealth;
