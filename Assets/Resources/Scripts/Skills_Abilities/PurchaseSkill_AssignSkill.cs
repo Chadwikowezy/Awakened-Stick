@@ -53,7 +53,7 @@ public class PurchaseSkill_AssignSkill : MonoBehaviour
         skillPointManager = FindObjectOfType<SkillPointManager>();
         if (skillPointManager.CurrentSkillPointValue >= currentSkillValue)
         {           
-            skillPointManager.CurrentSkillPointValue -= currentSkillValue;
+            skillPointManager.AlterCurrencyValue(currentSkillValue);
             CheckIDAssignAbility(abilityIDValue);
             ReturnSkill();
         }
