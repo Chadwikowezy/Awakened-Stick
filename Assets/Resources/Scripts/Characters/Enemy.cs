@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, ICharacter
 {
-    private Rigidbody2D rb;
+	#region Variables
+	private Rigidbody2D rb;
     private Animator anim;
     private Player player;
 
@@ -15,7 +16,17 @@ public class Enemy : MonoBehaviour, ICharacter
 
     public GameObject smokePrarticle;
     public GameObject itemDropOBJ;
-
+	public GameObject raycastObject;
+	public GameObject arrowObj;
+	public GameObject ascendingArrow;
+	public GameObject vortexDischargeOBJ;
+	public GameObject searingIgnitionEffect;
+	public GameObject piercingFistOBJ;
+	public GameObject scytheObj;
+	public GameObject wrathOBJ;
+	public GameObject spiralingTempestOBJ;
+	public GameObject laceratingTyphoonOBJ;
+	public GameObject permaFrostOBJ;
     //base character stats
     [SerializeField]
     private int _baseMaxHealth;
@@ -32,6 +43,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
     private bool inPursuit = true;
     private bool usingSkill = false;
+	#endregion
 
     #region Properties
     public int BaseMaxHealth
@@ -94,9 +106,9 @@ public class Enemy : MonoBehaviour, ICharacter
         if (transform.position.x <= player.transform.position.x && inPursuit == true)
         {
             anim.gameObject.transform.eulerAngles = new Vector2(0, 0);
-            if (Vector2.Distance(transform.position, player.transform.position) >= 5f)
+            if (Vector2.Distance(transform.position, player.transform.position) >= 2f)
             {
-                if (rb.velocity.magnitude <= 5f)
+                if (rb.velocity.magnitude <= 2f)
                 {
                     rb.velocity = new Vector2(moveSpeed, 0);
                     anim.SetInteger("Idle", 0);
@@ -108,13 +120,19 @@ public class Enemy : MonoBehaviour, ICharacter
                 inPursuit = false;
                 StartCoroutine(abilityRandomizer());
             }
+
+			else if(Vector2.Distance(transform.position, player.transform.position) <= 3f)
+			{
+				inPursuit = false;
+				StartCoroutine(abilityRandomizer2());
+			}
         }
         else if (transform.position.x > player.transform.position.x && inPursuit == true)
         {
             anim.gameObject.transform.eulerAngles = new Vector2(0, 180);
-            if (Vector2.Distance(transform.position, player.transform.position) >= 5f)
+            if (Vector2.Distance(transform.position, player.transform.position) >= 2f)
             {
-                if (rb.velocity.magnitude <= 5f)
+                if (rb.velocity.magnitude <= 2f)
                 {
                     rb.velocity = new Vector2(-moveSpeed, 0);
                     anim.SetInteger("Idle", 0);
@@ -126,6 +144,12 @@ public class Enemy : MonoBehaviour, ICharacter
                 inPursuit = false;
                 StartCoroutine(abilityRandomizer());
             }
+
+			else if (Vector2.Distance(transform.position, player.transform.position) <= 3f)
+			{
+				inPursuit = false;
+				StartCoroutine(abilityRandomizer2());
+			}
         }
     }
     #region string plugin function for what animation to play
@@ -158,59 +182,75 @@ public class Enemy : MonoBehaviour, ICharacter
 
         usingSkill = true;
         inPursuit = false;
-        int useAttack = Random.Range(0, 13);
+        int useAttack = Random.Range(0, 10);
         if(useAttack == 1)
         {
-            animStringCaller("lacerate");
+            animStringCaller("arrow");
+        }
+        
+        else if (useAttack == 2)
+        {
+			animStringCaller("ignition");
         }
         else if (useAttack == 2)
         {
-            animStringCaller("scythe");
+			animStringCaller("vortex");
         }
+        
         else if (useAttack == 3)
         {
-            animStringCaller("kick");
+			animStringCaller("wrath");
         }
         else if (useAttack == 4)
         {
-
+			animStringCaller("uncontrolled");
         }
         else if (useAttack == 5)
         {
-
+			animStringCaller("tempest");
         }
         else if (useAttack == 6)
         {
-
+			animStringCaller("scythe");
         }
         else if (useAttack == 7)
         {
-
+			animStringCaller("frost");
         }
         else if (useAttack == 8)
         {
-
+			animStringCaller("fist");
         }
-        else if (useAttack == 9)
-        {
-
-        }
-        else if (useAttack == 10)
-        {
-
-        }
-        else if (useAttack == 11)
-        {
-
-        }
-        else if (useAttack == 12)
-        {
-
-        }
+        
         yield return new WaitForSeconds(1.5f);
         animStringCaller("");
         inPursuit = true;
     }
+
+	IEnumerator abilityRandomizer2()
+	{
+		Debug.Log("got to coroutine call 2");
+
+		usingSkill = true;
+		inPursuit = false;
+		int useAttack = Random.Range(0, 4);
+		if(useAttack == 1)
+		{
+			animStringCaller("kick");
+		}
+		else if (useAttack == 2)
+		{
+			animStringCaller("ascending");
+		}
+		else if (useAttack == 3)
+		{
+			animStringCaller("lacerate");
+		}
+			
+		yield return new WaitForSeconds(1.5f);
+		animStringCaller("");
+		inPursuit = true;
+	}
 
     public void AlterHealth(float healthChange)
     {
