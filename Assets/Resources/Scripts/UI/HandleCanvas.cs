@@ -32,6 +32,7 @@ public class HandleCanvas : MonoBehaviour
         optionsButton.SetActive(false);
         inventoryButton.SetActive(true);
         skillButton.SetActive(false);
+        Time.timeScale = 0;
     }
 
     public void TimeManager()
