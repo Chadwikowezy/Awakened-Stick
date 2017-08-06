@@ -21,7 +21,7 @@ public class Actor : MonoBehaviour
         {
             data.startingGameSkillPoints = 70;
             skillPointManager.CurrentSkillPointValue = data.startingGameSkillPoints;
-            skillPointManager.skillPointValueText.text = "SkillPoints: " + skillPointManager.CurrentSkillPointValue;
+            skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
         }
         else
         {
@@ -204,6 +204,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(1);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.heavensPiercerUnlocked == true)
@@ -212,6 +213,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(2);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.wrathsDestructionUnlocked == true)
@@ -220,6 +222,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(3);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.howlingScytheUnlocked == true)
@@ -228,6 +231,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(4);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.vortexDischargeUnlocked == true)
@@ -236,6 +240,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(5);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.searingIgnitionUnlocked == true)
@@ -244,6 +249,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(6);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.permaFrostUnlocked == true)
@@ -252,6 +258,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(7);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.spiralingTempestUnlocked == true)
@@ -260,6 +267,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(8);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.piercingShotUnlocked == true)
@@ -268,6 +276,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(9);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.uncontrolledSpeedUnlocked == true)
@@ -276,6 +285,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(10);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.laceratingTyphoonUnlocked == true)
@@ -284,6 +294,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(11);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.ascendingShotUnlocked == true)
@@ -292,6 +303,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(12);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2PiercingFistUnlocked == true)
@@ -300,6 +312,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(13);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2HeavensPiercerUnlocked == true)
@@ -308,6 +321,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(14);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2WrathsDestructionUnlocked == true)
@@ -316,6 +330,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(15);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2HowlingScytheUnlocked == true)
@@ -324,6 +339,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(16);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2VortexDischargeUnlocked == true)
@@ -332,6 +348,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(17);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2SearingIgnitionUnlocked == true)
@@ -340,6 +357,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(18);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2PermaFrostUnlocked == true)
@@ -348,6 +366,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(19);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2SpiralingTempestUnlocked == true)
@@ -356,6 +375,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(20);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2PiercingShotUnlocked == true)
@@ -364,6 +384,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(21);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2UncontrolledSpeedUnlocked == true)
@@ -372,6 +393,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(22);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2LaceratingTyphoonUnlocked == true)
@@ -380,6 +402,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(23);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
             if (data.tier2AscendingShotUnlocked == true)
@@ -388,6 +411,7 @@ private void GameSparksRecieveData()
                 {
                     skillsNeedLoading.ReturnSkill();
                     skillsNeedLoading.CheckIDAssignAbility(24);
+                    skillsNeedLoading.isUnlockedAlready = true;
                 }
             }
         }
@@ -400,7 +424,7 @@ private void GameSparksRecieveData()
         {
             skillPointManager = FindObjectOfType<SkillPointManager>();
             skillPointManager.CurrentSkillPointValue = data.skillPointValue;
-            skillPointManager.skillPointValueText.text = "SkillPoints: " + skillPointManager.CurrentSkillPointValue;
+            skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
         }
         ReturnSkills();
     }

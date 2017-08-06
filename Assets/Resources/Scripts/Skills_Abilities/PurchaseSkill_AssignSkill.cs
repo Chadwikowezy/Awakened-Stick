@@ -42,6 +42,7 @@ public class PurchaseSkill_AssignSkill : MonoBehaviour
     public bool tier2LaceratingTyphoonUnlocked = false;
     public bool tier2AscendingShotUnlocked = false;
 
+    public bool isUnlockedAlready = false;
 
     void Start ()
     {
@@ -51,11 +52,16 @@ public class PurchaseSkill_AssignSkill : MonoBehaviour
     public void UnlockSkill()
     {
         skillPointManager = FindObjectOfType<SkillPointManager>();
-        if (skillPointManager.CurrentSkillPointValue >= currentSkillValue)
+        if (skillPointManager.CurrentSkillPointValue >= currentSkillValue && isUnlockedAlready == false)
         {           
             skillPointManager.AlterCurrencyValue(currentSkillValue);
             CheckIDAssignAbility(abilityIDValue);
             ReturnSkill();
+            isUnlockedAlready = true;
+        }
+        else if(isUnlockedAlready == true)
+        {
+            StartCoroutine(buttonAssignerDuration());
         }
     }
     IEnumerator buttonAssignerDuration()

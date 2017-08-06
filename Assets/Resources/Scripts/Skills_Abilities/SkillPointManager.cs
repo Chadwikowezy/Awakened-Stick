@@ -28,7 +28,7 @@ public class SkillPointManager: MonoBehaviour
         if(CurrentSkillPointValue >= amount)
         {
             currentSkillPointValue -= amount;
-            skillPointValueText.text = "SkillPoints: " + currentSkillPointValue.ToString();
+            skillPointValueText.text = currentSkillPointValue.ToString();
         }
     }
 
