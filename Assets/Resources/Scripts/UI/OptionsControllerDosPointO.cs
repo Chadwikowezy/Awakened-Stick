@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class OptionsController : MonoBehaviour
+public class OptionsControllerDosPointO : MonoBehaviour
 {
     public AudioSource music;
 
@@ -28,6 +27,4 @@ public class OptionsController : MonoBehaviour
     {
         Application.Quit();
     }
-
-
 }
