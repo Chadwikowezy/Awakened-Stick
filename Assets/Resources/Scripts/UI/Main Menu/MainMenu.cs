@@ -40,21 +40,21 @@ public class MainMenu : MonoBehaviour
 
     void InitializeMenus()
     {
+        Time.timeScale = 1;
         _currentSystem = FindObjectOfType<EventSystem>();
-        _currentSubMenu = characterMenu;
-        _currentSubMenu.GetComponent<SubMenu>().IsActiveMenu = true;
+        CharacterButton();
     }
 
     public void SetActiveSelectable(GameObject _selectable)
     {
-        _currentSystem.SetSelectedGameObject(_selectable.gameObject);
+        _currentSystem.SetSelectedGameObject(_selectable);
     }
     public void SetActiveSubMenu(GameObject _newSubMenu)
     {
         _currentSubMenu = _newSubMenu;
         _currentSubMenu.GetComponent<SubMenu>().IsActiveMenu = true;
 
-        for (int i = 0; i < allSubMenus.Length; i ++)
+        for (int i = 0; i < allSubMenus.Length; i++)
             if (allSubMenus[i] != _currentSubMenu)
                 allSubMenus[i].GetComponent<SubMenu>().IsActiveMenu = false;
     }

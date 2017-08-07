@@ -34,6 +34,7 @@ public class SubMenu : MonoBehaviour
                 _anim.Play("SubMenu_MoveOut");
 
             _isActiveMenu = newActiveState;
+
         }
     }
 
@@ -60,9 +61,5 @@ public class SubMenu : MonoBehaviour
         tabs[1].GetComponent<Image>().color = Color.white;
         tabs[1].transform.SetSiblingIndex(transform.parent.childCount);
         tabMenus[1].SetActive(true);
-    }
-    public void TabThree()
-    {
-
     }
 }
