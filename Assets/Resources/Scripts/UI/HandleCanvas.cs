@@ -32,6 +32,11 @@ public class HandleCanvas : MonoBehaviour
         optionsButton.SetActive(false);
         inventoryButton.SetActive(true);
         skillButton.SetActive(false);
+        StartCoroutine(DelayTimePause());
+    }
+    IEnumerator DelayTimePause()
+    {
+        yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
     }
 
