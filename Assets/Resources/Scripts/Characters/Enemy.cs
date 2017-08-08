@@ -307,7 +307,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		inMiddleOfSkillCast = false;
 
 	}
-	#endregion //
+	#endregion 
 
 	#region Heaven Piercer 01
 	public void HeavenPiercer()
@@ -459,7 +459,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion //
+	#endregion 
 
 	#region Vortex Discharge 01
 	public void VortexDischarge()
@@ -495,7 +495,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion //
+	#endregion 
 
 	#region Searing Ignition 01
 	public void SearingIgnition()
@@ -530,7 +530,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion //
+	#endregion 
 
 	#region Permafrost 01
 	public void Permafrost()
@@ -613,15 +613,15 @@ public class Enemy : MonoBehaviour, ICharacter
 	IEnumerator SpiralingTempestDelay()
 	{
 		spiralingTempestOBJ.SetActive(true);
-		player.tag = "Untagged";
+		gameObject.tag = "Untagged";
 
 		yield return new WaitForSeconds(3f);
-		player.tag = "Player";
+		gameObject.tag = "Enemy";
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 		spiralingTempestOBJ.SetActive(false);
 	}
-	#endregion //?
+	#endregion 
 
 	#region Piercing Shot 01
 	public void PiercingShot()
@@ -658,7 +658,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion //
+	#endregion 
 
 	#region Uncontrolled Speed 01
 	public void UncontrolledSpeed()
@@ -707,7 +707,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
 		longCD = false;
 	}
-	#endregion //?
+	#endregion 
 
 	#region Lacerating Typhoon 01
 	public void LaceratingTyphoon()
