@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour, ICharacter
                 if (rb.velocity.magnitude <= 2f)
                 {
                     rb.velocity = new Vector2(moveSpeed, 0);
-                    anim.SetInteger("Idle", 0);
+                    //anim.SetInteger("Idle", 0);
                     anim.SetInteger("run", 1);
                 }
             }
@@ -142,7 +142,7 @@ public class Enemy : MonoBehaviour, ICharacter
                 if (rb.velocity.magnitude <= 2f)
                 {
                     rb.velocity = new Vector2(-moveSpeed, 0);
-                    anim.SetInteger("Idle", 0);
+                    //anim.SetInteger("Idle", 0);
                     anim.SetInteger("run", 1);
                 }
             }
@@ -193,41 +193,50 @@ public class Enemy : MonoBehaviour, ICharacter
         int useAttack = Random.Range(0, 10);
         if(useAttack == 1)
         {
-            animStringCaller("arrow");
+            //animStringCaller("arrow");
+			PiercingShot();
         }
         
         else if (useAttack == 2)
         {
-			animStringCaller("ignition");
+			//animStringCaller("ignition");
+			SearingIgnition();
         }
         else if (useAttack == 2)
         {
-			animStringCaller("vortex");
+			//animStringCaller("vortex");
+			VortexDischarge();
         }
         
         else if (useAttack == 3)
         {
-			animStringCaller("wrath");
+			//animStringCaller("wrath");
+			WraithsDestruction();
         }
         else if (useAttack == 4)
         {
-			animStringCaller("uncontrolled");
+			//animStringCaller("uncontrolled");
+			UncontrolledSpeed();
         }
         else if (useAttack == 5)
         {
-			animStringCaller("tempest");
+			//animStringCaller("tempest");
+			SpiralingTempest();
         }
         else if (useAttack == 6)
         {
-			animStringCaller("scythe");
+			//animStringCaller("scythe");
+			HowlingScythe();
         }
         else if (useAttack == 7)
         {
-			animStringCaller("frost");
+			//animStringCaller("frost");
+			Permafrost();
         }
         else if (useAttack == 8)
         {
-			animStringCaller("fist");
+			//animStringCaller("fist");
+			PiercingFist ();
         }
         
         yield return new WaitForSeconds(1.5f);
@@ -244,15 +253,18 @@ public class Enemy : MonoBehaviour, ICharacter
 		int useAttack = Random.Range(0, 4);
 		if(useAttack == 1)
 		{
-			animStringCaller("kick");
+			//animStringCaller("kick");
+			HeavenPiercer();
 		}
 		else if (useAttack == 2)
 		{
-			animStringCaller("ascending");
+			//animStringCaller("ascending");
+			AscendingShot();
 		}
 		else if (useAttack == 3)
 		{
-			animStringCaller("lacerate");
+			//animStringCaller("lacerate");
+			LaceratingTyphoon ();
 		}
 			
 		yield return new WaitForSeconds(1.5f);
@@ -295,7 +307,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		inMiddleOfSkillCast = false;
 
 	}
-	#endregion
+	#endregion //
 
 	#region Heaven Piercer 01
 	public void HeavenPiercer()
@@ -332,7 +344,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		RaycastHit2D hit = Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right);
 		if (Physics2D.Raycast(raycastObject.transform.position, raycastObject.transform.right, 2f))
 		{
-			if (hit.collider.tag == "Enemy")
+			if (hit.collider.tag == "Player")
 			{
 				//deal damage
 
@@ -395,12 +407,12 @@ public class Enemy : MonoBehaviour, ICharacter
 		wrathOBJ.SetActive(true);
 		wrathOBJ.GetComponent<ParticleSystem>().Play();
 
-		Enemy[] enemies = FindObjectsOfType<Enemy>();
-		foreach (Enemy enemy in enemies)
+		Player[] players = FindObjectsOfType<Player>();
+		foreach (Player player in players)
 		{
-			if (enemy != null)
+			if (player != null)
 			{
-				enemy.AlterHealth(damageMultiplier);
+				player.AlterHealth(damageMultiplier);
 			}
 		}
 		yield return new WaitForSeconds(.4f);
@@ -447,7 +459,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion
+	#endregion //
 
 	#region Vortex Discharge 01
 	public void VortexDischarge()
@@ -483,7 +495,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion
+	#endregion //
 
 	#region Searing Ignition 01
 	public void SearingIgnition()
@@ -518,7 +530,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion
+	#endregion //
 
 	#region Permafrost 01
 	public void Permafrost()
@@ -554,12 +566,12 @@ public class Enemy : MonoBehaviour, ICharacter
 		for (int i = 0; i < 5; i++)
 		{
 			yield return new WaitForSeconds(1f);
-			Enemy[] enemies = FindObjectsOfType<Enemy>();
-			foreach (Enemy enemy in enemies)
+			Player[] players = FindObjectsOfType<Player>();
+			foreach (Player player in players)
 			{
-				if (enemy != null)
+				if (player != null)
 				{
-					enemy.AlterHealth(damageMultiplier);
+					player.AlterHealth(damageMultiplier);
 				}
 			}
 		}
@@ -609,7 +621,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		inMiddleOfSkillCast = false;
 		spiralingTempestOBJ.SetActive(false);
 	}
-	#endregion
+	#endregion //?
 
 	#region Piercing Shot 01
 	public void PiercingShot()
@@ -646,7 +658,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
 	}
-	#endregion
+	#endregion //
 
 	#region Uncontrolled Speed 01
 	public void UncontrolledSpeed()
@@ -680,13 +692,13 @@ public class Enemy : MonoBehaviour, ICharacter
 	IEnumerator UncontrolledSpeedDelay()
 	{
 		yield return new WaitForSeconds(.2f);
-		if (anim.gameObject.transform.eulerAngles.y == 180 && player.transform.position.x > -40)
+		if (anim.gameObject.transform.eulerAngles.y == 180 && gameObject.transform.position.x > -40)
 		{
-			player.transform.position = new Vector3((player.transform.position.x - 10), player.transform.position.y, player.transform.position.z);
+			gameObject.transform.position = new Vector3((gameObject.transform.position.x - 10), gameObject.transform.position.y, gameObject.transform.position.z);
 		}
-		else if (anim.gameObject.transform.eulerAngles.y == 0 && player.transform.position.x < 40)
+		else if (anim.gameObject.transform.eulerAngles.y == 0 && gameObject.transform.position.x < 40)
 		{
-			player.transform.position = new Vector3((player.transform.position.x + 10), player.transform.position.y, player.transform.position.z);
+			gameObject.transform.position = new Vector3((gameObject.transform.position.x + 10), gameObject.transform.position.y, gameObject.transform.position.z);
 		}
 		usingSkill = false;
 		inMiddleOfSkillCast = false;
@@ -695,7 +707,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
 		longCD = false;
 	}
-	#endregion
+	#endregion //?
 
 	#region Lacerating Typhoon 01
 	public void LaceratingTyphoon()
@@ -732,13 +744,13 @@ public class Enemy : MonoBehaviour, ICharacter
 		for(int i = 0; i < 3; i++)
 		{
 			yield return new WaitForSeconds(.4f);
-			Enemy[] enemies = FindObjectsOfType<Enemy>();
+			Player[] players = FindObjectsOfType<Player>();
 			damageMultiplier = player.CurrentSpeed;
-			foreach (Enemy enemy in enemies)
+			foreach (Player player in players)
 			{
-				if (Vector2.Distance(transform.position, enemy.transform.position) <= 4)
+				if (Vector2.Distance(transform.position, player.transform.position) <= 4)
 				{
-					enemy.AlterHealth(damageMultiplier + basedamageMultiplier);
+					player.AlterHealth(damageMultiplier + basedamageMultiplier);
 				}
 			}
 		}
@@ -783,11 +795,11 @@ public class Enemy : MonoBehaviour, ICharacter
 		player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
 		if (anim.gameObject.transform.eulerAngles.y == 180)
 		{
-			player.GetComponent<Rigidbody2D>().AddForce(Vector2.right * jumpHeight, ForceMode2D.Impulse);
+			gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * jumpHeight, ForceMode2D.Impulse);
 		}
 		else if (anim.gameObject.transform.eulerAngles.y == 0)
 		{
-			player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * jumpHeight, ForceMode2D.Impulse);
+			gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * jumpHeight, ForceMode2D.Impulse);
 		}
 
 		yield return new WaitForSeconds(1f);
