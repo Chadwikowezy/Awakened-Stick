@@ -386,6 +386,7 @@ public class AnimationsManager : MonoBehaviour
     IEnumerator SearingIgnitionDelay()
     {
         yield return new WaitForSeconds(2f);
+        searingIgnitionEffect.SetActive(true);
         usingSkill = false;
         inMiddleOfSkillCast = false;
     }

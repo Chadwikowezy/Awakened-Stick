@@ -5,8 +5,10 @@ using UnityEngine;
 public class AbilityDamageStationarySkill : MonoBehaviour
 {
     private int damageMultiplier;
-    public int baseModifier;
+    public float baseModifier;
     private Player player;
+
+    private List<Enemy> hitEnemies = new List<Enemy>();
 
 	void Start ()
     {
@@ -16,28 +18,50 @@ public class AbilityDamageStationarySkill : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        StatUpdate();
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<Enemy>().AlterHealth(damageMultiplier / 15f);
+            hitEnemies.Add(other.gameObject.GetComponent<Enemy>());
+            StartCoroutine(SearingIgnitionDelay());
         }
     }
+
+    IEnumerator SearingIgnitionDelay()
+    {
+        StatUpdate();
+        foreach(Enemy enemy in hitEnemies)
+        {
+            if(enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+        yield return new WaitForSeconds(1);
+        foreach (Enemy enemy in hitEnemies)
+        {
+            if (enemy != null)
+            {
+                enemy.AlterHealth(damageMultiplier);
+            }
+        }
+    }
+
+
     void StatUpdate()
     {
         player = FindObjectOfType<Player>();
         if (tag == "Arcane")
         {
-            damageMultiplier = (player.CurrentArcane + baseModifier);
+            damageMultiplier = (player.CurrentArcane + (int)baseModifier);       
         }
         else if (tag == "Speed")
         {
-            damageMultiplier = (player.CurrentSpeed + baseModifier);
+            damageMultiplier = (player.CurrentSpeed + (int)baseModifier);
         }
         else if (tag == "Rage")
         {
-            damageMultiplier = (player.CurrentRage + baseModifier);
+            damageMultiplier = (player.CurrentRage + (int)baseModifier);
         }
     }
 }
