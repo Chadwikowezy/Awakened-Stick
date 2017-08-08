@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, ICharacter
 {
@@ -13,13 +14,16 @@ public class Player : MonoBehaviour, ICharacter
     [SerializeField] private int _baseDefense;
 
     //current stats
-    private int _currentHealth;
-    private int _currentMaxHealth;
+    private int _currentHealth = 50;
+    private int _currentMaxHealth = 50;
     private int _currentAttack;
     private int _currentRage;
     private int _currentSpeed;
     private int _currentArcane;
     private int _currentDefense;
+
+    public Slider healthBar;
+    public Text currentHealthText;
 
     //properties
     public int BaseMaxHealth
@@ -98,9 +102,18 @@ public class Player : MonoBehaviour, ICharacter
         set { _currentDefense = value; }
     }
 
+    void Start()
+    {
+        currentHealthText.text = CurrentHealth + "/" + CurrentMaxHealth;
+    }
+
     public void AlterHealth(float healthChange)
     {
-        CurrentHealth += (int)healthChange;
+        Debug.Log("Current Health Prior: " + CurrentHealth);
+        CurrentHealth -= (int)healthChange;
+        healthBar.value = (float)((float)CurrentHealth / (float)CurrentMaxHealth);
+        currentHealthText.text = CurrentHealth + "/" + CurrentMaxHealth;
+        Debug.Log("Current Health After: " + CurrentHealth);
 
         if (CurrentHealth <= 0)
             Die();
