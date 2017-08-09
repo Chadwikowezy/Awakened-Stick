@@ -175,6 +175,11 @@ public class Equip : MonoBehaviour
     void HandleItemAddingData(Player player, InventoryItemDisplay inventoryItemDisplay)
     {
         player.CurrentMaxHealth += inventoryItemDisplay.item.lifeValue;
+        HandleCanvas handleCanvas = FindObjectOfType<HandleCanvas>();
+        if (handleCanvas.canAlterStats == true)
+        {
+            player.CurrentHealth += inventoryItemDisplay.item.lifeValue;
+        }
         player.CurrentRage += inventoryItemDisplay.item.rage;
         player.CurrentSpeed += inventoryItemDisplay.item.speed;
         player.CurrentArcane += inventoryItemDisplay.item.arcane;
@@ -185,10 +190,17 @@ public class Equip : MonoBehaviour
         player.CurrentDefense += (inventoryItemDisplay.item.lifeValue / 2);
 
         itemSpriteColorSwitch.color = Color.red;
+
+        player.healthBar.value = (float)((float)player.CurrentHealth / (float)player.CurrentMaxHealth);
+        player.currentHealthText.text = player.CurrentHealth + "/" + player.CurrentMaxHealth;
     }
     void HandleItemSubtractingData(Player player, InventoryItemDisplay inventoryItemDisplay)
     {
         player.CurrentMaxHealth -= inventoryItemDisplay.item.lifeValue;
+        if (player.CurrentHealth > player.CurrentMaxHealth)
+        {
+            player.CurrentHealth -= inventoryItemDisplay.item.lifeValue;
+        }
         player.CurrentRage -= inventoryItemDisplay.item.rage;
         player.CurrentSpeed -= inventoryItemDisplay.item.speed;
         player.CurrentArcane -= inventoryItemDisplay.item.arcane;
@@ -199,6 +211,9 @@ public class Equip : MonoBehaviour
         player.CurrentDefense -= (inventoryItemDisplay.item.lifeValue / 2);
 
         itemSpriteColorSwitch.color = Color.white;
+
+        player.healthBar.value = (float)((float)player.CurrentHealth / (float)player.CurrentMaxHealth);
+        player.currentHealthText.text = player.CurrentHealth + "/" + player.CurrentMaxHealth;
     }
     #endregion
 }

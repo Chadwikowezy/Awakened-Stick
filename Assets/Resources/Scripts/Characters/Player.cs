@@ -24,6 +24,9 @@ public class Player : MonoBehaviour, ICharacter
 
     public Slider healthBar;
     public Text currentHealthText;
+    public GameObject deathEffect;
+    private HandleCanvas handleCanvas;
+    public GameObject deathTextOBJ;
 
     //properties
     public int BaseMaxHealth
@@ -116,11 +119,22 @@ public class Player : MonoBehaviour, ICharacter
         Debug.Log("Current Health After: " + CurrentHealth);
 
         if (CurrentHealth <= 0)
-            Die();
+            StartCoroutine(Die());
     }
 
-    void Die()
+    IEnumerator Die()
     {
         //Do Death Stuffs
+        handleCanvas = FindObjectOfType<HandleCanvas>();
+        handleCanvas.canUseButtons = false;
+        deathTextOBJ.SetActive(true);
+        deathEffect.SetActive(true);
+        GameController gameController = FindObjectOfType<GameController>();
+        for (int i = 0; i < 1; i++)
+        {
+            gameController.Save();
+        }
+        yield return new WaitForSeconds(4f);
+        Application.LoadLevel("Main Menu");
     }
 }

@@ -20,6 +20,8 @@ public class HandleCanvas : MonoBehaviour
     private bool isPaused = true;
     public bool canUseButtons = false;
 
+    public bool canAlterStats;
+
 	void Start ()
     {
         toggleCheck = true;
@@ -32,19 +34,18 @@ public class HandleCanvas : MonoBehaviour
         optionsButton.SetActive(false);
         inventoryButton.SetActive(true);
         skillButton.SetActive(false);
-        
+        canAlterStats = true;
+        StartCoroutine(DelayTimePause());
     }
     IEnumerator DelayTimePause()
     {
         yield return new WaitForSeconds(1f);
-        if (enabled)
-        {
-            Time.timeScale = 0;
-        }
+        Time.timeScale = 0;
     }
 
     public void TimeManager()
     {
+        canAlterStats = false;
         if (isPaused)
             Time.timeScale = 1;
         else
