@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemReturnManager : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class ItemReturnManager : MonoBehaviour
 	
 	IEnumerator BeginReturningIDS()
     {
+        if (SceneManager.GetActiveScene().name != "Primary")
+            yield break;
+
         yield return new WaitForSeconds(.3f);
 
         foreach(int id in actor.data.ids)

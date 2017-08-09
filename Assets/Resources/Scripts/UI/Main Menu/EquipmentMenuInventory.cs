@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EquipmentMenuInventory : MonoBehaviour
 {
-
-
     public List<int> itemIds = new List<int>();
 
     public List<Item> allItems = new List<Item>();
