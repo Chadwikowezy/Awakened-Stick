@@ -5,76 +5,79 @@ using UnityEngine.UI;
 
 public class WorldCreation : MonoBehaviour
 {
-    public int level;
+    public int tierCount;
     public int waveCount;
-    public int enemyCountToSpawn;
     public GameObject enemyObject;
     public Transform[] possibleSpawnPoints;
     public Text waveCountText;
+    public int enemyDeathTracker;
 
-	void Awake ()
+    void Start()
     {
-        StartingWave();
-    }
-
-    void StartingWave()
-    {
-        level = 1;
+        tierCount = 1;
         waveCount = 1;
-        enemyCountToSpawn = 4;
-        UpdateText();
-        CreateEnemyObjects();
+        StartCoroutine(TestTimeGap());
     }
+    void Update()
+    {
+        UpdateText();
+        WaveTracker();
+        DeathTracker();
+    }
+
+    IEnumerator TestTimeGap()
+    {
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(SpawnEnemies());
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        yield return new WaitForSeconds(3f);
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject enemy = (GameObject)Instantiate(enemyObject,
+            possibleSpawnPoints[Random.Range(0, 12)].transform.position, Quaternion.identity);
+            enemy.GetComponent<Enemy>().CurrentMaxHealth = enemy.GetComponent<Enemy>().CurrentMaxHealth * waveCount;
+            enemy.GetComponent<Enemy>().CurrentHealth = enemy.GetComponent<Enemy>().CurrentHealth * waveCount;
+        }
+        StartCoroutine(TestTimeGap());
+
+    }
+
+    void DeathTracker()
+    {
+        if (enemyDeathTracker > 10)
+        {
+            waveCount++;
+            enemyDeathTracker = 0;
+        }
+    }
+
+    #region waveTracker
+    void WaveTracker()
+    {
+        if(waveCount > 5)
+        {
+            tierCount++;
+        }
+        else if (waveCount > 10)
+        {
+            tierCount++;
+        }
+        else if (waveCount > 20)
+        {
+            tierCount++;
+        }
+        else if (waveCount > 50)
+        {
+            tierCount++;
+        }
+    }
+    #endregion
 
     void UpdateText()
     {
         waveCountText.text = "Wave Count: " + waveCount;
-    }
-
-    void Update()
-    {
-        Enemy[] enemyObjects = FindObjectsOfType<Enemy>();
-        if(enemyObjects.Length <= 0)
-        {
-            waveCount++;
-            enemyCountToSpawn = enemyCountToSpawn * 2;
-            UpdateText();
-            CreateEnemyObjects();
-        }
-
-        if(waveCount > 5)
-        {
-            level++;
-        }
-        else if(waveCount > 10)
-        {
-            level++;
-        }
-        else if(waveCount > 20)
-        {
-            level++;
-        }
-        else if(waveCount > 50)
-        {
-            level++;
-        }
-    }
-
-    void CreateEnemyObjects()
-    {
-        for (int i = 0; i < enemyCountToSpawn; i++)
-        {
-            int spawnPoint = Random.Range(0, 12);
-            GameObject enemyCreated = (GameObject)Instantiate(enemyObject, possibleSpawnPoints[spawnPoint].transform.position, Quaternion.identity);
-            enemyCreated.GetComponent<Enemy>().CurrentMaxHealth = enemyCreated.GetComponent<Enemy>().CurrentMaxHealth * level;
-            enemyCreated.GetComponent<Enemy>().CurrentHealth = enemyCreated.GetComponent<Enemy>().CurrentHealth * level;
-            //StartCoroutine(DelayBetweenEnemySpawn());
-        }
-    }
-
-    IEnumerator DelayBetweenEnemySpawn()
-    {
-        yield return new WaitForSeconds(1f);
-        
     }
 }

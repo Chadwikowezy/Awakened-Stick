@@ -827,6 +827,8 @@ public class Enemy : MonoBehaviour, ICharacter
     IEnumerator Death()
     {
         smokePrarticle.SetActive(true);
+        WorldCreation worldCreation = FindObjectOfType<WorldCreation>();
+        worldCreation.enemyDeathTracker++;
         yield return new WaitForSeconds(1);
         DetermineLoot();
         Destroy(gameObject);
@@ -841,22 +843,22 @@ public class Enemy : MonoBehaviour, ICharacter
 
         if (Random.value == 0.15)
         {
-            //Instantiate (ItemObject, transform.position, Quaternion.identity); 
+            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
         }
 
         if (Random.value == 0.10)
         {
-            //Instantiate (ItemObject, transform.position, Quaternion.identity); 
+            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
         }
 
         if (Random.value == 0.05)
         {
-            //Instantiate (ItemObject, transform.position, Quaternion.identity); 
+            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
         }
 
         if (Random.value == 0.01)
         {
-            //Instantiate (ItemObject, transform.position, Quaternion.identity); 
+            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
         }
     }
 

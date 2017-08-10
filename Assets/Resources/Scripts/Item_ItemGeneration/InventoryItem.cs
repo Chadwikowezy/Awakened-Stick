@@ -11,27 +11,27 @@ public class InventoryItem : Item
     #region generate an id for item
     int StatSets()
     {
-        if (worldCreation.level == 1)
+        if (worldCreation.tierCount == 1)
         {
             itemId = Random.Range(1, 7);
             return itemId;
         }
-        else if (worldCreation.level == 2)
+        else if (worldCreation.tierCount == 2)
         {
             itemId = Random.Range(7, 13);
             return itemId;
         }
-        else if (worldCreation.level == 3)
+        else if (worldCreation.tierCount == 3)
         {
             itemId = Random.Range(13, 19);
             return itemId;
         }
-        else if (worldCreation.level == 4)
+        else if (worldCreation.tierCount == 4)
         {
             itemId = Random.Range(19, 25);
             return itemId;
         }
-        else if (worldCreation.level == 5)
+        else if (worldCreation.tierCount == 5)
         {
             itemId = Random.Range(25, 28);
             return itemId;
