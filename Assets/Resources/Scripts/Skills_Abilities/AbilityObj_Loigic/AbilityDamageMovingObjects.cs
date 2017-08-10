@@ -7,6 +7,7 @@ public class AbilityDamageMovingObjects : MonoBehaviour
     private int abilityDamageModifier;
     public int baseModifier;
     private Player player;
+    private AnimationsManager animManager;
 
     private void Start()
     {

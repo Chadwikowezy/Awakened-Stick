@@ -110,13 +110,11 @@ public class Player : MonoBehaviour, ICharacter
         currentHealthText.text = CurrentHealth + "/" + CurrentMaxHealth;
     }
 
-    public void AlterHealth(float healthChange)
+    public void AlterHealth(int healthChange)
     {
-        Debug.Log("Current Health Prior: " + CurrentHealth);
         CurrentHealth -= (int)healthChange;
         healthBar.value = (float)((float)CurrentHealth / (float)CurrentMaxHealth);
         currentHealthText.text = CurrentHealth + "/" + CurrentMaxHealth;
-        Debug.Log("Current Health After: " + CurrentHealth);
 
         if (CurrentHealth <= 0)
             StartCoroutine(Die());

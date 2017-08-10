@@ -40,8 +40,8 @@ public class Enemy : MonoBehaviour, ICharacter
 	private int jumpHeight = 15;
 
 	//current stats
-    private int _currentHealth = 10;
-    private int _currentMaxHealth = 10;
+    private int _currentHealth = 20;
+    private int _currentMaxHealth = 20;
     private int _currentAttack;
     private int _currentDefense;
 
@@ -106,6 +106,7 @@ public class Enemy : MonoBehaviour, ICharacter
         player = FindObjectOfType<Player>();
         anim = GetComponentInChildren<Animator>();
         smokePrarticle.SetActive(false);
+        healthBar.value = _currentHealth / _baseMaxHealth;
     }
 
     void Update()
@@ -186,8 +187,6 @@ public class Enemy : MonoBehaviour, ICharacter
 
     IEnumerator abilityRandomizer()
     {
-        Debug.Log("got to coroutine call");
-
         usingSkill = true;
         inPursuit = false;
         int useAttack = Random.Range(0, 10);
@@ -815,12 +814,13 @@ public class Enemy : MonoBehaviour, ICharacter
 	}
 	#endregion
     
-	public void AlterHealth(float healthChange)
+	public void AlterHealth(int healthChange)
     {
-        _currentHealth -= (int)healthChange;
-        healthBar.value = (float)((float)_currentHealth / (float)_baseMaxHealth);
+        CurrentHealth -= (int)healthChange;
+        healthBar.value = (float)((float)CurrentHealth / (float)CurrentMaxHealth);
+        Debug.Log(transform.name + CurrentHealth);
 
-        if (_currentHealth <= 0)
+        if (CurrentHealth <= 0)
             StartCoroutine(Death());
     }
 
@@ -830,7 +830,6 @@ public class Enemy : MonoBehaviour, ICharacter
         yield return new WaitForSeconds(1);
         DetermineLoot();
         Destroy(gameObject);
-
     }
 
     public void DetermineLoot()

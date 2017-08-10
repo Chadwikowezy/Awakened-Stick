@@ -37,6 +37,12 @@ public class AnimationsManager : MonoBehaviour
     private int jumpHeight = 15;
 
     private bool longCD;
+
+
+    public int kickDamage;
+    public int wrathsDamage;
+    public int frostDamage;
+    public int lacerateDamage;
     #endregion
 
     void Start()
@@ -208,7 +214,7 @@ public class AnimationsManager : MonoBehaviour
                 //deal damage
 
                 //deal knockback
-                damageMultiplier = (player.CurrentRage + 5);
+                damageMultiplier = (player.CurrentRage + kickDamage);
 
                 hit.collider.gameObject.GetComponent<Enemy>().AlterHealth(damageMultiplier);
                 if (hit.collider.gameObject.transform.position.x < transform.position.x)
@@ -255,14 +261,14 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("ignition", 0);
             anim.SetInteger("frost", 0);
             anim.SetInteger("wrath", 1);
-
+           
             StartCoroutine(WrathsDestructionDelay());
         }
     }
     IEnumerator WrathsDestructionDelay()
     {
         yield return new WaitForSeconds(.8f);
-        damageMultiplier = (player.CurrentRage + basedamageMultiplier);
+        damageMultiplier = (player.CurrentRage + wrathsDamage);
         wrathOBJ.SetActive(true);
         wrathOBJ.GetComponent<ParticleSystem>().Play();
 
@@ -421,7 +427,7 @@ public class AnimationsManager : MonoBehaviour
     }
     IEnumerator PermafrostDelay()
     {
-        damageMultiplier = (player.CurrentArcane + basedamageMultiplier);
+        damageMultiplier = (player.CurrentArcane + frostDamage);
         permaFrostOBJ.SetActive(true);
         for (int i = 0; i < 5; i++)
         {
@@ -431,7 +437,7 @@ public class AnimationsManager : MonoBehaviour
             {
                 if (enemy != null)
                 {
-                    enemy.AlterHealth(damageMultiplier);
+                    enemy.AlterHealth(damageMultiplier / 2);
                 }
             }
         }
@@ -610,7 +616,7 @@ public class AnimationsManager : MonoBehaviour
             {
                 if (Vector2.Distance(transform.position, enemy.transform.position) <= 4)
                 {
-                    enemy.AlterHealth(damageMultiplier + basedamageMultiplier);
+                    enemy.AlterHealth(damageMultiplier + lacerateDamage);
                 }
             }
         }

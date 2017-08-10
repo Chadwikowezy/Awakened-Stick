@@ -45,7 +45,7 @@ public class ItemReturnManager : MonoBehaviour
         foreach(int id in actor.data.ids)
         {
             ids.Add(id);
-            Debug.Log("Got an id");
+            //Debug.Log("Got an id");
         }
         for (int i = 0; i < ids.Count; i++)
         {
@@ -61,7 +61,7 @@ public class ItemReturnManager : MonoBehaviour
 
             if(display.textName.text != returnInventoryItem.itemName)
             {
-                Debug.Log("Failed to log in item properly, check inventory item on inventoryitemdisplay object in scene");
+                //Debug.Log("Failed to log in item properly, check inventory item on inventoryitemdisplay object in scene");
             }
 
         }

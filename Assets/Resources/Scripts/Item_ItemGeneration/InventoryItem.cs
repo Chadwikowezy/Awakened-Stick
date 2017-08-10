@@ -52,8 +52,8 @@ public class InventoryItem : Item
             itemDesc = "Speeds unmatched, may you take flight.";
             rage = 0;
             arcane = 0;
-            speed = 4;
-            lifeValue = 10;
+            speed = 2;
+            lifeValue = 3;
             tokens = 20;
         }
         else if (itemId == 2)
@@ -63,10 +63,10 @@ public class InventoryItem : Item
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.common;
             itemDesc = "A blade who's tale is nothing but sorrowful.";
-            rage = 3;
+            rage = 1;
             arcane = 0;
             speed = 0;
-            lifeValue = 12;
+            lifeValue = 4;
             tokens = 20;
         }
         else if (itemId == 3)
@@ -77,9 +77,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.common;
             itemDesc = "The pulsating energy is overwhelming!";
             rage = 0;
-            arcane = 5;
+            arcane = 3;
             speed = 0;
-            lifeValue = 8;
+            lifeValue = 2;
             tokens = 20;
         }
         else if (itemId == 4)
@@ -88,10 +88,10 @@ public class InventoryItem : Item
             itemType = ItemTypes.armor;
             itemRarity = ItemRaritys.common;
             itemDesc = "Focuses on obtaining all.";
-            rage = 5;
-            arcane = 5;
-            speed = 5;
-            lifeValue = 15;
+            rage = 2;
+            arcane = 2;
+            speed = 2;
+            lifeValue = 2;
             tokens = 20;
         }
         else if (itemId == 5)
@@ -100,10 +100,10 @@ public class InventoryItem : Item
             itemType = ItemTypes.helmet;
             itemRarity = ItemRaritys.common;
             itemDesc = "Helmet that made to fill any roles.";
-            rage = 5;
-            arcane = 5;
-            speed = 5;
-            lifeValue = 15;
+            rage = 2;
+            arcane = 2;
+            speed = 2;
+            lifeValue = 2;
             tokens = 20;
         }
         else if (itemId == 6)
@@ -112,10 +112,10 @@ public class InventoryItem : Item
             itemType = ItemTypes.gloves;
             itemRarity = ItemRaritys.common;
             itemDesc = "Both hands, made to take everything.";
-            rage = 5;
-            arcane = 5;
-            speed = 5;
-            lifeValue = 15;
+            rage = 2;
+            arcane = 2;
+            speed = 2;
+            lifeValue = 2;
             tokens = 20;
         }
         else if (itemId == 7)
@@ -127,8 +127,8 @@ public class InventoryItem : Item
             itemDesc = "No more horror was brought, but by these blades.";
             rage = 0;
             arcane = 0;
-            speed = 10;
-            lifeValue = 18;
+            speed = 5;
+            lifeValue = 5;
             tokens = 40;
         }
         else if (itemId == 8)
@@ -138,10 +138,10 @@ public class InventoryItem : Item
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.uncommon;
             itemDesc = "Destroys everything, even in the face of countless foes.";
-            rage = 8;
+            rage = 4;
             arcane = 0;
             speed = 0;
-            lifeValue = 20;
+            lifeValue = 6;
             tokens = 40;
         }
         else if (itemId == 9)
@@ -152,9 +152,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.uncommon;
             itemDesc = "A powerful object of unending removal.";
             rage = 0;
-            arcane = 12;
+            arcane = 6;
             speed = 0;
-            lifeValue = 16;
+            lifeValue = 4;
             tokens = 40;
         }
         else if (itemId == 10)
@@ -166,7 +166,7 @@ public class InventoryItem : Item
             rage = 0;
             arcane = 0;
             speed = 10;
-            lifeValue = 20;
+            lifeValue = 6;
             tokens = 40;
         }
         else if (itemId == 11)
@@ -176,9 +176,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.uncommon;
             itemDesc = "Raises your arcane to another level, but at a cost.";
             rage = 0;
-            arcane = 15;
+            arcane = 12;
             speed = 0;
-            lifeValue = 15;
+            lifeValue = 4;
             tokens = 40;
         }
         else if (itemId == 12)
@@ -187,10 +187,10 @@ public class InventoryItem : Item
             itemType = ItemTypes.gloves;
             itemRarity = ItemRaritys.uncommon;
             itemDesc = "Boosts one's rage, but at a cost.";
-            rage = 20;
+            rage = 8;
             arcane = 0;
             speed = 0;
-            lifeValue = 10;
+            lifeValue = 8;
             tokens = 40;
         }        
         else if (itemId == 13)
@@ -202,8 +202,8 @@ public class InventoryItem : Item
             itemDesc = "Blades that allow the wielder sustain, and healing.";
             rage = 0;
             arcane = 0;
-            speed = 30;
-            lifeValue = 20;
+            speed = 9;
+            lifeValue = 6;
             tokens = 100;
         }
         else if (itemId == 14)
@@ -213,10 +213,10 @@ public class InventoryItem : Item
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.rare;
             itemDesc = "Shall destroy any bane of evil.";
-            rage = 25;
+            rage = 6;
             arcane = 0;
             speed = 0;
-            lifeValue = 25;
+            lifeValue = 9;
             tokens = 100;
         }
         else if (itemId == 15)
@@ -227,9 +227,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.rare;
             itemDesc = "Crave all things, the sin compels it.";
             rage = 0;
-            arcane = 20;
+            arcane = 10;
             speed = 0;
-            lifeValue = 30;
+            lifeValue = 5;
             tokens = 100;
         }
         else if (itemId == 16)
@@ -238,10 +238,10 @@ public class InventoryItem : Item
             itemType = ItemTypes.armor;
             itemRarity = ItemRaritys.rare;
             itemDesc = "Focused on raising one's life, and rage.";
-            rage = 30;
+            rage = 8;
             arcane = 0;
             speed = 0;
-            lifeValue = 20;
+            lifeValue = 16;
             tokens = 100;
         }
         else if (itemId == 17)
@@ -252,8 +252,8 @@ public class InventoryItem : Item
             itemDesc = "Focused on raising one's life, and speed.";
             rage = 0;
             arcane = 0;
-            speed = 25;
-            lifeValue = 25;
+            speed = 12;
+            lifeValue = 12;
             tokens = 100;
         }
         else if (itemId == 18)
@@ -263,9 +263,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.rare;
             itemDesc = "Focused on raising one's life, and arcane.";
             rage = 0;
-            arcane = 30;
+            arcane = 16;
             speed = 0;
-            lifeValue = 20;
+            lifeValue = 8;
             tokens = 100;
         }
         else if (itemId == 19)
@@ -277,8 +277,8 @@ public class InventoryItem : Item
             itemDesc = "The Balance between all things.";
             rage = 0;
             arcane = 0;
-            speed = 60;
-            lifeValue = 40;
+            speed = 15;
+            lifeValue = 5;
             tokens = 500;
         }
         else if (itemId == 20)
@@ -288,10 +288,10 @@ public class InventoryItem : Item
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.legendary;
             itemDesc = "The blade thought to be a legend.";
-            rage = 50;
+            rage = 10;
             arcane = 0;
             speed = 0;
-            lifeValue = 50;
+            lifeValue = 10;
             tokens = 500;
         }
         else if (itemId == 21)
@@ -302,9 +302,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.legendary;
             itemDesc = "The offspring of the one thing, we can't lose.";
             rage = 0;
-            arcane = 70;
+            arcane = 20;
             speed = 0;
-            lifeValue = 30;
+            lifeValue = 0;
             tokens = 500;
         }
         else if (itemId == 22)
@@ -314,9 +314,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.legendary;
             itemDesc = "Unlimited Arcane!";
             rage = 0;
-            arcane = 40;
+            arcane = 24;
             speed = 0;
-            lifeValue = 40;
+            lifeValue = 8;
             tokens = 500;
         }
         else if (itemId == 23)
@@ -325,10 +325,10 @@ public class InventoryItem : Item
             itemType = ItemTypes.helmet;
             itemRarity = ItemRaritys.legendary;
             itemDesc = "Unlimited Rage!";
-            rage = 50;
+            rage = 16;
             arcane = 0;
             speed = 0;
-            lifeValue = 30;
+            lifeValue = 16;
             tokens = 500;
         }
         else if (itemId == 24)
@@ -339,8 +339,8 @@ public class InventoryItem : Item
             itemDesc = "Unlimited Speed!";
             rage = 0;
             arcane = 0;
-            speed = 30;
-            lifeValue = 50;
+            speed = 20;
+            lifeValue = 12;
             tokens = 500;
         }
         else if (itemId == 25)
@@ -350,10 +350,10 @@ public class InventoryItem : Item
             weaponType = WeaponType.blades_Bow;
             itemRarity = ItemRaritys.artifact;
             itemDesc = "The two strongest of feelings, held side by side.";
-            rage = 0;
+            rage = 20;
             arcane = 0;
-            speed = 260;
-            lifeValue = 140;
+            speed = 25;
+            lifeValue = 15;
             tokens = 500;
         }
         else if (itemId == 26)
@@ -363,10 +363,10 @@ public class InventoryItem : Item
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.artifact;
             itemDesc = "The power to change fate.";
-            rage = 250;
+            rage = 20;
             arcane = 0;
             speed = 0;
-            lifeValue = 150;
+            lifeValue = 20;
             tokens = 500;
         }
         else if (itemId == 27)
@@ -377,9 +377,9 @@ public class InventoryItem : Item
             itemRarity = ItemRaritys.artifact;
             itemDesc = "The strongest of resolves held throughout time.";
             rage = 0;
-            arcane = 270;
+            arcane = 30;
             speed = 0;
-            lifeValue = 130;
+            lifeValue = 10;
             tokens = 500;
         }
     }
