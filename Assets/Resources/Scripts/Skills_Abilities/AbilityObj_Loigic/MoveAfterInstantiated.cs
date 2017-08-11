@@ -13,10 +13,9 @@ public class MoveAfterInstantiated : MonoBehaviour
     void Update ()
     {
         transform.Translate(Vector3.right * Time.deltaTime * objMoveSpeed);	
-        if(tag == "AscendingShot")
+        if(transform.name == "AscendingShotArrow(Clone)")
         {
-            transform.Translate(Vector3.down * Time.deltaTime * 4);
-
+            transform.Translate(Vector3.down * Time.deltaTime * 4);            
         }
     }
 

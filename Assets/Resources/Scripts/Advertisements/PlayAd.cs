@@ -7,6 +7,7 @@ using UnityEngine.Advertisements;
 
 public class PlayAd : MonoBehaviour
 {
+    public SkillPointManager skillPointManager;
 	public void ShowAd()
     {
         #if UNITY_ADS
@@ -35,13 +36,16 @@ public class PlayAd : MonoBehaviour
         #endif
     }
 
-    #if UNITY_ADS
+#if UNITY_ADS
     private void HandleAdResult(ShowResult result)
     {
+        skillPointManager = FindObjectOfType<SkillPointManager>();
         switch (result)
         {
             case ShowResult.Finished:
-                Debug.Log("Player Gains x");
+                skillPointManager.CurrentSkillPointValue += 5;
+                skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
+                skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
                 break;
             case ShowResult.Skipped:
                 Debug.Log("Player didn't finish ad");
@@ -51,5 +55,5 @@ public class PlayAd : MonoBehaviour
                 break;
         }
     }
-    #endif
+#endif
 }
