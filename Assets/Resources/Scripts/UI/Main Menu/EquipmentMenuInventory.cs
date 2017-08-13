@@ -51,7 +51,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             allItems[i].arcane = createdItem.arcane;
             allItems[i].speed = createdItem.speed;
             allItems[i].lifeValue = createdItem.lifeValue;
-            allItems[i].tokens = createdItem.tokens;
+            allItems[i].skillPointValue = createdItem.skillPointValue;
         }
 
         SortItems();
@@ -95,7 +95,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 4;
             generatedItem.lifeValue = 10;
-            generatedItem.tokens = 20;
+            generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 2)
         {
@@ -108,7 +108,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 12;
-            generatedItem.tokens = 20;
+            generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 3)
         {
@@ -121,7 +121,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 5;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 8;
-            generatedItem.tokens = 20;
+            generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 4)
         {
@@ -133,7 +133,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 5;
             generatedItem.speed = 5;
             generatedItem.lifeValue = 15;
-            generatedItem.tokens = 20;
+            generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 5)
         {
@@ -145,7 +145,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 5;
             generatedItem.speed = 5;
             generatedItem.lifeValue = 15;
-            generatedItem.tokens = 20;
+            generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 6)
         {
@@ -157,7 +157,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 5;
             generatedItem.speed = 5;
             generatedItem.lifeValue = 15;
-            generatedItem.tokens = 20;
+            generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 7)
         {
@@ -169,7 +169,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 10;
             generatedItem.lifeValue = 18;
-            generatedItem.tokens = 40;
+            generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 8)
         {
@@ -182,7 +182,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 20;
-            generatedItem.tokens = 40;
+            generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 9)
         {
@@ -195,7 +195,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 12;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 16;
-            generatedItem.tokens = 40;
+            generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 10)
         {
@@ -207,7 +207,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 10;
             generatedItem.lifeValue = 20;
-            generatedItem.tokens = 40;
+            generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 11)
         {
@@ -219,7 +219,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 15;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 15;
-            generatedItem.tokens = 40;
+            generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 12)
         {
@@ -231,7 +231,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 10;
-            generatedItem.tokens = 40;
+            generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 13)
         {
@@ -244,7 +244,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 30;
             generatedItem.lifeValue = 20;
-            generatedItem.tokens = 100;
+            generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 14)
         {
@@ -257,7 +257,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 25;
-            generatedItem.tokens = 100;
+            generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 15)
         {
@@ -270,7 +270,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 20;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 30;
-            generatedItem.tokens = 100;
+            generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 16)
         {
@@ -282,7 +282,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 20;
-            generatedItem.tokens = 100;
+            generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 17)
         {
@@ -294,7 +294,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 25;
             generatedItem.lifeValue = 25;
-            generatedItem.tokens = 100;
+            generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 18)
         {
@@ -306,7 +306,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 30;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 20;
-            generatedItem.tokens = 100;
+            generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 19)
         {
@@ -319,7 +319,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 60;
             generatedItem.lifeValue = 40;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 20)
         {
@@ -332,7 +332,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 50;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 21)
         {
@@ -345,7 +345,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 70;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 30;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 22)
         {
@@ -357,7 +357,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 40;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 40;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 23)
         {
@@ -369,7 +369,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 30;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 24)
         {
@@ -381,7 +381,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 30;
             generatedItem.lifeValue = 50;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 25)
         {
@@ -394,7 +394,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 260;
             generatedItem.lifeValue = 140;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 16;
         }
         else if (generatedItem.itemId == 26)
         {
@@ -407,7 +407,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 150;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 16;
         }
         else if (generatedItem.itemId == 27)
         {
@@ -420,7 +420,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.arcane = 270;
             generatedItem.speed = 0;
             generatedItem.lifeValue = 130;
-            generatedItem.tokens = 500;
+            generatedItem.skillPointValue = 16;
         }
 
         return generatedItem;

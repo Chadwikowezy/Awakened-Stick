@@ -15,7 +15,7 @@ public class InventoryItemDisplay : MonoBehaviour
     public Text rage;
     public Text arcane;
     public Text speed;
-    public Text tokens;
+    public Text skillPointValue;
     public Text life;
 
     public Image childSpriteItem;
@@ -70,7 +70,7 @@ public class InventoryItemDisplay : MonoBehaviour
         rage.text = "Rage: " + item.rage;
         speed.text = "Speed: " + item.speed;
         arcane.text = "Arcane: " + item.arcane;
-        tokens.text = "Tokens: " + item.tokens;
+        skillPointValue.text = "SP: " + item.skillPointValue;
         life.text = "Life: " + item.lifeValue;
 
         if(item.itemType == Item.ItemTypes.armor)

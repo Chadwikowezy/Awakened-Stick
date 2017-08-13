@@ -38,11 +38,12 @@ public class AnimationsManager : MonoBehaviour
 
     private bool longCD;
 
-
     public int kickDamage;
     public int wrathsDamage;
     public int frostDamage;
     public int lacerateDamage;
+
+    public int skillTier;
     #endregion
 
     void Start()
@@ -214,7 +215,7 @@ public class AnimationsManager : MonoBehaviour
                 //deal damage
 
                 //deal knockback
-                damageMultiplier = (player.CurrentRage + kickDamage);
+                damageMultiplier = ((player.CurrentRage + kickDamage) * skillTier);
 
                 hit.collider.gameObject.GetComponent<Enemy>().AlterHealth(damageMultiplier);
                 if (hit.collider.gameObject.transform.position.x < transform.position.x)
@@ -268,7 +269,7 @@ public class AnimationsManager : MonoBehaviour
     IEnumerator WrathsDestructionDelay()
     {
         yield return new WaitForSeconds(.8f);
-        damageMultiplier = (player.CurrentRage + wrathsDamage);
+        damageMultiplier = ((player.CurrentRage + wrathsDamage) * skillTier);
         wrathOBJ.SetActive(true);
         wrathOBJ.GetComponent<ParticleSystem>().Play();
 
@@ -427,7 +428,7 @@ public class AnimationsManager : MonoBehaviour
     }
     IEnumerator PermafrostDelay()
     {
-        damageMultiplier = (player.CurrentArcane + frostDamage);
+        damageMultiplier = ((player.CurrentArcane + frostDamage) * skillTier);
         permaFrostOBJ.SetActive(true);
         for (int i = 0; i < 5; i++)
         {
@@ -616,7 +617,7 @@ public class AnimationsManager : MonoBehaviour
             {
                 if (Vector2.Distance(transform.position, enemy.transform.position) <= 4)
                 {
-                    enemy.AlterHealth(damageMultiplier + lacerateDamage);
+                    enemy.AlterHealth((damageMultiplier + lacerateDamage) * skillTier);
                 }
             }
         }

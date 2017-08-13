@@ -14,13 +14,15 @@ public class PlayerMovement : TouchManager
         PiercingShot_01, UncontrolledSpeed_01, LaceratingTyphoon_01, AscendingShot_01,
         PiercingFist_02, HeavenPiercer_02, WraithsDestruction_02, HowlingScythe_02,
         VortexDischarge_02, SearingIgnition_02, Permafrost_02, SpiralingTempest_02,
-        PiercingShot_02, UncontrolledSpeed_02, LaceratingTyphoon_02, AscendingShot_02
+        PiercingShot_02, UncontrolledSpeed_02, LaceratingTyphoon_02, AscendingShot_02,
+        defaultButton
     };
     public type buttonType;
 
     public Sprite piercingFist, heavenPiercer, wrathDestruction, howlingScythe;
     public Sprite vortexDischarge, searingIgnition, permaFrost, spiralingTempest;
     public Sprite piercingShot, uncontrolledSpeed, laceratingTyphoon, ascendingShot;
+    public Sprite defaultButtonSprite;
 
     public GameObject playerObj = null;
     Rigidbody2D playerRigidBody = null;
@@ -105,6 +107,10 @@ public class PlayerMovement : TouchManager
         {
             GetComponent<GUITexture>().texture = ascendingShot.texture;
         }
+        else if (buttonType == type.defaultButton)
+        {
+            GetComponent<GUITexture>().texture = defaultButtonSprite.texture;
+        }
     }
     #endregion
 
@@ -131,144 +137,168 @@ public class PlayerMovement : TouchManager
             switch (buttonType)
             {
                 case type.PiercingFist_01:
+                    animManager.skillTier = 1;
                     animManager.PiercingFist();
                     break;
             }
             switch (buttonType)
             {
                 case type.HeavenPiercer_01:
+                    animManager.skillTier = 1;
                     animManager.HeavenPiercer();
                     break;
             }
             switch (buttonType)
             {
                 case type.WraithsDestruction_01:
+                    animManager.skillTier = 1;
                     animManager.WraithsDestruction();
                     break;
             }
             switch (buttonType)
             {
                 case type.HowlingScythe_01:
+                    animManager.skillTier = 1;
                     animManager.HowlingScythe();
                     break;
             }
             switch (buttonType)
             {
                 case type.VortexDischarge_01:
+                    animManager.skillTier = 1;
                     animManager.VortexDischarge();
                     break;
             }
             switch (buttonType)
             {
                 case type.SearingIgnition_01:
+                    animManager.skillTier = 1;
                     animManager.SearingIgnition();
                     break;
             }
             switch (buttonType)
             {
                 case type.Permafrost_01:
+                    animManager.skillTier = 1;
                     animManager.Permafrost();
                     break;
             }
             switch (buttonType)
             {
                 case type.SpiralingTempest_01:
+                    animManager.skillTier = 1;
                     animManager.SpiralingTempest();
                     break;
             }
             switch (buttonType)
             {
                 case type.PiercingShot_01:
+                    animManager.skillTier = 1;
                     animManager.PiercingShot();
                     break;
             }
             switch (buttonType)
             {
                 case type.UncontrolledSpeed_01:
+                    animManager.skillTier = 1;
                     animManager.UncontrolledSpeed();
                     break;
             }
             switch (buttonType)
             {
                 case type.LaceratingTyphoon_01:
+                    animManager.skillTier = 1;
                     animManager.LaceratingTyphoon();
                     break;
             }
             switch (buttonType)
             {
                 case type.AscendingShot_01:
+                    animManager.skillTier = 1;
                     animManager.AscendingShot();
                     break;
             }
             switch (buttonType)
             {
                 case type.PiercingFist_02:
+                    animManager.skillTier = 2;
                     animManager.PiercingFist();
                     break;
             }
             switch (buttonType)
             {
                 case type.HeavenPiercer_02:
+                    animManager.skillTier = 2;
                     animManager.HeavenPiercer();
                     break;
             }
             switch (buttonType)
             {
                 case type.WraithsDestruction_02:
+                    animManager.skillTier = 2;
                     animManager.WraithsDestruction();
                     break;
             }
             switch (buttonType)
             {
                 case type.HowlingScythe_02:
+                    animManager.skillTier = 2;
                     animManager.HowlingScythe();
                     break;
             }
             switch (buttonType)
             {
                 case type.VortexDischarge_02:
+                    animManager.skillTier = 2;
                     animManager.VortexDischarge();
                     break;
             }
             switch (buttonType)
             {
                 case type.SearingIgnition_02:
+                    animManager.skillTier = 2;
                     animManager.SearingIgnition();
                     break;
             }
             switch (buttonType)
             {
                 case type.Permafrost_02:
+                    animManager.skillTier = 2;
                     animManager.Permafrost();
                     break;
             }
             switch (buttonType)
             {
                 case type.SpiralingTempest_02:
+                    animManager.skillTier = 2;
                     animManager.SpiralingTempest();
                     break;
             }
             switch (buttonType)
             {
                 case type.PiercingShot_02:
+                    animManager.skillTier = 2;
                     animManager.PiercingShot();
                     break;
             }
             switch (buttonType)
             {
                 case type.UncontrolledSpeed_02:
+                    animManager.skillTier = 2;
                     animManager.UncontrolledSpeed();
                     break;
             }
             switch (buttonType)
             {
                 case type.LaceratingTyphoon_02:
+                    animManager.skillTier = 2;
                     animManager.LaceratingTyphoon();
                     break;
             }
             switch (buttonType)
             {
                 case type.AscendingShot_02:
+                    animManager.skillTier = 2;
                     animManager.AscendingShot();
                     break;
             }
@@ -299,144 +329,168 @@ public class PlayerMovement : TouchManager
             switch (buttonType)
             {
                 case type.PiercingFist_01:
+                    animManager.skillTier = 1;
                     animManager.PiercingFist();
                     break;
             }
             switch (buttonType)
             {
                 case type.HeavenPiercer_01:
+                    animManager.skillTier = 1;
                     animManager.HeavenPiercer();
                     break;
             }
             switch (buttonType)
             {
                 case type.WraithsDestruction_01:
+                    animManager.skillTier = 1;
                     animManager.WraithsDestruction();
                     break;
             }
             switch (buttonType)
             {
                 case type.HowlingScythe_01:
+                    animManager.skillTier = 1;
                     animManager.HowlingScythe();
                     break;
             }
             switch (buttonType)
             {
                 case type.VortexDischarge_01:
+                    animManager.skillTier = 1;
                     animManager.VortexDischarge();
                     break;
             }
             switch (buttonType)
             {
                 case type.SearingIgnition_01:
+                    animManager.skillTier = 1;
                     animManager.SearingIgnition();
                     break;
             }
             switch (buttonType)
             {
                 case type.Permafrost_01:
+                    animManager.skillTier = 1;
                     animManager.Permafrost();
                     break;
             }
             switch (buttonType)
             {
                 case type.SpiralingTempest_01:
+                    animManager.skillTier = 1;
                     animManager.SpiralingTempest();
                     break;
             }
             switch (buttonType)
             {
                 case type.PiercingShot_01:
+                    animManager.skillTier = 1;
                     animManager.PiercingShot();
                     break;
             }
             switch (buttonType)
             {
                 case type.UncontrolledSpeed_01:
+                    animManager.skillTier = 1;
                     animManager.UncontrolledSpeed();
                     break;
             }
             switch (buttonType)
             {
                 case type.LaceratingTyphoon_01:
+                    animManager.skillTier = 1;
                     animManager.LaceratingTyphoon();
                     break;
             }
             switch (buttonType)
             {
                 case type.AscendingShot_01:
+                    animManager.skillTier = 1;
                     animManager.AscendingShot();
                     break;
             }
             switch (buttonType)
             {
                 case type.PiercingFist_02:
+                    animManager.skillTier = 2;
                     animManager.PiercingFist();
                     break;
             }
             switch (buttonType)
             {
                 case type.HeavenPiercer_02:
+                    animManager.skillTier = 2;
                     animManager.HeavenPiercer();
                     break;
             }
             switch (buttonType)
             {
                 case type.WraithsDestruction_02:
+                    animManager.skillTier = 2;
                     animManager.WraithsDestruction();
                     break;
             }
             switch (buttonType)
             {
                 case type.HowlingScythe_02:
+                    animManager.skillTier = 2;
                     animManager.HowlingScythe();
                     break;
             }
             switch (buttonType)
             {
                 case type.VortexDischarge_02:
+                    animManager.skillTier = 2;
                     animManager.VortexDischarge();
                     break;
             }
             switch (buttonType)
             {
                 case type.SearingIgnition_02:
+                    animManager.skillTier = 2;
                     animManager.SearingIgnition();
                     break;
             }
             switch (buttonType)
             {
                 case type.Permafrost_02:
+                    animManager.skillTier = 2;
                     animManager.Permafrost();
                     break;
             }
             switch (buttonType)
             {
                 case type.SpiralingTempest_02:
+                    animManager.skillTier = 2;
                     animManager.SpiralingTempest();
                     break;
             }
             switch (buttonType)
             {
                 case type.PiercingShot_02:
+                    animManager.skillTier = 2;
                     animManager.PiercingShot();
                     break;
             }
             switch (buttonType)
             {
                 case type.UncontrolledSpeed_02:
+                    animManager.skillTier = 2;
                     animManager.UncontrolledSpeed();
                     break;
             }
             switch (buttonType)
             {
                 case type.LaceratingTyphoon_02:
+                    animManager.skillTier = 2;
                     animManager.LaceratingTyphoon();
                     break;
             }
             switch (buttonType)
             {
                 case type.AscendingShot_02:
+                    animManager.skillTier = 2;
                     animManager.AscendingShot();
                     break;
             }

@@ -54,7 +54,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 2;
             lifeValue = 3;
-            tokens = 20;
+            skillPointValue = 1;
         }
         else if (itemId == 2)
         {
@@ -67,7 +67,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 4;
-            tokens = 20;
+            skillPointValue = 1;
         }
         else if (itemId == 3)
         {
@@ -80,7 +80,7 @@ public class InventoryItem : Item
             arcane = 3;
             speed = 0;
             lifeValue = 2;
-            tokens = 20;
+            skillPointValue = 1;
         }
         else if (itemId == 4)
         {
@@ -92,7 +92,7 @@ public class InventoryItem : Item
             arcane = 2;
             speed = 2;
             lifeValue = 2;
-            tokens = 20;
+            skillPointValue = 1;
         }
         else if (itemId == 5)
         {
@@ -104,7 +104,7 @@ public class InventoryItem : Item
             arcane = 2;
             speed = 2;
             lifeValue = 2;
-            tokens = 20;
+            skillPointValue = 1;
         }
         else if (itemId == 6)
         {
@@ -116,7 +116,7 @@ public class InventoryItem : Item
             arcane = 2;
             speed = 2;
             lifeValue = 2;
-            tokens = 20;
+            skillPointValue = 1;
         }
         else if (itemId == 7)
         {
@@ -129,7 +129,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 5;
             lifeValue = 5;
-            tokens = 40;
+            skillPointValue = 2;
         }
         else if (itemId == 8)
         {
@@ -142,7 +142,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 6;
-            tokens = 40;
+            skillPointValue = 2;
         }
         else if (itemId == 9)
         {
@@ -155,7 +155,7 @@ public class InventoryItem : Item
             arcane = 6;
             speed = 0;
             lifeValue = 4;
-            tokens = 40;
+            skillPointValue = 2;
         }
         else if (itemId == 10)
         {
@@ -167,7 +167,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 10;
             lifeValue = 6;
-            tokens = 40;
+            skillPointValue = 2;
         }
         else if (itemId == 11)
         {
@@ -179,7 +179,7 @@ public class InventoryItem : Item
             arcane = 12;
             speed = 0;
             lifeValue = 4;
-            tokens = 40;
+            skillPointValue = 2;
         }
         else if (itemId == 12)
         {
@@ -191,8 +191,8 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 8;
-            tokens = 40;
-        }        
+            skillPointValue = 2;
+        }
         else if (itemId == 13)
         {
             itemType = ItemTypes.weapon;
@@ -204,7 +204,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 9;
             lifeValue = 6;
-            tokens = 100;
+            skillPointValue = 4;
         }
         else if (itemId == 14)
         {
@@ -217,7 +217,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 9;
-            tokens = 100;
+            skillPointValue = 4;
         }
         else if (itemId == 15)
         {
@@ -230,7 +230,7 @@ public class InventoryItem : Item
             arcane = 10;
             speed = 0;
             lifeValue = 5;
-            tokens = 100;
+            skillPointValue = 4;
         }
         else if (itemId == 16)
         {
@@ -242,7 +242,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 16;
-            tokens = 100;
+            skillPointValue = 4;
         }
         else if (itemId == 17)
         {
@@ -254,7 +254,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 12;
             lifeValue = 12;
-            tokens = 100;
+            skillPointValue = 4;
         }
         else if (itemId == 18)
         {
@@ -266,7 +266,7 @@ public class InventoryItem : Item
             arcane = 16;
             speed = 0;
             lifeValue = 8;
-            tokens = 100;
+            skillPointValue = 4;
         }
         else if (itemId == 19)
         {
@@ -279,7 +279,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 15;
             lifeValue = 5;
-            tokens = 500;
+            skillPointValue = 8;
         }
         else if (itemId == 20)
         {
@@ -292,7 +292,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 10;
-            tokens = 500;
+            skillPointValue = 8;
         }
         else if (itemId == 21)
         {
@@ -305,7 +305,7 @@ public class InventoryItem : Item
             arcane = 20;
             speed = 0;
             lifeValue = 0;
-            tokens = 500;
+            skillPointValue = 8;
         }
         else if (itemId == 22)
         {
@@ -317,7 +317,7 @@ public class InventoryItem : Item
             arcane = 24;
             speed = 0;
             lifeValue = 8;
-            tokens = 500;
+            skillPointValue = 8;
         }
         else if (itemId == 23)
         {
@@ -329,7 +329,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 16;
-            tokens = 500;
+            skillPointValue = 8;
         }
         else if (itemId == 24)
         {
@@ -341,7 +341,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 20;
             lifeValue = 12;
-            tokens = 500;
+            skillPointValue = 8;
         }
         else if (itemId == 25)
         {
@@ -354,7 +354,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 25;
             lifeValue = 15;
-            tokens = 500;
+            skillPointValue = 16;
         }
         else if (itemId == 26)
         {
@@ -367,7 +367,7 @@ public class InventoryItem : Item
             arcane = 0;
             speed = 0;
             lifeValue = 20;
-            tokens = 500;
+            skillPointValue = 16;
         }
         else if (itemId == 27)
         {
@@ -380,7 +380,7 @@ public class InventoryItem : Item
             arcane = 30;
             speed = 0;
             lifeValue = 10;
-            tokens = 500;
+            skillPointValue = 16;
         }
     }
     #endregion

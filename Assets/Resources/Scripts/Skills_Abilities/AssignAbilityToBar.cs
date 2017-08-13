@@ -9,12 +9,21 @@ public class AssignAbilityToBar : MonoBehaviour
     private GameObject button02;
     private GameObject button03;
 
+    public string button01Name;
+    public string button02Name;
+    public string button03Name;
+
+    private Actor actor;
+
     #region abilitySlot01
     public void AssignAbilitySlot01(string buttonName)
     {
         button01 = GameObject.FindGameObjectWithTag("SkillButton01");
         button02 = GameObject.FindGameObjectWithTag("SkillButton02");
         button03 = GameObject.FindGameObjectWithTag("SkillButton03");
+
+        actor = FindObjectOfType<Actor>();
+        button01.name = buttonName;
 
         if (buttonName == "AscendingShot")
         {        
@@ -233,6 +242,7 @@ public class AssignAbilityToBar : MonoBehaviour
                 button01.GetComponent<PlayerMovement>().AssignButtonSprite();
             }
         }
+        actor.data.button01Name = buttonName;
     }
     #endregion
 
@@ -242,6 +252,8 @@ public class AssignAbilityToBar : MonoBehaviour
         button01 = GameObject.FindGameObjectWithTag("SkillButton01");
         button02 = GameObject.FindGameObjectWithTag("SkillButton02");
         button03 = GameObject.FindGameObjectWithTag("SkillButton03");
+        actor = FindObjectOfType<Actor>();
+        button02.name = buttonName;
 
         if (buttonName == "AscendingShot")
         {
@@ -459,7 +471,9 @@ public class AssignAbilityToBar : MonoBehaviour
                 button02.GetComponent<PlayerMovement>().AssignButtonSprite();
             }
         }
+        actor.data.button02Name = buttonName;
     }
+
     #endregion
 
     #region abilitySlot03
@@ -468,6 +482,8 @@ public class AssignAbilityToBar : MonoBehaviour
         button01 = GameObject.FindGameObjectWithTag("SkillButton01");
         button02 = GameObject.FindGameObjectWithTag("SkillButton02");
         button03 = GameObject.FindGameObjectWithTag("SkillButton03");
+        actor = FindObjectOfType<Actor>();
+        button03.name = buttonName;
 
         if (buttonName == "AscendingShot")
         {
@@ -685,6 +701,7 @@ public class AssignAbilityToBar : MonoBehaviour
                 button03.GetComponent<PlayerMovement>().AssignButtonSprite();
             }
         }
+        actor.data.button03Name = buttonName;
     }
     #endregion
 }

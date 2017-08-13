@@ -7,6 +7,7 @@ public class AbilityDamageStationarySkill : MonoBehaviour
     private int damageMultiplier;
     public float baseModifier;
     private Player player;
+    private AnimationsManager animManager;
 
     private List<Enemy> hitEnemies = new List<Enemy>();
 
@@ -16,6 +17,7 @@ public class AbilityDamageStationarySkill : MonoBehaviour
         {
             player = FindObjectOfType<Player>();
         }
+        animManager = FindObjectOfType<AnimationsManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,15 +55,15 @@ public class AbilityDamageStationarySkill : MonoBehaviour
         player = FindObjectOfType<Player>();
         if (tag == "Arcane")
         {
-            damageMultiplier = (player.CurrentArcane + (int)baseModifier);       
+            damageMultiplier = ((player.CurrentArcane + (int)baseModifier) * animManager.skillTier);
         }
         else if (tag == "Speed")
         {
-            damageMultiplier = (player.CurrentSpeed + (int)baseModifier);
+            damageMultiplier = ((player.CurrentSpeed + (int)baseModifier) * animManager.skillTier);
         }
         else if (tag == "Rage")
         {
-            damageMultiplier = (player.CurrentRage + (int)baseModifier);
+            damageMultiplier = ((player.CurrentRage + (int)baseModifier) * animManager.skillTier);
         }
     }
 }

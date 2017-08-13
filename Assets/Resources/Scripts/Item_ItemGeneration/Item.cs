@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
 
     public int lifeValue;
 
-    public int tokens;
+    public int skillPointValue;
 
     public bool itemEquipped = false;
 

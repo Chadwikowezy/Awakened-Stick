@@ -86,8 +86,10 @@ private void GameSparksRecieveData()
             }
             inventoryDisplay.items.Clear();
         }
+
         data.skillPointValue = skillPointManager.CurrentSkillPointValue;
 
+        #region collects Skill Data
         skillsPurchased = FindObjectsOfType<PurchaseSkill_AssignSkill>();
         foreach(PurchaseSkill_AssignSkill skillUnlocked in skillsPurchased)
         {
@@ -189,6 +191,18 @@ private void GameSparksRecieveData()
                 data.tier2AscendingShotUnlocked = true;
             }
         }
+        #endregion
+
+        if(Application.loadedLevelName == "Primary")
+        {
+            GameObject button01 = GameObject.FindGameObjectWithTag("SkillButton01");
+            GameObject button02 = GameObject.FindGameObjectWithTag("SkillButton02");
+            GameObject button03 = GameObject.FindGameObjectWithTag("SkillButton03");
+            data.button01Name = button01.name;
+            data.button02Name = button02.name;
+            data.button03Name = button03.name;
+        }
+        
     }
     #endregion
 
@@ -427,6 +441,16 @@ private void GameSparksRecieveData()
             skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
         }
         ReturnSkills();
+        if(Application.loadedLevelName == "Primary")
+        {
+            if (data.button01Name != string.Empty || data.button02Name != string.Empty || data.button03Name != string.Empty)
+            {
+                gameObject.AddComponent<AssignAbilityToBar>();
+                GetComponent<AssignAbilityToBar>().AssignAbilitySlot01(data.button01Name);
+                GetComponent<AssignAbilityToBar>().AssignAbilitySlot02(data.button02Name);
+                GetComponent<AssignAbilityToBar>().AssignAbilitySlot03(data.button03Name);
+            }
+        }        
     }
 
     #region Applying Conditions to info store/ Load
@@ -461,6 +485,11 @@ public class ActorData
     public int skillPointValue;
 
     public int startingGameSkillPoints;
+
+    public string button01Name;
+    public string button02Name;
+    public string button03Name;
+
 
     //tier 1
     public bool piercingFistUnlocked = false;

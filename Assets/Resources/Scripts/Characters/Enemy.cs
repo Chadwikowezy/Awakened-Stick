@@ -818,7 +818,6 @@ public class Enemy : MonoBehaviour, ICharacter
     {
         CurrentHealth -= (int)healthChange;
         healthBar.value = (float)((float)CurrentHealth / (float)CurrentMaxHealth);
-        Debug.Log(transform.name + CurrentHealth);
 
         if (CurrentHealth <= 0)
             StartCoroutine(Death());

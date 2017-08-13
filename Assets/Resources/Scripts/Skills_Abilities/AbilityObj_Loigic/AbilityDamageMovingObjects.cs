@@ -15,6 +15,7 @@ public class AbilityDamageMovingObjects : MonoBehaviour
         {
             player = FindObjectOfType<Player>();
         }
+        animManager = FindObjectOfType<AnimationsManager>();
     }
 
     void StatUpdate()
@@ -22,15 +23,15 @@ public class AbilityDamageMovingObjects : MonoBehaviour
         player = FindObjectOfType<Player>();
         if (tag == "Arcane")
         {
-            abilityDamageModifier = (player.CurrentArcane + baseModifier);
+            abilityDamageModifier = ((player.CurrentArcane + baseModifier) * animManager.skillTier);
         }
         else if (tag == "Speed")
         {
-            abilityDamageModifier = (player.CurrentSpeed + baseModifier);
+            abilityDamageModifier = ((player.CurrentSpeed + baseModifier) * animManager.skillTier);
         }
         else if (tag == "Rage")
         {
-            abilityDamageModifier = (player.CurrentRage + baseModifier);
+            abilityDamageModifier = ((player.CurrentRage + baseModifier) * animManager.skillTier);
         }
     }
 
