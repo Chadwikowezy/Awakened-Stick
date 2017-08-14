@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -72,6 +73,11 @@ public class HandleCanvas : MonoBehaviour
         foreach(Equip equipped in equip)
         {
             equipped.items = equip;
+        }
+        if (System.IO.File.Exists(Path.Combine(Application.persistentDataPath, "actors.json")))
+        {
+            ItemReturnManager itemReturnManager = FindObjectOfType<ItemReturnManager>();
+            itemReturnManager.ItemsNeedToBeAdded();
         }
     }
 

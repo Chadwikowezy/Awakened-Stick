@@ -44,6 +44,8 @@ public class AnimationsManager : MonoBehaviour
     public int lacerateDamage;
 
     public int skillTier;
+
+    public bool ascendingShot = false;
     #endregion
 
     void Start()
@@ -632,11 +634,12 @@ public class AnimationsManager : MonoBehaviour
     #region Ascending Shot 01
     public void AscendingShot()
     {
-        if (inMiddleOfSkillCast == false && longCD == false)
+        if (inMiddleOfSkillCast == false && longCD == false && onGround == true)
         {
             usingSkill = true;
             inMiddleOfSkillCast = true;
             longCD = true;
+            onGround = false;
             anim.SetInteger("shield", 0); 
             anim.SetInteger("frost", 0);
             anim.SetInteger("scythe", 0);
@@ -653,7 +656,7 @@ public class AnimationsManager : MonoBehaviour
             anim.SetInteger("ignition", 0);
             anim.SetInteger("arrow", 0);
             anim.SetInteger("ascending", 1);
-
+            ascendingShot = true;
             StartCoroutine(AscendingShotDelay());
         }
     }
@@ -675,7 +678,7 @@ public class AnimationsManager : MonoBehaviour
 
         usingSkill = false;
         inMiddleOfSkillCast = false;
-
+        ascendingShot = false;
         yield return new WaitForSeconds(2f);
         longCD = false;
 
@@ -695,7 +698,7 @@ public class AnimationsManager : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D obj)
     {
-        if(obj.gameObject.tag == "Ground")
+        if(obj.gameObject.tag == "Ground" && ascendingShot == false)
         {
             //running anim to false
             anim.SetInteger("run", 0);

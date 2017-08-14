@@ -57,21 +57,21 @@ public class WorldCreation : MonoBehaviour
     #region waveTracker
     void WaveTracker()
     {
-        if(waveCount > 5)
+        if(waveCount > 5 && waveCount < 11)
         {
-            tierCount++;
+            tierCount = 2;
         }
-        else if (waveCount > 10)
+        else if (waveCount >= 11 && waveCount < 20)
         {
-            tierCount++;
+            tierCount = 3;
         }
-        else if (waveCount > 20)
+        else if (waveCount >= 20 && waveCount < 50)
         {
-            tierCount++;
+            tierCount = 4;
         }
-        else if (waveCount > 50)
+        else if (waveCount >= 50)
         {
-            tierCount++;
+            tierCount = 5;
         }
     }
     #endregion

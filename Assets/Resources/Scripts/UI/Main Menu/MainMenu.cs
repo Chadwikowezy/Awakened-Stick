@@ -82,6 +82,7 @@ public class MainMenu : MonoBehaviour
     public void WimpButton()
     {
         SetActiveSelectable(wimpButton);
+        Application.Quit();
     }
     public void CharacterButton()
     {

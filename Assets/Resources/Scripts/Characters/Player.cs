@@ -127,6 +127,11 @@ public class Player : MonoBehaviour, ICharacter
         handleCanvas.canUseButtons = false;
         deathTextOBJ.SetActive(true);
         deathEffect.SetActive(true);
+        ItemReturnManager itemReturnManager = FindObjectOfType<ItemReturnManager>();
+        if(itemReturnManager.itemsNotAdded.Count > 0)
+        {
+            itemReturnManager.ItemsNeedToBeAdded();
+        }
         GameController gameController = FindObjectOfType<GameController>();
         for (int i = 0; i < 1; i++)
         {

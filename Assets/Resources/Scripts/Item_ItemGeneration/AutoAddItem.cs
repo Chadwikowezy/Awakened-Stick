@@ -8,11 +8,14 @@ public class AutoAddItem : MonoBehaviour
 
     private InventoryDisplay inventoryDisplay;
 
+    public List<InventoryItem> itemsNotAdded = new List<InventoryItem>();
+    public bool needToLoadSomeItemsIn = false;
+
 	void Start ()
     {
-        inventoryDisplay = FindObjectOfType<InventoryDisplay>();
         items.Add(GetComponent<InventoryItem>());//needs ref to self for pickup
-	}
+        inventoryDisplay = FindObjectOfType<InventoryDisplay>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,9 +23,13 @@ public class AutoAddItem : MonoBehaviour
         {
             foreach(InventoryItem item in items)
             {
-                gameObject.SetActive(false);
-                inventoryDisplay.PrimeInventoryItemList(items);
-                inventoryDisplay.items.Add(item);
+                gameObject.SetActive(false);               
+                ItemReturnManager itemReturnManager = FindObjectOfType<ItemReturnManager>();
+                itemReturnManager.itemsNotAdded.Add(GetComponent<InventoryItem>());
+                //items.Remove(GetComponent<InventoryItem>());
+                needToLoadSomeItemsIn = true;
+
+
             }
         }
     }

@@ -44,6 +44,19 @@ public class PurchaseSkill_AssignSkill : MonoBehaviour
 
     public bool isUnlockedAlready = false;
 
+    public enum skillType { piercingFist, heavensPiercer,
+        wrathsDestruction, howlingScythe, vortexDischarge,
+        searingIgnition, permaFrost, spiralingTempest, piercingShot,
+        uncontrolledSpeed, laceratingTyphoon, ascendingShot,
+        piercingFist_tier2, heavensPiercer_tier2, wrathsDestruction_tier2,
+        howlingScythe_tier2, vortexDischarge_tier2,
+        searingIgnition_tier2, permaFrost_tier2, spiralingTempest_tier2,
+        piercingShot_tier2, uncontrolledSpeed_tier2,
+        laceratingTyphoon_tier2, ascendingShot_tier2
+    };
+
+    public skillType type;
+
     void Start ()
     {
         buttonAssigner.SetActive(false);
@@ -53,16 +66,75 @@ public class PurchaseSkill_AssignSkill : MonoBehaviour
     {
         skillPointManager = FindObjectOfType<SkillPointManager>();
         if (skillPointManager.CurrentSkillPointValue >= currentSkillValue && isUnlockedAlready == false)
-        {           
-            skillPointManager.AlterCurrencyValue(currentSkillValue);
-            CheckIDAssignAbility(abilityIDValue);
-            ReturnSkill();
-            isUnlockedAlready = true;
+        {
+            if (type == skillType.piercingFist || type == skillType.heavensPiercer || type == skillType.wrathsDestruction
+                || type == skillType.howlingScythe || type == skillType.vortexDischarge || type == skillType.searingIgnition
+                || type == skillType.permaFrost || type == skillType.spiralingTempest || type == skillType.piercingShot
+                || type == skillType.uncontrolledSpeed || type == skillType.laceratingTyphoon || type == skillType.ascendingShot)
+            {
+                Calls();
+            }
+            else if (type == skillType.piercingFist_tier2 && piercingFistUnlocked == true)
+            {
+                Calls();
+            }  
+            else if (type == skillType.heavensPiercer_tier2 && heavensPiercerUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.wrathsDestruction_tier2 && wrathsDestructionUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.howlingScythe_tier2 && howlingScytheUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.vortexDischarge_tier2 && vortexDischargeUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.searingIgnition_tier2 && searingIgnitionUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.permaFrost_tier2 && permaFrostUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.spiralingTempest_tier2 && spiralingTempestUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.piercingShot_tier2 && piercingShotUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.uncontrolledSpeed_tier2 && uncontrolledSpeedUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.laceratingTyphoon_tier2 && laceratingTyphoonUnlocked == true)
+            {
+                Calls();
+            }
+            else if (type == skillType.ascendingShot_tier2 && ascendingShotUnlocked == true)
+            {
+                Calls();
+            }
         }
         else if(isUnlockedAlready == true)
         {
             StartCoroutine(buttonAssignerDuration());
         }
+    }
+
+    void Calls()
+    {
+        skillPointManager.AlterCurrencyValue(currentSkillValue);
+        CheckIDAssignAbility(abilityIDValue);
+        ReturnSkill();
+        isUnlockedAlready = true;
     }
     IEnumerator buttonAssignerDuration()
     {

@@ -23,6 +23,9 @@ public class PlayerMovement : TouchManager
     public Sprite vortexDischarge, searingIgnition, permaFrost, spiralingTempest;
     public Sprite piercingShot, uncontrolledSpeed, laceratingTyphoon, ascendingShot;
     public Sprite defaultButtonSprite;
+    public Sprite piercingFist_Tier2, heavenPiercer_Tier2, wrathDestruction_Tier2, howlingScythe_Tier2;
+    public Sprite vortexDischarge_Tier2, searingIgnition_Tier2, permaFrost_Tier2, spiralingTempest_Tier2;
+    public Sprite piercingShot_Tier2, uncontrolledSpeed_Tier2, laceratingTyphoon_Tier2, ascendingShot_Tier2;
 
     public GameObject playerObj = null;
     Rigidbody2D playerRigidBody = null;
@@ -110,6 +113,54 @@ public class PlayerMovement : TouchManager
         else if (buttonType == type.defaultButton)
         {
             GetComponent<GUITexture>().texture = defaultButtonSprite.texture;
+        }
+        else if (buttonType == type.PiercingFist_02)
+        {
+            GetComponent<GUITexture>().texture = piercingFist_Tier2.texture;
+        }
+        else if (buttonType == type.HeavenPiercer_02)
+        {
+            GetComponent<GUITexture>().texture = heavenPiercer_Tier2.texture;
+        }
+        else if (buttonType == type.WraithsDestruction_02)
+        {
+            GetComponent<GUITexture>().texture = wrathDestruction_Tier2.texture;
+        }
+        else if (buttonType == type.HowlingScythe_02)
+        {
+            GetComponent<GUITexture>().texture = howlingScythe_Tier2.texture;
+        }
+        else if (buttonType == type.VortexDischarge_02)
+        {
+            GetComponent<GUITexture>().texture = vortexDischarge_Tier2.texture;
+        }
+        else if (buttonType == type.SearingIgnition_02)
+        {
+            GetComponent<GUITexture>().texture = searingIgnition_Tier2.texture;
+        }
+        else if (buttonType == type.Permafrost_02)
+        {
+            GetComponent<GUITexture>().texture = permaFrost_Tier2.texture;
+        }
+        else if (buttonType == type.SpiralingTempest_02)
+        {
+            GetComponent<GUITexture>().texture = spiralingTempest_Tier2.texture;
+        }
+        else if (buttonType == type.PiercingShot_02)
+        {
+            GetComponent<GUITexture>().texture = piercingShot_Tier2.texture;
+        }
+        else if (buttonType == type.UncontrolledSpeed_02)
+        {
+            GetComponent<GUITexture>().texture = uncontrolledSpeed_Tier2.texture;
+        }
+        else if (buttonType == type.LaceratingTyphoon_02)
+        {
+            GetComponent<GUITexture>().texture = laceratingTyphoon_Tier2.texture;
+        }
+        else if (buttonType == type.AscendingShot_02)
+        {
+            GetComponent<GUITexture>().texture = ascendingShot_Tier2.texture;
         }
     }
     #endregion

@@ -35,9 +35,11 @@ public class Enemy : MonoBehaviour, ICharacter
     [SerializeField]
     private int _baseDefense;
 
-	private int damageMultiplier;
-	private int basedamageMultiplier = 2;
-	private int jumpHeight = 15;
+    public int permaFrostDamage;
+    public int kickDamage;
+    public int wrathsDamage;
+    public int lacerateDamage;
+	public int jumpHeight = 15;
 
 	//current stats
     private int _currentHealth = 20;
@@ -348,9 +350,7 @@ public class Enemy : MonoBehaviour, ICharacter
 				//deal damage
 
 				//deal knockback
-				damageMultiplier = (player.CurrentRage + 5);
-
-				hit.collider.gameObject.GetComponent<Enemy>().AlterHealth(damageMultiplier);
+				hit.collider.gameObject.GetComponent<Enemy>().AlterHealth(kickDamage);
 				if (hit.collider.gameObject.transform.position.x < transform.position.x)
 				{
 					hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 500);
@@ -402,7 +402,6 @@ public class Enemy : MonoBehaviour, ICharacter
 	IEnumerator WrathsDestructionDelay()
 	{
 		yield return new WaitForSeconds(.8f);
-		damageMultiplier = (player.CurrentRage + basedamageMultiplier);
 		wrathOBJ.SetActive(true);
 		wrathOBJ.GetComponent<ParticleSystem>().Play();
 
@@ -411,7 +410,7 @@ public class Enemy : MonoBehaviour, ICharacter
 		{
 			if (player != null)
 			{
-				player.AlterHealth(damageMultiplier);
+				player.AlterHealth(wrathsDamage);
 			}
 		}
 		yield return new WaitForSeconds(.4f);
@@ -560,7 +559,6 @@ public class Enemy : MonoBehaviour, ICharacter
 	}
 	IEnumerator PermafrostDelay()
 	{
-		damageMultiplier = (player.CurrentArcane + basedamageMultiplier);
 		permaFrostOBJ.SetActive(true);
 		for (int i = 0; i < 5; i++)
 		{
@@ -570,7 +568,7 @@ public class Enemy : MonoBehaviour, ICharacter
 			{
 				if (player != null)
 				{
-					player.AlterHealth(damageMultiplier);
+					player.AlterHealth(permaFrostDamage);
 				}
 			}
 		}
@@ -744,12 +742,11 @@ public class Enemy : MonoBehaviour, ICharacter
 		{
 			yield return new WaitForSeconds(.4f);
 			Player[] players = FindObjectsOfType<Player>();
-			damageMultiplier = player.CurrentSpeed;
 			foreach (Player player in players)
 			{
 				if (Vector2.Distance(transform.position, player.transform.position) <= 4)
 				{
-					player.AlterHealth(damageMultiplier + basedamageMultiplier);
+					player.AlterHealth(lacerateDamage);
 				}
 			}
 		}
@@ -835,29 +832,41 @@ public class Enemy : MonoBehaviour, ICharacter
 
     public void DetermineLoot()
     {
-        if (Random.value == 0.20)
+        WorldCreation worldCreation = FindObjectOfType<WorldCreation>();
+        if(worldCreation.waveCount <= 5)
         {
-            Instantiate(itemDropOBJ, transform.position, Quaternion.identity);
+            if (Random.value >= 0.0 && Random.value <= 0.25)
+            {
+                Instantiate(itemDropOBJ, transform.position, Quaternion.identity);
+            }
         }
-
-        if (Random.value == 0.15)
+        else if(worldCreation.waveCount > 5 && worldCreation.waveCount < 11)
         {
-            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
+            if (Random.value > 0.25 && Random.value <= 0.40)
+            {
+                Instantiate(itemDropOBJ, transform.position, Quaternion.identity);
+            }
         }
-
-        if (Random.value == 0.10)
+        else if (worldCreation.waveCount >= 11 && worldCreation.waveCount < 20)
         {
-            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
+            if (Random.value > 0.40 && Random.value <= 0.50)
+            {
+                Instantiate(itemDropOBJ, transform.position, Quaternion.identity);
+            }
         }
-
-        if (Random.value == 0.05)
+        else if (worldCreation.waveCount >= 20 && worldCreation.waveCount < 50)
         {
-            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
+            if (Random.value > 0.50 && Random.value <= 0.55)
+            {
+                Instantiate(itemDropOBJ, transform.position, Quaternion.identity);
+            }
         }
-
-        if (Random.value == 0.01)
+        else if (worldCreation.waveCount >= 50)
         {
-            Instantiate (itemDropOBJ, transform.position, Quaternion.identity); 
+            if (Random.value > 0.55 && Random.value <= 0.56)
+            {
+                Instantiate(itemDropOBJ, transform.position, Quaternion.identity);
+            }
         }
     }
 

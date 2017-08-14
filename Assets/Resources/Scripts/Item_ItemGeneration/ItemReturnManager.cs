@@ -17,6 +17,8 @@ public class ItemReturnManager : MonoBehaviour
 
     private GameObject[] inventoryItems;
 
+    public List<InventoryItem> itemsNotAdded = new List<InventoryItem>();
+
     void Start ()
     {
         if (hasAddedItems == false)
@@ -33,6 +35,29 @@ public class ItemReturnManager : MonoBehaviour
         {
             Destroy(actors[i].gameObject);
         }
+    }
+
+    public void ItemsNeedToBeAdded()
+    {       
+        if(itemsNotAdded.Count > 0)
+        {
+            for (int i = 0; i < itemsNotAdded.Count; i++)
+            {
+                actor.data.ids.Add(itemsNotAdded[i].itemId);
+                InventoryItemDisplay display = (InventoryItemDisplay)Instantiate(inventoryItemDisplayPrefab);
+                display.transform.SetParent(targetTransform, false);
+
+                InventoryItem returnInventoryItem = display.gameObject.AddComponent<InventoryItem>();
+
+                display.GetComponent<InventoryItem>().itemId = itemsNotAdded[i].itemId;
+                display.GetComponent<InventoryItem>().ReturnItems();
+
+                display.item = returnInventoryItem;
+
+                //itemsNotAdded.Remove(itemsNotAdded[i]);                
+            }
+            itemsNotAdded.Clear();
+        }    
     }
 	
 	IEnumerator BeginReturningIDS()
@@ -57,13 +82,7 @@ public class ItemReturnManager : MonoBehaviour
             display.GetComponent<InventoryItem>().itemId = actor.data.ids[i];
             display.GetComponent<InventoryItem>().ReturnItems();
 
-            display.item = returnInventoryItem;
-
-            if(display.textName.text != returnInventoryItem.itemName)
-            {
-                //Debug.Log("Failed to log in item properly, check inventory item on inventoryitemdisplay object in scene");
-            }
-
+            display.item = returnInventoryItem;           
         }
     }
 }

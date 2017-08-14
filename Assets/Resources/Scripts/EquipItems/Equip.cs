@@ -39,6 +39,27 @@ public class Equip : MonoBehaviour
     public void Equip_Unequip()
     {
         items = FindObjectsOfType<Equip>();
+        //equipCheckItems = FindObjectsOfType<Equip>();
+
+        foreach(Equip item in items)
+        {
+            if(item.equipArmor == true)
+            {
+                equipArmor = true;
+            }
+            if (item.equipHelm == true)
+            {
+                equipHelm = true;
+            }
+            if (item.equipGloves == true)
+            {
+                equipGloves = true;
+            }
+            if (item.equipWeapon == true)
+            {
+                equipWeapon = true;
+            }
+        }
 
         if (equipArmor == false && itemIsEquipped == false && inventoryItemDisplay.item.itemType == Item.ItemTypes.armor)
         {

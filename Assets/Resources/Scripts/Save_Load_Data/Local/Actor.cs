@@ -19,7 +19,7 @@ public class Actor : MonoBehaviour
         skillPointManager = FindObjectOfType<SkillPointManager>();
         if(transform.name == "FakeLoader(Clone)")
         {
-            data.startingGameSkillPoints = 70;
+            data.startingGameSkillPoints = 250;
             skillPointManager.CurrentSkillPointValue = data.startingGameSkillPoints;
             skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
         }
