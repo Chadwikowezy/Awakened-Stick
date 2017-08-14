@@ -76,4 +76,52 @@ public class ItemMenuLoader : MonoBehaviour
             menuItemText.menuItemArcane.text = _menuInventory.gloveItems[i].arcane.ToString();
         }
     }
+    void LoadBladesBow()
+    {
+        for (int i = 0; i < _menuInventory.bladesBowItems.Count; i++)
+        {
+            GameObject newMenuItem = Instantiate(menuItemPrefab);
+            MainMenuItem menuItemText = newMenuItem.GetComponent<MainMenuItem>();
+
+            newMenuItem.transform.SetParent(menuContent.transform);
+            newMenuItem.transform.localScale = new Vector3(1, 1, 1);
+
+            menuItemText.menuItemName.text = _menuInventory.bladesBowItems[i].itemName;
+            menuItemText.menuItemSpeed.text = _menuInventory.bladesBowItems[i].speed.ToString();
+            menuItemText.menuItemRage.text = _menuInventory.bladesBowItems[i].rage.ToString();
+            menuItemText.menuItemArcane.text = _menuInventory.bladesBowItems[i].arcane.ToString();
+        }
+    }
+    void LoadTwoHanded()
+    {
+        for (int i = 0; i < _menuInventory.twoHandedItems.Count; i++)
+        {
+            GameObject newMenuItem = Instantiate(menuItemPrefab);
+            MainMenuItem menuItemText = newMenuItem.GetComponent<MainMenuItem>();
+
+            newMenuItem.transform.SetParent(menuContent.transform);
+            newMenuItem.transform.localScale = new Vector3(1, 1, 1);
+
+            menuItemText.menuItemName.text = _menuInventory.twoHandedItems[i].itemName;
+            menuItemText.menuItemSpeed.text = _menuInventory.twoHandedItems[i].speed.ToString();
+            menuItemText.menuItemRage.text = _menuInventory.twoHandedItems[i].rage.ToString();
+            menuItemText.menuItemArcane.text = _menuInventory.twoHandedItems[i].arcane.ToString();
+        }
+    }
+    void LoadMagicSphere()
+    {
+        for (int i = 0; i < _menuInventory.magicSphereItems.Count; i++)
+        {
+            GameObject newMenuItem = Instantiate(menuItemPrefab);
+            MainMenuItem menuItemText = newMenuItem.GetComponent<MainMenuItem>();
+
+            newMenuItem.transform.SetParent(menuContent.transform);
+            newMenuItem.transform.localScale = new Vector3(1, 1, 1);
+
+            menuItemText.menuItemName.text = _menuInventory.magicSphereItems[i].itemName;
+            menuItemText.menuItemSpeed.text = _menuInventory.magicSphereItems[i].speed.ToString();
+            menuItemText.menuItemRage.text = _menuInventory.magicSphereItems[i].rage.ToString();
+            menuItemText.menuItemArcane.text = _menuInventory.magicSphereItems[i].arcane.ToString();
+        }
+    }
 }

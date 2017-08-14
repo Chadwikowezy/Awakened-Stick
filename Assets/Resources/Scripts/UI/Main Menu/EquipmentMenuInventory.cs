@@ -30,7 +30,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             {
                 itemIds = currentActor.data.ids;
                 GenerateItemsList();
-            } 
+            }
         }
     }
 
