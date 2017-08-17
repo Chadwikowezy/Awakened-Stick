@@ -27,6 +27,15 @@ public class ItemMenuLoader : MonoBehaviour
             LoadArmor();
         else if (menuItemType == Item.ItemTypes.gloves)
             LoadGloves();
+        else if (menuItemType == Item.ItemTypes.weapon)
+        {
+            if (menuWeaponType == Item.WeaponType.blades_Bow)
+                LoadBladesBow();
+            else if (menuWeaponType == Item.WeaponType.twoHandedWeapon)
+                LoadTwoHanded();
+            else if (menuWeaponType == Item.WeaponType.magicSphere)
+                LoadMagicSphere();
+        }
     }
     void LoadHelmets()
     {
