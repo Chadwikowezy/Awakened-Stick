@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class Actor : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Actor : MonoBehaviour
         skillPointManager = FindObjectOfType<SkillPointManager>();
         if(transform.name == "FakeLoader(Clone)")
         {
-            data.startingGameSkillPoints = 250;
+            data.startingGameSkillPoints = 600;
             skillPointManager.CurrentSkillPointValue = data.startingGameSkillPoints;
             skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
         }
@@ -86,6 +87,15 @@ private void GameSparksRecieveData()
             }
             inventoryDisplay.items.Clear();
         }
+
+        if(Application.loadedLevelName == "Primary")
+        {
+            WorldCreation worldCreation = FindObjectOfType<WorldCreation>();
+            if (worldCreation.waveCount > data.waveRecord)
+            {
+                data.waveRecord = worldCreation.waveCount;
+            }
+        }       
 
         data.skillPointValue = skillPointManager.CurrentSkillPointValue;
 
@@ -450,7 +460,14 @@ private void GameSparksRecieveData()
                 GetComponent<AssignAbilityToBar>().AssignAbilitySlot02(data.button02Name);
                 GetComponent<AssignAbilityToBar>().AssignAbilitySlot03(data.button03Name);
             }
-        }        
+        }
+
+        if(Application.loadedLevelName == "Main Menu")
+        {
+            GameObject waveRecordTxtObj = GameObject.Find("Wave Record Value");
+            waveRecordTxtObj.GetComponent<Text>().text = data.waveRecord.ToString();
+        }
+     
     }
 
     #region Applying Conditions to info store/ Load
@@ -490,6 +507,7 @@ public class ActorData
     public string button02Name;
     public string button03Name;
 
+    public int waveRecord;
 
     //tier 1
     public bool piercingFistUnlocked = false;
