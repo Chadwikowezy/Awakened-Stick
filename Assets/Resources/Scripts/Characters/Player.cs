@@ -119,6 +119,15 @@ public class Player : MonoBehaviour, ICharacter
         if (CurrentHealth <= 0)
             StartCoroutine(Die());
     }
+    public void ReturnHealth(int healthChange)
+    {
+        if(CurrentHealth < CurrentMaxHealth)
+        {
+            CurrentHealth += (int)healthChange;
+            healthBar.value = (float)((float)CurrentHealth / (float)CurrentMaxHealth);
+            currentHealthText.text = CurrentHealth + "/" + CurrentMaxHealth;
+        }     
+    }
 
     IEnumerator Die()
     {

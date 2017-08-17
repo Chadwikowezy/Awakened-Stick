@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class MainMenu : MonoBehaviour
     private GameObject _currentSubMenu;
 
     private EventSystem _currentSystem;
+
+    public Text waveRecordTextObj;
 
     private void Start()
     {
@@ -87,7 +90,12 @@ public class MainMenu : MonoBehaviour
     public void CharacterButton()
     {
         SetActiveSelectable(characterButton);
-        SetActiveSubMenu(characterMenu);
+        SetActiveSubMenu(characterMenu);      
+    }
+    public void WaveTextUpdate()
+    {
+        Actor actor = FindObjectOfType<Actor>();
+        waveRecordTextObj.text = actor.data.waveRecord.ToString();
     }
 
     IEnumerator LoadPrimaryScene(float waitTime)
