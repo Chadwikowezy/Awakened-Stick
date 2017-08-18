@@ -38,8 +38,11 @@ public class ItemReturnManager : MonoBehaviour
     }
 
     public void ItemsNeedToBeAdded()
-    {       
-        if(itemsNotAdded.Count > 0)
+    {
+        if (SceneManager.GetActiveScene().name != "Primary")
+            return;
+
+        if (itemsNotAdded.Count > 0)
         {
             for (int i = 0; i < itemsNotAdded.Count; i++)
             {

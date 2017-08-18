@@ -16,11 +16,13 @@ public class ItemMenuLoader : MonoBehaviour
     {
         _menuInventory = FindObjectOfType<EquipmentMenuInventory>();
 
-        LoadMenuItems();
+        StartCoroutine(LoadMenuItems());
     }
 
-    public void LoadMenuItems()
+    IEnumerator LoadMenuItems()
     {
+        yield return new WaitForSeconds(0.1f);
+
         if (menuItemType == Item.ItemTypes.helmet)
             LoadHelmets();
         else if (menuItemType == Item.ItemTypes.armor)
@@ -39,6 +41,8 @@ public class ItemMenuLoader : MonoBehaviour
     }
     void LoadHelmets()
     {
+        print(_menuInventory.helmetItems.Count);
+
         for (int i = 0; i < _menuInventory.helmetItems.Count; i++)
         {
             GameObject newMenuItem = Instantiate(menuItemPrefab);
