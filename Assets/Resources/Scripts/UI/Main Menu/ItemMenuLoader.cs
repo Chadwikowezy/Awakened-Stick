@@ -41,8 +41,6 @@ public class ItemMenuLoader : MonoBehaviour
     }
     void LoadHelmets()
     {
-        print(_menuInventory.helmetItems.Count);
-
         for (int i = 0; i < _menuInventory.helmetItems.Count; i++)
         {
             GameObject newMenuItem = Instantiate(menuItemPrefab);
@@ -55,6 +53,7 @@ public class ItemMenuLoader : MonoBehaviour
             menuItemText.menuItemSpeed.text = _menuInventory.helmetItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.helmetItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.helmetItems[i].arcane.ToString();
+            menuItemText.menuItemSkillPoints.text = _menuInventory.helmetItems[i].skillPointValue.ToString();
         }
     }
     void LoadArmor()
@@ -71,6 +70,7 @@ public class ItemMenuLoader : MonoBehaviour
             menuItemText.menuItemSpeed.text = _menuInventory.armorItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.armorItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.armorItems[i].arcane.ToString();
+            menuItemText.menuItemSkillPoints.text = _menuInventory.armorItems[i].skillPointValue.ToString();
         }
     }
     void LoadGloves()
@@ -87,6 +87,7 @@ public class ItemMenuLoader : MonoBehaviour
             menuItemText.menuItemSpeed.text = _menuInventory.gloveItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.gloveItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.gloveItems[i].arcane.ToString();
+            menuItemText.menuItemSkillPoints.text = _menuInventory.gloveItems[i].skillPointValue.ToString();
         }
     }
     void LoadBladesBow()
@@ -103,6 +104,7 @@ public class ItemMenuLoader : MonoBehaviour
             menuItemText.menuItemSpeed.text = _menuInventory.bladesBowItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.bladesBowItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.bladesBowItems[i].arcane.ToString();
+            menuItemText.menuItemSkillPoints.text = _menuInventory.bladesBowItems[i].skillPointValue.ToString();
         }
     }
     void LoadTwoHanded()
@@ -119,6 +121,7 @@ public class ItemMenuLoader : MonoBehaviour
             menuItemText.menuItemSpeed.text = _menuInventory.twoHandedItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.twoHandedItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.twoHandedItems[i].arcane.ToString();
+            menuItemText.menuItemSkillPoints.text = _menuInventory.twoHandedItems[i].skillPointValue.ToString();
         }
     }
     void LoadMagicSphere()
@@ -135,6 +138,7 @@ public class ItemMenuLoader : MonoBehaviour
             menuItemText.menuItemSpeed.text = _menuInventory.magicSphereItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.magicSphereItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.magicSphereItems[i].arcane.ToString();
+            menuItemText.menuItemSkillPoints.text = _menuInventory.magicSphereItems[i].skillPointValue.ToString();
         }
     }
 }
