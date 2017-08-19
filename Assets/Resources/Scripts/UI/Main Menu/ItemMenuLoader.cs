@@ -48,8 +48,24 @@ public class ItemMenuLoader : MonoBehaviour
 
             newMenuItem.transform.SetParent(menuContent.transform);
             newMenuItem.transform.localScale = new Vector3(1, 1, 1);
-
             menuItemText.menuItemName.text = _menuInventory.helmetItems[i].itemName;
+            if(_menuInventory.helmetItems[i].itemRarity == Item.ItemRaritys.common)
+            {
+                menuItemText.menuItemName.color = Color.white;
+            }
+            else if (_menuInventory.helmetItems[i].itemRarity == Item.ItemRaritys.uncommon)
+            {
+                menuItemText.menuItemName.color = Color.green;
+            }
+            else if (_menuInventory.helmetItems[i].itemRarity == Item.ItemRaritys.rare)
+            {
+                menuItemText.menuItemName.color = Color.blue;
+            }
+            else if (_menuInventory.helmetItems[i].itemRarity == Item.ItemRaritys.legendary)
+            {
+                menuItemText.menuItemName.color = Color.yellow;
+            }
+            menuItemText.menuItemHealth.text = _menuInventory.helmetItems[i].lifeValue.ToString();
             menuItemText.menuItemSpeed.text = _menuInventory.helmetItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.helmetItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.helmetItems[i].arcane.ToString();
@@ -67,6 +83,23 @@ public class ItemMenuLoader : MonoBehaviour
             newMenuItem.transform.localScale = new Vector3(1, 1, 1);
 
             menuItemText.menuItemName.text = _menuInventory.armorItems[i].itemName;
+            if (_menuInventory.armorItems[i].itemRarity == Item.ItemRaritys.common)
+            {
+                menuItemText.menuItemName.color = Color.white;
+            }
+            else if (_menuInventory.armorItems[i].itemRarity == Item.ItemRaritys.uncommon)
+            {
+                menuItemText.menuItemName.color = Color.green;
+            }
+            else if (_menuInventory.armorItems[i].itemRarity == Item.ItemRaritys.rare)
+            {
+                menuItemText.menuItemName.color = Color.blue;
+            }
+            else if (_menuInventory.armorItems[i].itemRarity == Item.ItemRaritys.legendary)
+            {
+                menuItemText.menuItemName.color = Color.yellow;
+            }
+            menuItemText.menuItemHealth.text = _menuInventory.armorItems[i].lifeValue.ToString();
             menuItemText.menuItemSpeed.text = _menuInventory.armorItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.armorItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.armorItems[i].arcane.ToString();
@@ -84,6 +117,23 @@ public class ItemMenuLoader : MonoBehaviour
             newMenuItem.transform.localScale = new Vector3(1, 1, 1);
 
             menuItemText.menuItemName.text = _menuInventory.gloveItems[i].itemName;
+            if (_menuInventory.gloveItems[i].itemRarity == Item.ItemRaritys.common)
+            {
+                menuItemText.menuItemName.color = Color.white;
+            }
+            else if (_menuInventory.gloveItems[i].itemRarity == Item.ItemRaritys.uncommon)
+            {
+                menuItemText.menuItemName.color = Color.green;
+            }
+            else if (_menuInventory.gloveItems[i].itemRarity == Item.ItemRaritys.rare)
+            {
+                menuItemText.menuItemName.color = Color.blue;
+            }
+            else if (_menuInventory.gloveItems[i].itemRarity == Item.ItemRaritys.legendary)
+            {
+                menuItemText.menuItemName.color = Color.yellow;
+            }
+            menuItemText.menuItemHealth.text = _menuInventory.gloveItems[i].lifeValue.ToString();
             menuItemText.menuItemSpeed.text = _menuInventory.gloveItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.gloveItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.gloveItems[i].arcane.ToString();
@@ -101,6 +151,27 @@ public class ItemMenuLoader : MonoBehaviour
             newMenuItem.transform.localScale = new Vector3(1, 1, 1);
 
             menuItemText.menuItemName.text = _menuInventory.bladesBowItems[i].itemName;
+            if (_menuInventory.bladesBowItems[i].itemRarity == Item.ItemRaritys.common)
+            {
+                menuItemText.menuItemName.color = Color.white;
+            }
+            else if (_menuInventory.bladesBowItems[i].itemRarity == Item.ItemRaritys.uncommon)
+            {
+                menuItemText.menuItemName.color = Color.green;
+            }
+            else if (_menuInventory.bladesBowItems[i].itemRarity == Item.ItemRaritys.rare)
+            {
+                menuItemText.menuItemName.color = Color.blue;
+            }
+            else if (_menuInventory.bladesBowItems[i].itemRarity == Item.ItemRaritys.legendary)
+            {
+                menuItemText.menuItemName.color = Color.yellow;
+            }
+            else if (_menuInventory.bladesBowItems[i].itemRarity == Item.ItemRaritys.artifact)
+            {
+                menuItemText.menuItemName.color = Color.red;
+            }
+            menuItemText.menuItemHealth.text = _menuInventory.bladesBowItems[i].lifeValue.ToString();
             menuItemText.menuItemSpeed.text = _menuInventory.bladesBowItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.bladesBowItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.bladesBowItems[i].arcane.ToString();
@@ -118,6 +189,27 @@ public class ItemMenuLoader : MonoBehaviour
             newMenuItem.transform.localScale = new Vector3(1, 1, 1);
 
             menuItemText.menuItemName.text = _menuInventory.twoHandedItems[i].itemName;
+            if (_menuInventory.twoHandedItems[i].itemRarity == Item.ItemRaritys.common)
+            {
+                menuItemText.menuItemName.color = Color.white;
+            }
+            else if (_menuInventory.twoHandedItems[i].itemRarity == Item.ItemRaritys.uncommon)
+            {
+                menuItemText.menuItemName.color = Color.green;
+            }
+            else if (_menuInventory.twoHandedItems[i].itemRarity == Item.ItemRaritys.rare)
+            {
+                menuItemText.menuItemName.color = Color.blue;
+            }
+            else if (_menuInventory.twoHandedItems[i].itemRarity == Item.ItemRaritys.legendary)
+            {
+                menuItemText.menuItemName.color = Color.yellow;
+            }
+            else if (_menuInventory.twoHandedItems[i].itemRarity == Item.ItemRaritys.artifact)
+            {
+                menuItemText.menuItemName.color = Color.red;
+            }
+            menuItemText.menuItemHealth.text = _menuInventory.twoHandedItems[i].lifeValue.ToString();
             menuItemText.menuItemSpeed.text = _menuInventory.twoHandedItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.twoHandedItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.twoHandedItems[i].arcane.ToString();
@@ -135,6 +227,27 @@ public class ItemMenuLoader : MonoBehaviour
             newMenuItem.transform.localScale = new Vector3(1, 1, 1);
 
             menuItemText.menuItemName.text = _menuInventory.magicSphereItems[i].itemName;
+            if (_menuInventory.magicSphereItems[i].itemRarity == Item.ItemRaritys.common)
+            {
+                menuItemText.menuItemName.color = Color.white;
+            }
+            else if (_menuInventory.magicSphereItems[i].itemRarity == Item.ItemRaritys.uncommon)
+            {
+                menuItemText.menuItemName.color = Color.green;
+            }
+            else if (_menuInventory.magicSphereItems[i].itemRarity == Item.ItemRaritys.rare)
+            {
+                menuItemText.menuItemName.color = Color.blue;
+            }
+            else if (_menuInventory.magicSphereItems[i].itemRarity == Item.ItemRaritys.legendary)
+            {
+                menuItemText.menuItemName.color = Color.yellow;
+            }
+            else if (_menuInventory.magicSphereItems[i].itemRarity == Item.ItemRaritys.artifact)
+            {
+                menuItemText.menuItemName.color = Color.red;
+            }
+            menuItemText.menuItemHealth.text = _menuInventory.magicSphereItems[i].lifeValue.ToString();
             menuItemText.menuItemSpeed.text = _menuInventory.magicSphereItems[i].speed.ToString();
             menuItemText.menuItemRage.text = _menuInventory.magicSphereItems[i].rage.ToString();
             menuItemText.menuItemArcane.text = _menuInventory.magicSphereItems[i].arcane.ToString();

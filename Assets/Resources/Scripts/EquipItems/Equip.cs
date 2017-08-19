@@ -207,8 +207,18 @@ public class Equip : MonoBehaviour
 
         player.CurrentAttack += (inventoryItemDisplay.item.rage +
             inventoryItemDisplay.item.arcane + inventoryItemDisplay.item.speed);
-
-        player.CurrentDefense += (inventoryItemDisplay.item.lifeValue / 2);
+        if(player.CurrentMaxHealth < 90)
+        {
+            player.CurrentDefense = 0;
+        }
+        else if (player.CurrentMaxHealth >= 90 && player.CurrentMaxHealth < 116)
+        {
+            player.CurrentDefense = 1;
+        }
+        else if (player.CurrentMaxHealth >= 116)
+        {
+            player.CurrentDefense = 2;
+        }
 
         itemSpriteColorSwitch.color = Color.red;
 
@@ -228,8 +238,18 @@ public class Equip : MonoBehaviour
 
         player.CurrentAttack -= (inventoryItemDisplay.item.rage +
             inventoryItemDisplay.item.arcane + inventoryItemDisplay.item.speed);
-
-        player.CurrentDefense -= (inventoryItemDisplay.item.lifeValue / 2);
+        if (player.CurrentMaxHealth < 90)
+        {
+            player.CurrentDefense = 0;
+        }
+        else if (player.CurrentMaxHealth >= 90 && player.CurrentMaxHealth < 116)
+        {
+            player.CurrentDefense = 1;
+        }
+        else if (player.CurrentMaxHealth >= 116)
+        {
+            player.CurrentDefense = 2;
+        }
 
         itemSpriteColorSwitch.color = Color.white;
 

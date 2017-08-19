@@ -350,7 +350,7 @@ public class InventoryItem : Item
             weaponType = WeaponType.blades_Bow;
             itemRarity = ItemRaritys.artifact;
             itemDesc = "The two strongest of feelings, held side by side.";
-            rage = 20;
+            rage = 0;
             arcane = 0;
             speed = 25;
             lifeValue = 15;

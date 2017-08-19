@@ -14,13 +14,13 @@ public class Player : MonoBehaviour, ICharacter
     [SerializeField] private int _baseDefense;
 
     //current stats
-    private int _currentHealth = 50;
-    private int _currentMaxHealth = 50;
+    private int _currentHealth = 60;
+    private int _currentMaxHealth = 60;
     private int _currentAttack;
     private int _currentRage;
     private int _currentSpeed;
     private int _currentArcane;
-    private int _currentDefense;
+    private int _currentDefense = 0;
 
     public Slider healthBar;
     public Text currentHealthText;
@@ -112,7 +112,20 @@ public class Player : MonoBehaviour, ICharacter
 
     public void AlterHealth(int healthChange)
     {
-        CurrentHealth -= (int)healthChange;
+        if (CurrentMaxHealth < 90)
+        {
+            _currentDefense = 0;
+        }
+        else if (CurrentMaxHealth >= 90 && CurrentMaxHealth < 116)
+        {
+            _currentDefense = 1;
+        }
+        else if (CurrentMaxHealth >= 116)
+        {
+            _currentDefense = 2;
+        }       
+
+        CurrentHealth -= ((int)healthChange - _currentDefense);
         healthBar.value = (float)((float)CurrentHealth / (float)CurrentMaxHealth);
         currentHealthText.text = CurrentHealth + "/" + CurrentMaxHealth;
 
@@ -121,7 +134,7 @@ public class Player : MonoBehaviour, ICharacter
     }
     public void ReturnHealth(int healthChange)
     {
-        if(CurrentHealth < CurrentMaxHealth)
+        if (CurrentHealth < CurrentMaxHealth)
         {
             CurrentHealth += (int)healthChange;
             healthBar.value = (float)((float)CurrentHealth / (float)CurrentMaxHealth);

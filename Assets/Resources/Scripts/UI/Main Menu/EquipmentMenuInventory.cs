@@ -93,8 +93,8 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemDesc = "Speeds unmatched, may you take flight.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
-            generatedItem.speed = 4;
-            generatedItem.lifeValue = 10;
+            generatedItem.speed = 2;
+            generatedItem.lifeValue = 3;
             generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 2)
@@ -104,10 +104,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.common;
             generatedItem.itemDesc = "A blade who's tale is nothing but sorrowful.";
-            generatedItem.rage = 3;
+            generatedItem.rage = 1;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 12;
+            generatedItem.lifeValue = 4;
             generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 3)
@@ -118,9 +118,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.common;
             generatedItem.itemDesc = "The pulsating energy is overwhelming!";
             generatedItem.rage = 0;
-            generatedItem.arcane = 5;
+            generatedItem.arcane = 3;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 8;
+            generatedItem.lifeValue = 2;
             generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 4)
@@ -129,10 +129,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.armor;
             generatedItem.itemRarity = Item.ItemRaritys.common;
             generatedItem.itemDesc = "Focuses on obtaining all.";
-            generatedItem.rage = 5;
-            generatedItem.arcane = 5;
-            generatedItem.speed = 5;
-            generatedItem.lifeValue = 15;
+            generatedItem.rage = 2;
+            generatedItem.arcane = 2;
+            generatedItem.speed = 2;
+            generatedItem.lifeValue = 2;
             generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 5)
@@ -141,10 +141,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.helmet;
             generatedItem.itemRarity = Item.ItemRaritys.common;
             generatedItem.itemDesc = "Helmet that made to fill any roles.";
-            generatedItem.rage = 5;
-            generatedItem.arcane = 5;
-            generatedItem.speed = 5;
-            generatedItem.lifeValue = 15;
+            generatedItem.rage = 2;
+            generatedItem.arcane = 2;
+            generatedItem.speed = 2;
+            generatedItem.lifeValue = 2;
             generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 6)
@@ -153,22 +153,23 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.gloves;
             generatedItem.itemRarity = Item.ItemRaritys.common;
             generatedItem.itemDesc = "Both hands, made to take everything.";
-            generatedItem.rage = 5;
-            generatedItem.arcane = 5;
-            generatedItem.speed = 5;
-            generatedItem.lifeValue = 15;
+            generatedItem.rage = 2;
+            generatedItem.arcane = 2;
+            generatedItem.speed = 2;
+            generatedItem.lifeValue = 2;
             generatedItem.skillPointValue = 1;
         }
         else if (generatedItem.itemId == 7)
         {
             generatedItem.itemName = "Pestilence & Famine";
+            generatedItem.itemType = Item.ItemTypes.weapon;
             generatedItem.weaponType = Item.WeaponType.blades_Bow;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
             generatedItem.itemDesc = "No more horror was brought, but by these blades.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
-            generatedItem.speed = 10;
-            generatedItem.lifeValue = 18;
+            generatedItem.speed = 5;
+            generatedItem.lifeValue = 5;
             generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 8)
@@ -178,10 +179,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
             generatedItem.itemDesc = "Destroys everything, even in the face of countless foes.";
-            generatedItem.rage = 8;
+            generatedItem.rage = 4;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 20;
+            generatedItem.lifeValue = 6;
             generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 9)
@@ -192,9 +193,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
             generatedItem.itemDesc = "A powerful object of unending removal.";
             generatedItem.rage = 0;
-            generatedItem.arcane = 12;
+            generatedItem.arcane = 6;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 16;
+            generatedItem.lifeValue = 4;
             generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 10)
@@ -206,7 +207,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
             generatedItem.speed = 10;
-            generatedItem.lifeValue = 20;
+            generatedItem.lifeValue = 6;
             generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 11)
@@ -216,9 +217,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
             generatedItem.itemDesc = "Raises your arcane to another level, but at a cost.";
             generatedItem.rage = 0;
-            generatedItem.arcane = 15;
+            generatedItem.arcane = 12;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 15;
+            generatedItem.lifeValue = 4;
             generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 12)
@@ -227,10 +228,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.gloves;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
             generatedItem.itemDesc = "Boosts one's rage, but at a cost.";
-            generatedItem.rage = 20;
+            generatedItem.rage = 8;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 10;
+            generatedItem.lifeValue = 8;
             generatedItem.skillPointValue = 2;
         }
         else if (generatedItem.itemId == 13)
@@ -242,8 +243,8 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemDesc = "Blades that allow the wielder sustain, and healing.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
-            generatedItem.speed = 30;
-            generatedItem.lifeValue = 20;
+            generatedItem.speed = 9;
+            generatedItem.lifeValue = 6;
             generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 14)
@@ -253,10 +254,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.rare;
             generatedItem.itemDesc = "Shall destroy any bane of evil.";
-            generatedItem.rage = 25;
+            generatedItem.rage = 6;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 25;
+            generatedItem.lifeValue = 9;
             generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 15)
@@ -267,9 +268,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.rare;
             generatedItem.itemDesc = "Crave all things, the sin compels it.";
             generatedItem.rage = 0;
-            generatedItem.arcane = 20;
+            generatedItem.arcane = 10;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 30;
+            generatedItem.lifeValue = 5;
             generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 16)
@@ -278,10 +279,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.armor;
             generatedItem.itemRarity = Item.ItemRaritys.rare;
             generatedItem.itemDesc = "Focused on raising one's life, and rage.";
-            generatedItem.rage = 30;
+            generatedItem.rage = 8;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 20;
+            generatedItem.lifeValue = 16;
             generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 17)
@@ -292,8 +293,8 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemDesc = "Focused on raising one's life, and speed.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
-            generatedItem.speed = 25;
-            generatedItem.lifeValue = 25;
+            generatedItem.speed = 12;
+            generatedItem.lifeValue = 12;
             generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 18)
@@ -303,9 +304,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.rare;
             generatedItem.itemDesc = "Focused on raising one's life, and arcane.";
             generatedItem.rage = 0;
-            generatedItem.arcane = 30;
+            generatedItem.arcane = 16;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 20;
+            generatedItem.lifeValue = 8;
             generatedItem.skillPointValue = 4;
         }
         else if (generatedItem.itemId == 19)
@@ -317,8 +318,8 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemDesc = "The Balance between all things.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
-            generatedItem.speed = 60;
-            generatedItem.lifeValue = 40;
+            generatedItem.speed = 15;
+            generatedItem.lifeValue = 5;
             generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 20)
@@ -328,10 +329,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
             generatedItem.itemDesc = "The blade thought to be a legend.";
-            generatedItem.rage = 50;
+            generatedItem.rage = 10;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 50;
+            generatedItem.lifeValue = 10;
             generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 21)
@@ -342,9 +343,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
             generatedItem.itemDesc = "The offspring of the one thing, we can't lose.";
             generatedItem.rage = 0;
-            generatedItem.arcane = 70;
+            generatedItem.arcane = 20;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 30;
+            generatedItem.lifeValue = 0;
             generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 22)
@@ -354,9 +355,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
             generatedItem.itemDesc = "Unlimited Arcane!";
             generatedItem.rage = 0;
-            generatedItem.arcane = 40;
+            generatedItem.arcane = 24;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 40;
+            generatedItem.lifeValue = 8;
             generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 23)
@@ -365,10 +366,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.helmet;
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
             generatedItem.itemDesc = "Unlimited Rage!";
-            generatedItem.rage = 50;
+            generatedItem.rage = 16;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 30;
+            generatedItem.lifeValue = 16;
             generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 24)
@@ -379,8 +380,8 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemDesc = "Unlimited Speed!";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
-            generatedItem.speed = 30;
-            generatedItem.lifeValue = 50;
+            generatedItem.speed = 20;
+            generatedItem.lifeValue = 12;
             generatedItem.skillPointValue = 8;
         }
         else if (generatedItem.itemId == 25)
@@ -392,8 +393,8 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemDesc = "The two strongest of feelings, held side by side.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
-            generatedItem.speed = 260;
-            generatedItem.lifeValue = 140;
+            generatedItem.speed = 25;
+            generatedItem.lifeValue = 15;
             generatedItem.skillPointValue = 16;
         }
         else if (generatedItem.itemId == 26)
@@ -403,10 +404,10 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.artifact;
             generatedItem.itemDesc = "The power to change fate.";
-            generatedItem.rage = 250;
+            generatedItem.rage = 20;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 150;
+            generatedItem.lifeValue = 20;
             generatedItem.skillPointValue = 16;
         }
         else if (generatedItem.itemId == 27)
@@ -417,9 +418,9 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemRarity = Item.ItemRaritys.artifact;
             generatedItem.itemDesc = "The strongest of resolves held throughout time.";
             generatedItem.rage = 0;
-            generatedItem.arcane = 270;
+            generatedItem.arcane = 30;
             generatedItem.speed = 0;
-            generatedItem.lifeValue = 130;
+            generatedItem.lifeValue = 10;
             generatedItem.skillPointValue = 16;
         }
 
