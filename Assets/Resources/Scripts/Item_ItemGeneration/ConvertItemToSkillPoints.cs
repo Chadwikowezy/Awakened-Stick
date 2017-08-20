@@ -14,38 +14,41 @@ public class ConvertItemToSkillPoints : MonoBehaviour
         item = GetComponentInParent<InventoryItem>();
         skillPointManager = FindObjectOfType<SkillPointManager>();
 
-        if (item.itemRarity == Item.ItemRaritys.common)
+        if(GetComponentInParent<InventoryItem>().GetComponentInChildren<Equip>().itemIsEquipped == false)
         {
-            skillPointManager.CurrentSkillPointValue += 1;
-            skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
-            skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
-        }
-        else if (item.itemRarity == Item.ItemRaritys.uncommon)
-        {
-            skillPointManager.CurrentSkillPointValue += 2;
-            skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
-            skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
-        }
-        if (item.itemRarity == Item.ItemRaritys.rare)
-        {
-            skillPointManager.CurrentSkillPointValue += 4;
-            skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
-            skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
-        }
-        if (item.itemRarity == Item.ItemRaritys.legendary)
-        {
-            skillPointManager.CurrentSkillPointValue += 8;
-            skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
-            skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
-        }
-        if (item.itemRarity == Item.ItemRaritys.artifact)
-        {
-            skillPointManager.CurrentSkillPointValue += 16;
-            skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
-            skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
+            if (item.itemRarity == Item.ItemRaritys.common)
+            {
+                skillPointManager.CurrentSkillPointValue += 1;
+                skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
+                skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
+            }
+            else if (item.itemRarity == Item.ItemRaritys.uncommon)
+            {
+                skillPointManager.CurrentSkillPointValue += 2;
+                skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
+                skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
+            }
+            if (item.itemRarity == Item.ItemRaritys.rare)
+            {
+                skillPointManager.CurrentSkillPointValue += 4;
+                skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
+                skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
+            }
+            if (item.itemRarity == Item.ItemRaritys.legendary)
+            {
+                skillPointManager.CurrentSkillPointValue += 8;
+                skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
+                skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
+            }
+            if (item.itemRarity == Item.ItemRaritys.artifact)
+            {
+                skillPointManager.CurrentSkillPointValue += 16;
+                skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
+                skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
 
-        }
-        actor.data.ids.Remove(item.itemId);
-        Destroy(item.gameObject);
+            }
+            actor.data.ids.Remove(item.itemId);
+            Destroy(item.gameObject);
+        }       
     }
 }

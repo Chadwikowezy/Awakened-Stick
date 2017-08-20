@@ -456,6 +456,8 @@ private void GameSparksRecieveData()
                 GetComponent<AssignAbilityToBar>().AssignAbilitySlot02(data.button02Name);
                 GetComponent<AssignAbilityToBar>().AssignAbilitySlot03(data.button03Name);
             }
+            GameObject itemCountText = GameObject.Find("ItemCountText");
+            itemCountText.GetComponent<Text>().text = data.ids.Count.ToString();
         }
 
         if(Application.loadedLevelName == "Main Menu")

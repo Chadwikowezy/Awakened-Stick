@@ -216,7 +216,7 @@ public class Enemy : MonoBehaviour, ICharacter
         }
         else if (useAttack == 8)
         {
-			PiercingFist ();
+			PiercingFist();
         }
         else if (useAttack == 9)
         {
