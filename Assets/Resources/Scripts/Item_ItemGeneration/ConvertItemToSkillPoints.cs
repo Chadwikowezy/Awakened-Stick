@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConvertItemToSkillPoints : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ConvertItemToSkillPoints : MonoBehaviour
         actor = FindObjectOfType<Actor>();
         item = GetComponentInParent<InventoryItem>();
         skillPointManager = FindObjectOfType<SkillPointManager>();
+        GameObject itemCountText = GameObject.Find("ItemCountText");
 
         if(GetComponentInParent<InventoryItem>().GetComponentInChildren<Equip>().itemIsEquipped == false)
         {
@@ -48,6 +50,7 @@ public class ConvertItemToSkillPoints : MonoBehaviour
 
             }
             actor.data.ids.Remove(item.itemId);
+            itemCountText.GetComponent<Text>().text = actor.data.ids.Count.ToString();
             Destroy(item.gameObject);
         }       
     }

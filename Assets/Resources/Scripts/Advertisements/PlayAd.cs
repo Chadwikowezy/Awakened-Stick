@@ -13,7 +13,7 @@ public class PlayAd : MonoBehaviour
         #if UNITY_ADS
         if (!Advertisement.IsReady())
         {
-            Debug.Log("Ads not ready for show");
+            //Debug.Log("Ads not ready for show");
             return;
         }
         Advertisement.Show("rewardedVideo", new ShowOptions(){ resultCallback = HandleAdResult});
@@ -27,7 +27,7 @@ public class PlayAd : MonoBehaviour
         #if UNITY_ADS
         if(!Advertisement.IsReady(RewardedPlacementId))
         {
-            Debug.Log(string.Format("Ads not ready for placement '{0}'", RewardedPlacementId));
+            //Debug.Log(string.Format("Ads not ready for placement '{0}'", RewardedPlacementId));
             return;
         }
 
@@ -48,10 +48,10 @@ public class PlayAd : MonoBehaviour
                 skillPointManager.skillPointTabTxt.text = skillPointManager.CurrentSkillPointValue.ToString();
                 break;
             case ShowResult.Skipped:
-                Debug.Log("Player didn't finish ad");
+                //Debug.Log("Player didn't finish ad");
                 break;
             case ShowResult.Failed:
-                Debug.Log("Player failed to launch the ad? Internet? ");
+                //Debug.Log("Player failed to launch the ad? Internet? ");
                 break;
         }
     }
