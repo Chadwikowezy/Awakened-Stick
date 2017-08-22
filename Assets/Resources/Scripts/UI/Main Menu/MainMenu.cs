@@ -29,6 +29,8 @@ public class MainMenu : MonoBehaviour
     private EventSystem _currentSystem;
 
     public Text waveRecordTextObj;
+    public Text playerBioCurrentText;
+    public Text playerBioText;
 
     private void Start()
     {
@@ -47,6 +49,7 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
         _currentSystem = FindObjectOfType<EventSystem>();
         CharacterButton();
+        playerBioCurrentText.text = PlayerPrefs.GetString("Player Bio");
     }
 
     public void SetActiveSelectable(GameObject _selectable)
@@ -101,6 +104,11 @@ public class MainMenu : MonoBehaviour
     public void OpenTutorialMenu()
     {
         tutorialMenu.SetActive(true);
+    }
+    public void SavePlayerBio()
+    {
+        PlayerPrefs.SetString("Player Bio", playerBioText.text);
+        print("saving");
     }
 
     IEnumerator LoadPrimaryScene(float waitTime)
