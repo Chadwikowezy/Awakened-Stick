@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public GameObject characterMenu;
     public GameObject equipmentMenu;
     public GameObject abilitiesMenu;
+    public GameObject tutorialMenu;
     public GameObject[] allSubMenus;
 
     private GameObject _currentSelectable;
@@ -96,6 +97,10 @@ public class MainMenu : MonoBehaviour
     {
         Actor actor = FindObjectOfType<Actor>();
         waveRecordTextObj.text = actor.data.waveRecord.ToString();
+    }
+    public void OpenTutorialMenu()
+    {
+        tutorialMenu.SetActive(true);
     }
 
     IEnumerator LoadPrimaryScene(float waitTime)

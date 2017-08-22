@@ -7,6 +7,7 @@ public class TutorialMenu : MonoBehaviour
 {
     public ScrollRect scrollView;
     public GameObject[] scrollViewContents;
+    public Text currentPageText;
 
     private int _currentMenuIndex;
 
@@ -18,7 +19,7 @@ public class TutorialMenu : MonoBehaviour
             {
                 scrollViewContents[i].SetActive(true);
                 scrollView.content = scrollViewContents[i].GetComponent<RectTransform>();
-                scrollView.content.transform.position = Vector3.zero;
+                scrollView.content.transform.localPosition = Vector3.zero;
             }    
             else
                 scrollViewContents[i].SetActive(false);
@@ -30,6 +31,7 @@ public class TutorialMenu : MonoBehaviour
         if (_currentMenuIndex < scrollViewContents.Length - 1)
         {
             _currentMenuIndex++;
+            currentPageText.text = (_currentMenuIndex + 1).ToString() + " / " + scrollViewContents.Length;
             ActivateCurrentMenu();
         }
     }
@@ -38,6 +40,7 @@ public class TutorialMenu : MonoBehaviour
         if (_currentMenuIndex > 0)
         {
             _currentMenuIndex--;
+            currentPageText.text = (_currentMenuIndex + 1).ToString() + " / " + scrollViewContents.Length;
             ActivateCurrentMenu();
         }
     }
