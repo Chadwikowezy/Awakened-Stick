@@ -23,6 +23,7 @@ public class Actor : MonoBehaviour
             data.startingGameSkillPoints = 70;
             skillPointManager.CurrentSkillPointValue = data.startingGameSkillPoints;
             skillPointManager.skillPointValueText.text = skillPointManager.CurrentSkillPointValue.ToString();
+            data.begunGame = 1;
         }
     }
 
@@ -90,9 +91,15 @@ private void GameSparksRecieveData()
             if (worldCreation.waveCount > data.waveRecord)
             {
                 data.waveRecord = worldCreation.waveCount;
-            }
-        }       
+            }           
+        }
 
+        if(Application.loadedLevelName == "Main Menu")
+        {
+            GameObject playerBioCurrentText = GameObject.Find("Bio Text Edited");
+            data.playerBIO = playerBioCurrentText.GetComponent<Text>().text;
+        }
+        
         data.skillPointValue = skillPointManager.CurrentSkillPointValue;
 
         #region collects Skill Data
@@ -458,12 +465,37 @@ private void GameSparksRecieveData()
             }
             GameObject itemCountText = GameObject.Find("ItemCountText");
             itemCountText.GetComponent<Text>().text = data.ids.Count.ToString();
+
+            if (data.begunGame == 1)
+            {
+                GameObject tutorialDisplay = GameObject.Find("Tutorial Menu");
+                tutorialDisplay.SetActive(true);
+                data.begunGame = 0;
+            }
+            else if(data.begunGame == 0)
+            {
+                GameObject tutorialDisplay = GameObject.Find("Tutorial Menu");
+                tutorialDisplay.SetActive(false);
+            }
         }
 
         if(Application.loadedLevelName == "Main Menu")
         {
             GameObject waveRecordTxtObj = GameObject.Find("Wave Record Value");
             waveRecordTxtObj.GetComponent<Text>().text = data.waveRecord.ToString();
+
+            GameObject playerBioText = GameObject.Find("Bio Text Placeholder");
+            GameObject playerBioCurrentText = GameObject.Find("Bio Text Edited");
+
+            if (data.playerBIO != string.Empty)
+            {
+                playerBioText.GetComponent<Text>().text = data.playerBIO;
+                playerBioCurrentText.GetComponent<Text>().text = data.playerBIO;
+            }
+            else
+            {
+                playerBioText.GetComponent<Text>().text = "Enter your player bio";
+            }
         }
      
     }
@@ -494,6 +526,9 @@ private void GameSparksRecieveData()
 public class ActorData
 {
     public Vector3 playerPosition;
+    public string playerBIO;
+
+    public int begunGame;
 
     public List<int> ids = new List<int>();
 

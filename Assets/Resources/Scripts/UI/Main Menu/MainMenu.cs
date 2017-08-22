@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
         _currentSystem = FindObjectOfType<EventSystem>();
         CharacterButton();
-        playerBioCurrentText.text = PlayerPrefs.GetString("Player Bio");
+        //playerBioCurrentText.text = PlayerPrefs.GetString("Player Bio");      
     }
 
     public void SetActiveSelectable(GameObject _selectable)
@@ -107,8 +107,10 @@ public class MainMenu : MonoBehaviour
     }
     public void SavePlayerBio()
     {
-        PlayerPrefs.SetString("Player Bio", playerBioText.text);
-        print("saving");
+        //Actor actor = FindObjectOfType<Actor>();
+        //actor.data.playerBIO = playerBioText.text;
+        //PlayerPrefs.SetString("Player Bio", playerBioText.text);
+        //print("saving");
     }
 
     IEnumerator LoadPrimaryScene(float waitTime)
