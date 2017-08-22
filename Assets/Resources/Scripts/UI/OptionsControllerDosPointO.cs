@@ -5,6 +5,7 @@ using UnityEngine;
 public class OptionsControllerDosPointO : MonoBehaviour
 {
     public AudioSource music;
+    public GameObject tutorialUiOBJ;
 
     public void ReturnMainMenu()
     {
@@ -26,5 +27,10 @@ public class OptionsControllerDosPointO : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    public void TutorialButton()
+    {
+        tutorialUiOBJ.SetActive(true);
     }
 }
