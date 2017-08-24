@@ -1,0 +1,3 @@
+GameID thingy: 1520225
+
+Your Developer ID is: 1195550
