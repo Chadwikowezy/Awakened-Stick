@@ -27,51 +27,6 @@ public class Actor : MonoBehaviour
         }
     }
 
-    //GameSparks Store and load data function here         
-    #region StoreData to Cloud
-    /*
-private void GameSparksSendData()
-{
-    GSRequestData jsonDataToSend = new GSRequestData();
-    jsonDataToSend.Add("currency", data.currency1);//do this same adding to request to store info
-    jsonDataToSend.Add("health", data.healthVal);
-    //info sent to cloud here
-    new LogEventRequest().SetEventKey("PlayerData")
-        .SetEventAttribute("jsonData", jsonDataToSend)
-        .Send((response) =>
-        {
-            if (response.HasErrors)
-            {
-                Debug.Log("Response failure?");
-            }
-            else
-            {
-                Debug.Log("Success sending data to cloud");
-            }
-        });
-}
-#endregion
-
-#region LoadData from cloud
-private void GameSparksRecieveData()
-{
-    new GameSparks.Api.Requests.LogEventRequest().SetEventKey("PlayerData").SetEventAttribute("jsonData", "playerStats.text").Send((response) =>
-    {          
-        if (!response.HasErrors)
-        {
-            string theText = response.ScriptData.GetString("collection");
-            Debug.Log("My result is: " + theText);
-        }
-        else
-        {
-            Debug.Log("Failed right away " + response.Errors);
-        }
-    });
-
-}
-*/
-    #endregion
-
     #region storedata
     public void StoreData()
     {
@@ -447,6 +402,7 @@ private void GameSparksRecieveData()
 
     public void LoadData()
     {
+        
         if(transform.name != "FakeLoader(Clone)")
         {
             skillPointManager = FindObjectOfType<SkillPointManager>();
