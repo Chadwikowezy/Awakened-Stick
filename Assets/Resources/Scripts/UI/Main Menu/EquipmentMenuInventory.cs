@@ -103,7 +103,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.weapon;
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.common;
-            generatedItem.itemDesc = "A blade who's tale is nothing but sorrowful.";
+            generatedItem.itemDesc = "A blade, who's tale is filled with sorrow.";
             generatedItem.rage = 1;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -128,7 +128,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Armor of Greed";
             generatedItem.itemType = Item.ItemTypes.armor;
             generatedItem.itemRarity = Item.ItemRaritys.common;
-            generatedItem.itemDesc = "Focuses on obtaining all.";
+            generatedItem.itemDesc = "Gathers all stats unto itself.";
             generatedItem.rage = 2;
             generatedItem.arcane = 2;
             generatedItem.speed = 2;
@@ -140,7 +140,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Helmet of Greed";
             generatedItem.itemType = Item.ItemTypes.helmet;
             generatedItem.itemRarity = Item.ItemRaritys.common;
-            generatedItem.itemDesc = "Helmet that made to fill any roles.";
+            generatedItem.itemDesc = "Gathers all stats unto itself.";
             generatedItem.rage = 2;
             generatedItem.arcane = 2;
             generatedItem.speed = 2;
@@ -152,7 +152,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Gloves of Greed";
             generatedItem.itemType = Item.ItemTypes.gloves;
             generatedItem.itemRarity = Item.ItemRaritys.common;
-            generatedItem.itemDesc = "Both hands, made to take everything.";
+            generatedItem.itemDesc = "Gathers all stats unto itself.";
             generatedItem.rage = 2;
             generatedItem.arcane = 2;
             generatedItem.speed = 2;
@@ -165,7 +165,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemType = Item.ItemTypes.weapon;
             generatedItem.weaponType = Item.WeaponType.blades_Bow;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
-            generatedItem.itemDesc = "No more horror was brought, but by these blades.";
+            generatedItem.itemDesc = "Horror unmatched.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
             generatedItem.speed = 5;
@@ -178,7 +178,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Destroyer of Armies";
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
-            generatedItem.itemDesc = "Destroys everything, even in the face of countless foes.";
+            generatedItem.itemDesc = "Can grasp victory, over even the greatest of odds.";
             generatedItem.rage = 4;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -191,7 +191,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Perpetual Banish";
             generatedItem.weaponType = Item.WeaponType.magicSphere;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
-            generatedItem.itemDesc = "A powerful object of unending removal.";
+            generatedItem.itemDesc = "Removes all before it.";
             generatedItem.rage = 0;
             generatedItem.arcane = 6;
             generatedItem.speed = 0;
@@ -203,7 +203,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Armor of Persistent Speed";
             generatedItem.itemType = Item.ItemTypes.armor;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
-            generatedItem.itemDesc = "Raises speeds to another level, but at what cost.";
+            generatedItem.itemDesc = "Raises one's speed to another level.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
             generatedItem.speed = 10;
@@ -215,7 +215,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Helmet of Persistence Arcane";
             generatedItem.itemType = Item.ItemTypes.helmet;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
-            generatedItem.itemDesc = "Raises your arcane to another level, but at a cost.";
+            generatedItem.itemDesc = "Raises one's arcane to another level.";
             generatedItem.rage = 0;
             generatedItem.arcane = 12;
             generatedItem.speed = 0;
@@ -227,7 +227,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Gloves of Persistant Rage";
             generatedItem.itemType = Item.ItemTypes.gloves;
             generatedItem.itemRarity = Item.ItemRaritys.uncommon;
-            generatedItem.itemDesc = "Boosts one's rage, but at a cost.";
+            generatedItem.itemDesc = "Raises one's rage to another level.";
             generatedItem.rage = 8;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -240,7 +240,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Respiration & Resiliance";
             generatedItem.weaponType = Item.WeaponType.blades_Bow;
             generatedItem.itemRarity = Item.ItemRaritys.rare;
-            generatedItem.itemDesc = "Blades that allow the wielder sustain, and healing.";
+            generatedItem.itemDesc = "That which perseveres.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
             generatedItem.speed = 9;
@@ -253,7 +253,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Slayer of Devils";
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.rare;
-            generatedItem.itemDesc = "Shall destroy any bane of evil.";
+            generatedItem.itemDesc = "Fears not the darkest of evils.";
             generatedItem.rage = 6;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -278,7 +278,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Armor of Resiliant Rage";
             generatedItem.itemType = Item.ItemTypes.armor;
             generatedItem.itemRarity = Item.ItemRaritys.rare;
-            generatedItem.itemDesc = "Focused on raising one's life, and rage.";
+            generatedItem.itemDesc = "Focuses on resistence, while also providing rage.";
             generatedItem.rage = 8;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -290,7 +290,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Helmet of Resiliant Speed";
             generatedItem.itemType = Item.ItemTypes.helmet;
             generatedItem.itemRarity = Item.ItemRaritys.rare;
-            generatedItem.itemDesc = "Focused on raising one's life, and speed.";
+            generatedItem.itemDesc = "Focuses on resistence, while also providing speed.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
             generatedItem.speed = 12;
@@ -302,7 +302,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Gloves of Resiliant Arcane";
             generatedItem.itemType = Item.ItemTypes.gloves;
             generatedItem.itemRarity = Item.ItemRaritys.rare;
-            generatedItem.itemDesc = "Focused on raising one's life, and arcane.";
+            generatedItem.itemDesc = "Focuses on resistence, while also providing arcane.";
             generatedItem.rage = 0;
             generatedItem.arcane = 16;
             generatedItem.speed = 0;
@@ -328,7 +328,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "GodSlayer";
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
-            generatedItem.itemDesc = "The blade thought to be a legend.";
+            generatedItem.itemDesc = "All myths were born from a grain of truth.";
             generatedItem.rage = 10;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -341,7 +341,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Spawn of Hope";
             generatedItem.weaponType = Item.WeaponType.magicSphere;
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
-            generatedItem.itemDesc = "The offspring of the one thing, we can't lose.";
+            generatedItem.itemDesc = "The offspring of the one thing, we won't ever lose.";
             generatedItem.rage = 0;
             generatedItem.arcane = 20;
             generatedItem.speed = 0;
@@ -353,7 +353,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Armor of Unlimited Arcane";
             generatedItem.itemType = Item.ItemTypes.armor;
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
-            generatedItem.itemDesc = "Unlimited Arcane!";
+            generatedItem.itemDesc = "Overflowing amounts of arcane.";
             generatedItem.rage = 0;
             generatedItem.arcane = 24;
             generatedItem.speed = 0;
@@ -365,7 +365,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Helmet of Unlimited Rage";
             generatedItem.itemType = Item.ItemTypes.helmet;
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
-            generatedItem.itemDesc = "Unlimited Rage!";
+            generatedItem.itemDesc = "Overflowing amounts of rage.";
             generatedItem.rage = 16;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -377,7 +377,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Gloves of Unlimited Speed";
             generatedItem.itemType = Item.ItemTypes.gloves;
             generatedItem.itemRarity = Item.ItemRaritys.legendary;
-            generatedItem.itemDesc = "Unlimited Speed!";
+            generatedItem.itemDesc = "Overflowing amounts of speed.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
             generatedItem.speed = 20;
@@ -390,7 +390,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Hope & Fear";
             generatedItem.weaponType = Item.WeaponType.blades_Bow;
             generatedItem.itemRarity = Item.ItemRaritys.artifact;
-            generatedItem.itemDesc = "The two strongest of feelings, held side by side.";
+            generatedItem.itemDesc = "The two strongest of emotions, side by side.";
             generatedItem.rage = 0;
             generatedItem.arcane = 0;
             generatedItem.speed = 25;
@@ -403,7 +403,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Fate Breaker";
             generatedItem.weaponType = Item.WeaponType.twoHandedWeapon;
             generatedItem.itemRarity = Item.ItemRaritys.artifact;
-            generatedItem.itemDesc = "The power to change fate.";
+            generatedItem.itemDesc = "Will you choose to break fate?";
             generatedItem.rage = 20;
             generatedItem.arcane = 0;
             generatedItem.speed = 0;
@@ -416,7 +416,7 @@ public class EquipmentMenuInventory : MonoBehaviour
             generatedItem.itemName = "Hope's Resolve";
             generatedItem.weaponType = Item.WeaponType.magicSphere;
             generatedItem.itemRarity = Item.ItemRaritys.artifact;
-            generatedItem.itemDesc = "The strongest of resolves held throughout time.";
+            generatedItem.itemDesc = "The strongest of resolves, held throughout time.";
             generatedItem.rage = 0;
             generatedItem.arcane = 30;
             generatedItem.speed = 0;

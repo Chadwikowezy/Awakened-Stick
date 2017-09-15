@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour, ICharacter
 	public int jumpHeight = 15;
 
 	//current stats
-    private int _currentHealth = 20;
-    private int _currentMaxHealth = 20;
+    private int _currentHealth = 10;
+    private int _currentMaxHealth = 10;
     private int _currentAttack;
     private int _currentDefense;
 

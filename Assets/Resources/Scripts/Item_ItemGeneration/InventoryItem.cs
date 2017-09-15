@@ -62,7 +62,7 @@ public class InventoryItem : Item
             itemType = ItemTypes.weapon;
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.common;
-            itemDesc = "A blade who's tale is nothing but sorrowful.";
+            itemDesc = "A blade, who's tale is filled with sorrow.";
             rage = 1;
             arcane = 0;
             speed = 0;
@@ -87,7 +87,7 @@ public class InventoryItem : Item
             itemName = "Armor of Greed";
             itemType = ItemTypes.armor;
             itemRarity = ItemRaritys.common;
-            itemDesc = "Focuses on obtaining all.";
+            itemDesc = "Gathers all stats unto itself.";
             rage = 2;
             arcane = 2;
             speed = 2;
@@ -99,7 +99,7 @@ public class InventoryItem : Item
             itemName = "Helmet of Greed";
             itemType = ItemTypes.helmet;
             itemRarity = ItemRaritys.common;
-            itemDesc = "Helmet that made to fill any roles.";
+            itemDesc = "Gathers all stats unto itself.";
             rage = 2;
             arcane = 2;
             speed = 2;
@@ -111,7 +111,7 @@ public class InventoryItem : Item
             itemName = "Gloves of Greed";
             itemType = ItemTypes.gloves;
             itemRarity = ItemRaritys.common;
-            itemDesc = "Both hands, made to take everything.";
+            itemDesc = "Gathers all stats unto itself.";
             rage = 2;
             arcane = 2;
             speed = 2;
@@ -124,7 +124,7 @@ public class InventoryItem : Item
             itemName = "Pestilence & Famine";
             weaponType = WeaponType.blades_Bow;
             itemRarity = ItemRaritys.uncommon;
-            itemDesc = "No more horror was brought, but by these blades.";
+            itemDesc = "Horror unmatched.";
             rage = 0;
             arcane = 0;
             speed = 5;
@@ -137,7 +137,7 @@ public class InventoryItem : Item
             itemName = "Destroyer of Armies";
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.uncommon;
-            itemDesc = "Destroys everything, even in the face of countless foes.";
+            itemDesc = "Can grasp victory, over even the greatest of odds.";
             rage = 4;
             arcane = 0;
             speed = 0;
@@ -147,10 +147,10 @@ public class InventoryItem : Item
         else if (itemId == 9)
         {
             itemType = ItemTypes.weapon;
-            itemName = "Perpetual Banish";
+            itemName = "Perpetual Banisher";
             weaponType = WeaponType.magicSphere;
             itemRarity = ItemRaritys.uncommon;
-            itemDesc = "A powerful object of unending removal.";
+            itemDesc = "Removes all before it.";
             rage = 0;
             arcane = 6;
             speed = 0;
@@ -162,7 +162,7 @@ public class InventoryItem : Item
             itemName = "Armor of Persistent Speed";
             itemType = ItemTypes.armor;
             itemRarity = ItemRaritys.uncommon;
-            itemDesc = "Raises speeds to another level, but at what cost.";
+            itemDesc = "Raises one's speed to another level.";
             rage = 0;
             arcane = 0;
             speed = 10;
@@ -174,7 +174,7 @@ public class InventoryItem : Item
             itemName = "Helmet of Persistence Arcane";
             itemType = ItemTypes.helmet;
             itemRarity = ItemRaritys.uncommon;
-            itemDesc = "Raises your arcane to another level, but at a cost.";
+            itemDesc = "Raises one's arcane to another level.";
             rage = 0;
             arcane = 12;
             speed = 0;
@@ -186,7 +186,7 @@ public class InventoryItem : Item
             itemName = "Gloves of Persistant Rage";
             itemType = ItemTypes.gloves;
             itemRarity = ItemRaritys.uncommon;
-            itemDesc = "Boosts one's rage, but at a cost.";
+            itemDesc = "Raises one's rage to another level.";
             rage = 8;
             arcane = 0;
             speed = 0;
@@ -199,7 +199,7 @@ public class InventoryItem : Item
             itemName = "Respiration & Resiliance";
             weaponType = WeaponType.blades_Bow;
             itemRarity = ItemRaritys.rare;
-            itemDesc = "Blades that allow the wielder sustain, and healing.";
+            itemDesc = "That which perseveres.";
             rage = 0;
             arcane = 0;
             speed = 9;
@@ -212,7 +212,7 @@ public class InventoryItem : Item
             itemName = "Slayer of Devils";
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.rare;
-            itemDesc = "Shall destroy any bane of evil.";
+            itemDesc = "Fears not the darkest of evils.";
             rage = 6;
             arcane = 0;
             speed = 0;
@@ -237,7 +237,7 @@ public class InventoryItem : Item
             itemName = "Armor of Resiliant Rage";
             itemType = ItemTypes.armor;
             itemRarity = ItemRaritys.rare;
-            itemDesc = "Focused on raising one's life, and rage.";
+            itemDesc = "Focuses on resistence, while also providing rage.";
             rage = 8;
             arcane = 0;
             speed = 0;
@@ -249,7 +249,7 @@ public class InventoryItem : Item
             itemName = "Helmet of Resiliant Speed";
             itemType = ItemTypes.helmet;
             itemRarity = ItemRaritys.rare;
-            itemDesc = "Focused on raising one's life, and speed.";
+            itemDesc = "Focuses on resistence, while also providing speed.";
             rage = 0;
             arcane = 0;
             speed = 12;
@@ -261,7 +261,7 @@ public class InventoryItem : Item
             itemName = "Gloves of Resiliant Arcane";
             itemType = ItemTypes.gloves;
             itemRarity = ItemRaritys.rare;
-            itemDesc = "Focused on raising one's life, and arcane.";
+            itemDesc = "Focuses on resistence, while also providing arcane.";
             rage = 0;
             arcane = 16;
             speed = 0;
@@ -287,7 +287,7 @@ public class InventoryItem : Item
             itemName = "GodSlayer";
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.legendary;
-            itemDesc = "The blade thought to be a legend.";
+            itemDesc = "All myths were born from a grain of truth.";
             rage = 10;
             arcane = 0;
             speed = 0;
@@ -300,7 +300,7 @@ public class InventoryItem : Item
             itemName = "Spawn of Hope";
             weaponType = WeaponType.magicSphere;
             itemRarity = ItemRaritys.legendary;
-            itemDesc = "The offspring of the one thing, we can't lose.";
+            itemDesc = "The offspring of the one thing, we won't ever lose.";
             rage = 0;
             arcane = 20;
             speed = 0;
@@ -312,7 +312,7 @@ public class InventoryItem : Item
             itemName = "Armor of Unlimited Arcane";
             itemType = ItemTypes.armor;
             itemRarity = ItemRaritys.legendary;
-            itemDesc = "Unlimited Arcane!";
+            itemDesc = "Overflowing amounts of arcane.";
             rage = 0;
             arcane = 24;
             speed = 0;
@@ -324,7 +324,7 @@ public class InventoryItem : Item
             itemName = "Helmet of Unlimited Rage";
             itemType = ItemTypes.helmet;
             itemRarity = ItemRaritys.legendary;
-            itemDesc = "Unlimited Rage!";
+            itemDesc = "Overflowing amounts of rage.";
             rage = 16;
             arcane = 0;
             speed = 0;
@@ -336,7 +336,7 @@ public class InventoryItem : Item
             itemName = "Gloves of Unlimited Speed";
             itemType = ItemTypes.gloves;
             itemRarity = ItemRaritys.legendary;
-            itemDesc = "Unlimited Speed!";
+            itemDesc = "Overflowing amounts of speed.";
             rage = 0;
             arcane = 0;
             speed = 20;
@@ -349,7 +349,7 @@ public class InventoryItem : Item
             itemName = "Hope & Fear";
             weaponType = WeaponType.blades_Bow;
             itemRarity = ItemRaritys.artifact;
-            itemDesc = "The two strongest of feelings, held side by side.";
+            itemDesc = "The two strongest of emotions, side by side.";
             rage = 0;
             arcane = 0;
             speed = 25;
@@ -362,7 +362,7 @@ public class InventoryItem : Item
             itemName = "Fate Breaker";
             weaponType = WeaponType.twoHandedWeapon;
             itemRarity = ItemRaritys.artifact;
-            itemDesc = "The power to change fate.";
+            itemDesc = "Will you choose to break fate?";
             rage = 20;
             arcane = 0;
             speed = 0;
@@ -375,7 +375,7 @@ public class InventoryItem : Item
             itemName = "Hope's Resolve";
             weaponType = WeaponType.magicSphere;
             itemRarity = ItemRaritys.artifact;
-            itemDesc = "The strongest of resolves held throughout time.";
+            itemDesc = "The strongest of resolves, held throughout time.";
             rage = 0;
             arcane = 30;
             speed = 0;
